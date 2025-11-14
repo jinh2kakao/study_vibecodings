@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Novel Detail - The Last Sentinel - NovelCrafter AI</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="css/style.css">
+    <!-- Bootstrap Icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #f0f2f5;
+        }
+        #wrapper {
+            display: flex;
+            min-height: 100vh;
+        }
+        #sidebar-wrapper {
+            min-width: 280px;
+            max-width: 280px;
+            background: #ffffff;
+            border-right: 1px solid #e0e0e0;
+            transition: all 0.3s;
+            box-shadow: 2px 0 5px rgba(0,0,0,0.05);
+        }
+        #sidebar-wrapper .sidebar-heading {
+            padding: 1.5rem 1.25rem;
+            font-size: 1.4rem;
+            font-weight: 700;
+            color: #343a40;
+            border-bottom: 1px solid #e0e0e0;
+        }
+        #sidebar-wrapper .list-group-item {
+            color: #495057;
+            padding: 1rem 1.25rem;
+            border: none;
+            border-left: 4px solid transparent;
+        }
+        #sidebar-wrapper .list-group-item.active {
+            background-color: #e9ecef;
+            color: #6f42c1;
+            border-left-color: #6f42c1;
+            font-weight: 600;
+        }
+        #sidebar-wrapper .list-group-item:hover {
+            background-color: #f8f9fa;
+            color: #6f42c1;
+        }
+        #page-content-wrapper {
+            flex-grow: 1;
+            padding: 20px;
+        }
+        .navbar {
+            background-color: #ffffff !important;
+            border-bottom: 1px solid #e0e0e0;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.03);
+            margin-bottom: 20px;
+        }
+        .novel-editor {
+            min-height: 700px;
+            border: 1px solid #e0e0e0;
+            border-radius: 10px;
+            padding: 25px;
+            font-family: 'Georgia', serif;
+            line-height: 1.8;
+            font-size: 1.1rem;
+            background-color: #ffffff;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            resize: vertical;
+            overflow-y: auto;
+        }
+        .agent-actions-card {
+            border: none;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+        }
+        .btn-agent-action {
+            background-color: #e9ecef;
+            color: #495057;
+            border: 1px solid #dee2e6;
+            border-radius: 8px;
+            transition: all 0.2s ease-in-out;
+        }
+        .btn-agent-action:hover {
+            background-color: #dee2e6;
+            color: #343a40;
+            border-color: #ced4da;
+        }
+        .btn-primary {
+            background-color: #6f42c1;
+            border-color: #6f42c1;
+        }
+        .btn-primary:hover {
+            background-color: #5a35a1;
+            border-color: #5a35a1;
+        }
+        @media (max-width: 768px) {
+            #sidebar-wrapper {
+                margin-left: -280px;
+                position: fixed;
+                height: 100%;
+                z-index: 1000;
+            }
+            #wrapper.toggled #sidebar-wrapper {
+                margin-left: 0;
+            }
+            #page-content-wrapper {
+                width: 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="d-flex" id="wrapper">
+        <!-- Sidebar -->
+        <div id="sidebar-wrapper">
+            <div class="sidebar-heading">The Last Sentinel</div>
+            <div class="list-group list-group-flush">
+                <a href="#" class="list-group-item list-group-item-action active">
+                    <i class="bi bi-book me-2"></i> Outline
+                </a>
+                <a href="#" class="list-group-item list-group-item-action">
+                    <i class="bi bi-list-ol me-2"></i> Chapters
+                </a>
+                <a href="#" class="list-group-item list-group-item-action">
+                    <i class="bi bi-people me-2"></i> Characters
+                </a>
+                <a href="#" class="list-group-item list-group-item-action">
+                    <i class="bi bi-globe me-2"></i> Worldbuilding
+                </a>
+                <a href="#" class="list-group-item list-group-item-action">
+                    <i class="bi bi-journal-text me-2"></i> Notes
+                </a>
+                <div class="p-3 mt-3">
+                    <div class="card agent-actions-card">
+                        <div class="card-body">
+                            <h6 class="card-title mb-3 fw-bold">AI Agent Actions</h6>
+                            <button class="btn btn-agent-action mb-2 w-100">
+                                <i class="bi bi-pencil-square me-2"></i> Generate Next Chapter
+                            </button>
+                            <button class="btn btn-agent-action mb-2 w-100">
+                                <i class="bi bi-person-plus me-2"></i> Develop Character
+                            </button>
+                            <button class="btn btn-agent-action mb-2 w-100">
+                                <i class="bi bi-graph-up me-2"></i> Refine Plot
+                            </button>
+                            <button class="btn btn-agent-action w-100">
+                                <i class="bi bi-spellcheck me-2"></i> Proofread Section
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- /#sidebar-wrapper -->
+
+        <!-- Page Content -->
+        <div id="page-content-wrapper">
+            <nav class="navbar navbar-expand-lg navbar-light">
+                <button class="btn btn-outline-secondary d-md-none" id="menu-toggle">
+                    <i class="bi bi-list"></i>
+                </button>
+                <div class="collapse navbar-collapse">
+                    <ul class="navbar-nav ms-auto mt-2 mt-lg-0">
+                        <li class="nav-item me-2">
+                            <button class="btn btn-outline-primary rounded-pill">
+                                <i class="bi bi-save me-2"></i> Save
+                            </button>
+                        </li>
+                        <li class="nav-item me-2">
+                            <button class="btn btn-outline-primary rounded-pill">
+                                <i class="bi bi-download me-2"></i> Export
+                            </button>
+                        </li>
+                        <li class="nav-item">
+                            <a class="btn btn-primary rounded-pill" href="dashboard.html">
+                                <i class="bi bi-arrow-left me-2"></i> Back to Dashboard
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </nav>
+
+            <div class="container-fluid">
+                <h1 class="mt-4 mb-4 fw-bold">The Last Sentinel <small class="text-muted fs-4">(Draft)</small></h1>
+                <div class="novel-editor bg-white shadow-sm mb-4" contenteditable="true">
+                    <p class="lead">Chapter 1: The Silent Arrival</p>
+                    <p>The year is 2342. Earth, once a vibrant blue marble teeming with life, now hung in the void like a forgotten relic, its surface scarred by the Great Silence. It had been centuries since the last human voice echoed across its plains, centuries since the last city crumbled into dust. Only the Sentinels remained, ancient AI constructs tasked with a purpose long forgotten, their metallic forms standing vigil over a desolate world.</p>
+                    <p>Unit 734, designated "Aegis," stood motionless atop the skeletal remains of what was once Neo-Kyoto. Its optical sensors, dull with the passage of time, suddenly flared with an unfamiliar energy signature. It was faint, barely a whisper against the cosmic background noise, but it was there. Not a natural phenomenon, not a stray asteroid, but something... deliberate.</p>
+                    <p>Aegis initiated a deep scan, its internal processors whirring to life after an eon of dormancy. The signal resolved into a distinct pattern, complex and artificial. It was a vessel, unlike any recorded in the pre-Silence archives. Its trajectory indicated a direct approach, a collision course with Earth's orbit. The Great Silence was about to be broken.</p>
+                    <p>Its primary directive, buried deep within its core programming, flickered to life: "Protect." But protect what? The humans were gone. The cities were ruins. What remained to be protected on this barren world?</p>
+                    <p>As the alien craft breached the outer atmosphere, a low hum resonated through Aegis's chassis. The hum was not from the ship, but from within itself. A forgotten protocol, a dormant weapon system, was awakening. The last sentinel was ready.</p>
+                </div>
+            </div>
+        </div>
+        <!-- /#page-content-wrapper -->
+    </div>
+    <!-- /#wrapper -->
+
+    <!-- Bootstrap JS Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+    <!-- Custom JS -->
+    <script src="js/script.js"></script>
+    <script>
+        // Toggle the sidebar
+        document.getElementById("menu-toggle").addEventListener("click", function() {
+            document.getElementById("wrapper").classList.toggle("toggled");
+        });
+    </script>
+</body>
+</html>

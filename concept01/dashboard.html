@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard - NovelCrafter AI</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="css/style.css">
+    <!-- Bootstrap Icons (for sidebar icons) -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #f0f2f5;
+        }
+        #wrapper {
+            display: flex;
+            min-height: 100vh;
+        }
+        #sidebar-wrapper {
+            min-width: 250px;
+            max-width: 250px;
+            background: #ffffff; /* White sidebar */
+            border-right: 1px solid #e0e0e0;
+            transition: all 0.3s;
+            box-shadow: 2px 0 5px rgba(0,0,0,0.05);
+        }
+        #sidebar-wrapper .sidebar-heading {
+            padding: 1.5rem 1.25rem;
+            font-size: 1.4rem;
+            font-weight: 700;
+            color: #343a40;
+            border-bottom: 1px solid #e0e0e0;
+        }
+        #sidebar-wrapper .list-group-item {
+            color: #495057;
+            padding: 1rem 1.25rem;
+            border: none;
+            border-left: 4px solid transparent;
+        }
+        #sidebar-wrapper .list-group-item.active {
+            background-color: #e9ecef;
+            color: #6f42c1;
+            border-left-color: #6f42c1;
+            font-weight: 600;
+        }
+        #sidebar-wrapper .list-group-item:hover {
+            background-color: #f8f9fa;
+            color: #6f42c1;
+        }
+        #page-content-wrapper {
+            flex-grow: 1;
+            padding: 20px;
+        }
+        .navbar {
+            background-color: #ffffff !important;
+            border-bottom: 1px solid #e0e0e0;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.03);
+            margin-bottom: 20px;
+        }
+        .novel-card {
+            border: none;
+            border-radius: 15px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+            transition: transform 0.2s ease-in-out;
+            overflow: hidden;
+        }
+        .novel-card:hover {
+            transform: translateY(-5px);
+        }
+        .novel-card .card-title {
+            font-weight: 600;
+            color: #343a40;
+        }
+        .novel-card .card-text {
+            color: #6c757d;
+        }
+        .btn-primary {
+            background-color: #6f42c1;
+            border-color: #6f42c1;
+        }
+        .btn-primary:hover {
+            background-color: #5a35a1;
+            border-color: #5a35a1;
+        }
+        .btn-outline-secondary {
+            color: #6c757d;
+            border-color: #6c757d;
+        }
+        .btn-outline-secondary:hover {
+            background-color: #6c757d;
+            color: white;
+        }
+        .btn-success {
+            background-color: #28a745;
+            border-color: #28a745;
+        }
+        .btn-success:hover {
+            background-color: #218838;
+            border-color: #1e7e34;
+        }
+        .modal-content {
+            border-radius: 15px;
+        }
+        .modal-header {
+            border-bottom: none;
+            padding-bottom: 0;
+        }
+        .modal-footer {
+            border-top: none;
+            padding-top: 0;
+        }
+        @media (max-width: 768px) {
+            #sidebar-wrapper {
+                margin-left: -250px;
+                position: fixed;
+                height: 100%;
+                z-index: 1000;
+            }
+            #wrapper.toggled #sidebar-wrapper {
+                margin-left: 0;
+            }
+            #page-content-wrapper {
+                width: 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="d-flex" id="wrapper">
+        <!-- Sidebar -->
+        <div id="sidebar-wrapper">
+            <div class="sidebar-heading">NovelCrafter AI</div>
+            <div class="list-group list-group-flush">
+                <a href="dashboard.html" class="list-group-item list-group-item-action active">
+                    <i class="bi bi-grid-fill me-2"></i> Dashboard
+                </a>
+                <a href="agents.html" class="list-group-item list-group-item-action">
+                    <i class="bi bi-robot me-2"></i> AI Agents
+                </a>
+                <a href="workflow.html" class="list-group-item list-group-item-action">
+                    <i class="bi bi-diagram-3-fill me-2"></i> Workflows
+                </a>
+                <a href="#" class="list-group-item list-group-item-action">
+                    <i class="bi bi-gear-fill me-2"></i> Settings
+                </a>
+                <a href="index.html" class="list-group-item list-group-item-action">
+                    <i class="bi bi-box-arrow-right me-2"></i> Logout
+                </a>
+            </div>
+        </div>
+        <!-- /#sidebar-wrapper -->
+
+        <!-- Page Content -->
+        <div id="page-content-wrapper">
+            <nav class="navbar navbar-expand-lg navbar-light">
+                <button class="btn btn-outline-secondary d-md-none" id="menu-toggle">
+                    <i class="bi bi-list"></i>
+                </button>
+                <div class="collapse navbar-collapse">
+                    <ul class="navbar-nav ms-auto mt-2 mt-lg-0">
+                        <li class="nav-item active">
+                            <a class="nav-link" href="#">Welcome, User!</a>
+                        </li>
+                    </ul>
+                </div>
+            </nav>
+
+            <div class="container-fluid">
+                <h1 class="mt-4 mb-4 fw-bold">Your Novels</h1>
+                <button class="btn btn-success mb-4 rounded-pill px-4 py-2" data-bs-toggle="modal" data-bs-target="#createNovelModal">
+                    <i class="bi bi-plus-circle me-2"></i> Create New Novel
+                </button>
+
+                <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4">
+                    <!-- Placeholder Novel Card 1 -->
+                    <div class="col">
+                        <div class="card novel-card h-100">
+                            <img src="https://via.placeholder.com/400x200/6f42c1/ffffff?text=The+Last+Sentinel" class="card-img-top" alt="Novel Cover">
+                            <div class="card-body">
+                                <h5 class="card-title">The Last Sentinel</h5>
+                                <p class="card-text">A sci-fi epic about humanity's final stand against an alien invasion. Drafted by AI, refined by you.</p>
+                                <div class="d-flex justify-content-between align-items-center">
+                                    <a href="novel_detail.html" class="btn btn-primary btn-sm rounded-pill">Continue Writing</a>
+                                    <button class="btn btn-outline-danger btn-sm rounded-pill">Delete</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Placeholder Novel Card 2 -->
+                    <div class="col">
+                        <div class="card novel-card h-100">
+                            <img src="https://via.placeholder.com/400x200/28a745/ffffff?text=Whispers+of+the+Old+Forest" class="card-img-top" alt="Novel Cover">
+                            <div class="card-body">
+                                <h5 class="card-title">Whispers of the Old Forest</h5>
+                                <p class="card-text">A fantasy adventure set in an enchanted forest filled with ancient magic and forgotten lore.</p>
+                                <div class="d-flex justify-content-between align-items-center">
+                                    <a href="novel_detail.html" class="btn btn-primary btn-sm rounded-pill">Continue Writing</a>
+                                    <button class="btn btn-outline-danger btn-sm rounded-pill">Delete</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Placeholder Novel Card 3 -->
+                    <div class="col">
+                        <div class="card novel-card h-100">
+                            <img src="https://via.placeholder.com/400x200/ffc107/343a40?text=Murder+Mystery+AI+Draft" class="card-img-top" alt="Novel Cover">
+                            <div class="card-body">
+                                <h5 class="card-title">Murder on the Orient Express (AI Draft)</h5>
+                                <p class="card-text">An AI-generated draft of a classic whodunit, with a modern twist and unexpected turns.</p>
+                                <div class="d-flex justify-content-between align-items-center">
+                                    <a href="novel_detail.html" class="btn btn-primary btn-sm rounded-pill">Continue Writing</a>
+                                    <button class="btn btn-outline-danger btn-sm rounded-pill">Delete</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- /#page-content-wrapper -->
+    </div>
+    <!-- /#wrapper -->
+
+    <!-- Create Novel Modal -->
+    <div class="modal fade" id="createNovelModal" tabindex="-1" aria-labelledby="createNovelModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title fw-bold" id="createNovelModalLabel">Create New Novel</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <form>
+                        <div class="mb-3">
+                            <label for="novelTitle" class="form-label">Novel Title</label>
+                            <input type="text" class="form-control" id="novelTitle" placeholder="e.g., The Quantum Detective">
+                        </div>
+                        <div class="mb-3">
+                            <label for="novelGenre" class="form-label">Genre</label>
+                            <input type="text" class="form-control" id="novelGenre" placeholder="e.g., Sci-Fi, Fantasy, Thriller">
+                        </div>
+                        <div class="mb-3">
+                            <label for="novelSynopsis" class="form-label">Synopsis</label>
+                            <textarea class="form-control" id="novelSynopsis" rows="3" placeholder="A brief summary of your novel..."></textarea>
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-outline-secondary rounded-pill" data-bs-dismiss="modal">Cancel</button>
+                    <button type="button" class="btn btn-primary rounded-pill">Create Novel</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Bootstrap JS Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+    <!-- Custom JS -->
+    <script src="js/script.js"></script>
+    <script>
+        // Toggle the sidebar
+        document.getElementById("menu-toggle").addEventListener("click", function() {
+            document.getElementById("wrapper").classList.toggle("toggled");
+        });
+    </script>
+</body>
+</html>

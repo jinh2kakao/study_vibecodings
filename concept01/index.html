@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NovelCrafter AI - Your AI Novel Writing Assistant</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="css/style.css">
+    <style>
+        /* Custom styles for a cleaner, Pinterest-inspired look */
+        body {
+            font-family: 'Inter', sans-serif; /* Example of a modern sans-serif font */
+            background-color: #f8f9fa; /* Light background */
+        }
+        .navbar-brand {
+            font-weight: 700;
+            color: #343a40 !important;
+        }
+        .hero-section {
+            background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('https://via.placeholder.com/1500x800/6c757d/ffffff?text=Novel+Writing+AI') no-repeat center center; /* Placeholder image */
+            background-size: cover;
+            color: white;
+            padding: 100px 0;
+            border-radius: 10px; /* Softened edges */
+            margin-bottom: 40px;
+        }
+        .feature-card {
+            border: none;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.05);
+            transition: transform 0.2s ease-in-out;
+        }
+        .feature-card:hover {
+            transform: translateY(-5px);
+        }
+        .feature-card .card-title {
+            color: #343a40;
+            font-weight: 600;
+        }
+        .btn-primary {
+            background-color: #6f42c1; /* A more unique primary color */
+            border-color: #6f42c1;
+        }
+        .btn-primary:hover {
+            background-color: #5a35a1;
+            border-color: #5a35a1;
+        }
+        .btn-outline-primary {
+            color: #6f42c1;
+            border-color: #6f42c1;
+        }
+        .btn-outline-primary:hover {
+            background-color: #6f42c1;
+            color: white;
+        }
+        .footer {
+            background-color: #343a40;
+            color: #adb5bd;
+            padding: 40px 0;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-light bg-white shadow-sm py-3">
+        <div class="container">
+            <a class="navbar-brand" href="#">NovelCrafter AI</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="#">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Features</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Pricing</a>
+                    </li>
+                    <li class="nav-item ms-lg-3">
+                        <a class="nav-link btn btn-outline-primary px-4" href="login.html">Login</a>
+                    </li>
+                    <li class="nav-item ms-lg-2">
+                        <a class="nav-link btn btn-primary text-white px-4" href="signup.html">Sign Up</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero-section text-center d-flex align-items-center justify-content-center">
+        <div class="container">
+            <h1 class="display-3 fw-bold mb-4">Craft Your Masterpiece with AI</h1>
+            <p class="lead mb-5">Generate, configure, and orchestrate intelligent AI agents to bring your novel to life, chapter by chapter.</p>
+            <a href="signup.html" class="btn btn-primary btn-lg px-5 py-3 rounded-pill">Start Your Novel Today</a>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section class="container my-5 py-4">
+        <h2 class="text-center mb-5 fw-bold">How NovelCrafter AI Works</h2>
+        <div class="row g-4">
+            <div class="col-md-6 col-lg-4">
+                <div class="card feature-card h-100 p-3">
+                    <div class="card-body text-center">
+                        <i class="bi bi-robot fs-1 text-primary mb-3"></i> <!-- Placeholder for an icon -->
+                        <h4 class="card-title mb-3">Custom AI Agents</h4>
+                        <p class="card-text text-muted">Generate and fine-tune specialized AI agents for plot development, character creation, writing, and proofreading, tailored to your unique vision.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6 col-lg-4">
+                <div class="card feature-card h-100 p-3">
+                    <div class="card-body text-center">
+                        <i class="bi bi-diagram-3 fs-1 text-primary mb-3"></i> <!-- Placeholder for an icon -->
+                        <h4 class="card-title mb-3">Intelligent Orchestration</h4>
+                        <p class="card-text text-muted">Visually design the workflow for your agents, guiding them through the novel writing process step-by-step, ensuring a cohesive narrative.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6 col-lg-4">
+                <div class="card feature-card h-100 p-3">
+                    <div class="card-body text-center">
+                        <i class="bi bi-pencil-square fs-1 text-primary mb-3"></i> <!-- Placeholder for an icon -->
+                        <h4 class="card-title mb-3">Draft Your Novel</h4>
+                        <p class="card-text text-muted">Watch as your AI team collaborates to produce a comprehensive first draft, allowing you to focus on refining and adding your personal creative touch.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Call to Action -->
+    <section class="bg-light text-center py-5 my-5 rounded-3">
+        <div class="container">
+            <h2 class="fw-bold mb-3">Ready to Write Your Story?</h2>
+            <p class="lead mb-4 text-muted">Join NovelCrafter AI and transform your writing process with the power of artificial intelligence.</p>
+            <a href="signup.html" class="btn btn-primary btn-lg px-5 py-3 rounded-pill">Sign Up for Free</a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer text-center">
+        <div class="container">
+            <p class="mb-0">&copy; 2025 NovelCrafter AI. All rights reserved.</p>
+            <p class="small mt-2">
+                <a href="#" class="text-decoration-none text-white-50 me-3">Privacy Policy</a>
+                <a href="#" class="text-decoration-none text-white-50">Terms of Service</a>
+            </p>
+        </div>
+    </footer>
+
+    <!-- Bootstrap JS Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+    <!-- Custom JS -->
+    <script src="js/script.js"></script>
+    <!-- Bootstrap Icons (optional, for placeholder icons) -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+</body>
+</html>

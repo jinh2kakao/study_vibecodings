@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Workflows - NovelCrafter AI</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="css/style.css">
+    <!-- Bootstrap Icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #f0f2f5;
+        }
+        #wrapper {
+            display: flex;
+            min-height: 100vh;
+        }
+        #sidebar-wrapper {
+            min-width: 250px;
+            max-width: 250px;
+            background: #ffffff;
+            border-right: 1px solid #e0e0e0;
+            transition: all 0.3s;
+            box-shadow: 2px 0 5px rgba(0,0,0,0.05);
+        }
+        #sidebar-wrapper .sidebar-heading {
+            padding: 1.5rem 1.25rem;
+            font-size: 1.4rem;
+            font-weight: 700;
+            color: #343a40;
+            border-bottom: 1px solid #e0e0e0;
+        }
+        #sidebar-wrapper .list-group-item {
+            color: #495057;
+            padding: 1rem 1.25rem;
+            border: none;
+            border-left: 4px solid transparent;
+        }
+        #sidebar-wrapper .list-group-item.active {
+            background-color: #e9ecef;
+            color: #6f42c1;
+            border-left-color: #6f42c1;
+            font-weight: 600;
+        }
+        #sidebar-wrapper .list-group-item:hover {
+            background-color: #f8f9fa;
+            color: #6f42c1;
+        }
+        #page-content-wrapper {
+            flex-grow: 1;
+            padding: 20px;
+        }
+        .navbar {
+            background-color: #ffffff !important;
+            border-bottom: 1px solid #e0e0e0;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.03);
+            margin-bottom: 20px;
+        }
+        .workflow-canvas {
+            border: 2px dashed #ced4da;
+            border-radius: 10px;
+            min-height: 400px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #6c757d;
+            font-size: 1.2rem;
+            background-color: #ffffff;
+            box-shadow: inset 0 1px 3px rgba(0,0,0,0.05);
+        }
+        .workflow-card {
+            border: none;
+            border-radius: 15px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+            overflow: hidden;
+        }
+        .workflow-card .card-header {
+            background-color: #f8f9fa;
+            border-bottom: 1px solid #e0e0e0;
+            font-weight: 600;
+            color: #343a40;
+        }
+        .badge-agent {
+            background-color: #e9ecef;
+            color: #495057;
+            border: 1px solid #dee2e6;
+            padding: 0.5em 0.75em;
+            border-radius: 0.5rem;
+            font-weight: 500;
+        }
+        .btn-primary {
+            background-color: #6f42c1;
+            border-color: #6f42c1;
+            border-radius: 8px;
+            padding: 8px 20px;
+            font-weight: 600;
+        }
+        .btn-primary:hover {
+            background-color: #5a35a1;
+            border-color: #5a35a1;
+        }
+        .btn-success {
+            background-color: #28a745;
+            border-color: #28a745;
+        }
+        .btn-success:hover {
+            background-color: #218838;
+            border-color: #1e7e34;
+        }
+        @media (max-width: 768px) {
+            #sidebar-wrapper {
+                margin-left: -250px;
+                position: fixed;
+                height: 100%;
+                z-index: 1000;
+            }
+            #wrapper.toggled #sidebar-wrapper {
+                margin-left: 0;
+            }
+            #page-content-wrapper {
+                width: 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="d-flex" id="wrapper">
+        <!-- Sidebar -->
+        <div id="sidebar-wrapper">
+            <div class="sidebar-heading">NovelCrafter AI</div>
+            <div class="list-group list-group-flush">
+                <a href="dashboard.html" class="list-group-item list-group-item-action">
+                    <i class="bi bi-grid-fill me-2"></i> Dashboard
+                </a>
+                <a href="agents.html" class="list-group-item list-group-item-action">
+                    <i class="bi bi-robot me-2"></i> AI Agents
+                </a>
+                <a href="workflow.html" class="list-group-item list-group-item-action active">
+                    <i class="bi bi-diagram-3-fill me-2"></i> Workflows
+                </a>
+                <a href="#" class="list-group-item list-group-item-action">
+                    <i class="bi bi-gear-fill me-2"></i> Settings
+                </a>
+                <a href="index.html" class="list-group-item list-group-item-action">
+                    <i class="bi bi-box-arrow-right me-2"></i> Logout
+                </a>
+            </div>
+        </div>
+        <!-- /#sidebar-wrapper -->
+
+        <!-- Page Content -->
+        <div id="page-content-wrapper">
+            <nav class="navbar navbar-expand-lg navbar-light">
+                <button class="btn btn-outline-secondary d-md-none" id="menu-toggle">
+                    <i class="bi bi-list"></i>
+                </button>
+                <div class="collapse navbar-collapse">
+                    <ul class="navbar-nav ms-auto mt-2 mt-lg-0">
+                        <li class="nav-item active">
+                            <a class="nav-link" href="#">Welcome, User!</a>
+                        </li>
+                    </ul>
+                </div>
+            </nav>
+
+            <div class="container-fluid">
+                <h1 class="mt-4 mb-4 fw-bold">AI Agent Workflows</h1>
+                <p class="lead text-muted mb-4">Design and orchestrate the sequence of your AI agents to automate your novel writing process.</p>
+
+                <button class="btn btn-success mb-4 rounded-pill px-4 py-2">
+                    <i class="bi bi-plus-circle me-2"></i> Create New Workflow
+                </button>
+
+                <div class="card workflow-card mb-4">
+                    <div class="card-header">
+                        <h5>My First Novel Workflow</h5>
+                    </div>
+                    <div class="card-body">
+                        <div class="workflow-canvas rounded mb-3">
+                            <p class="text-center text-muted">Drag & Drop Agents Here to Build Your Workflow</p>
+                        </div>
+                        <div class="d-flex justify-content-between align-items-center">
+                            <div>
+                                <span class="badge badge-agent me-2">Plot Agent</span>
+                                <span class="badge badge-agent me-2">Character Agent</span>
+                                <span class="badge badge-agent me-2">Writing Agent</span>
+                                <span class="badge badge-agent">Proofreading Agent</span>
+                            </div>
+                            <div>
+                                <button class="btn btn-sm btn-outline-secondary rounded-pill me-2">Edit</button>
+                                <button class="btn btn-sm btn-primary rounded-pill">Run Workflow</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card workflow-card">
+                    <div class="card-header">
+                        <h5>Short Story Generator</h5>
+                    </div>
+                    <div class="card-body">
+                        <div class="workflow-canvas rounded mb-3">
+                            <p class="text-center text-muted">Drag & Drop Agents Here to Build Your Workflow</p>
+                        </div>
+                        <div class="d-flex justify-content-between align-items-center">
+                            <div>
+                                <span class="badge badge-agent me-2">Plot Agent</span>
+                                <span class="badge badge-agent">Writing Agent</span>
+                            </div>
+                            <div>
+                                <button class="btn btn-sm btn-outline-secondary rounded-pill me-2">Edit</button>
+                                <button class="btn btn-sm btn-primary rounded-pill">Run Workflow</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+        <!-- /#page-content-wrapper -->
+    </div>
+    <!-- /#wrapper -->
+
+    <!-- Bootstrap JS Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+    <!-- Custom JS -->
+    <script src="js/script.js"></script>
+    <script>
+        // Toggle the sidebar
+        document.getElementById("menu-toggle").addEventListener("click", function() {
+            document.getElementById("wrapper").classList.toggle("toggled");
+        });
+    </script>
+</body>
+</html>

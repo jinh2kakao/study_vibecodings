@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Agents - NovelCrafter AI</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="css/style.css">
+    <!-- Bootstrap Icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #f0f2f5;
+        }
+        #wrapper {
+            display: flex;
+            min-height: 100vh;
+        }
+        #sidebar-wrapper {
+            min-width: 250px;
+            max-width: 250px;
+            background: #ffffff;
+            border-right: 1px solid #e0e0e0;
+            transition: all 0.3s;
+            box-shadow: 2px 0 5px rgba(0,0,0,0.05);
+        }
+        #sidebar-wrapper .sidebar-heading {
+            padding: 1.5rem 1.25rem;
+            font-size: 1.4rem;
+            font-weight: 700;
+            color: #343a40;
+            border-bottom: 1px solid #e0e0e0;
+        }
+        #sidebar-wrapper .list-group-item {
+            color: #495057;
+            padding: 1rem 1.25rem;
+            border: none;
+            border-left: 4px solid transparent;
+        }
+        #sidebar-wrapper .list-group-item.active {
+            background-color: #e9ecef;
+            color: #6f42c1;
+            border-left-color: #6f42c1;
+            font-weight: 600;
+        }
+        #sidebar-wrapper .list-group-item:hover {
+            background-color: #f8f9fa;
+            color: #6f42c1;
+        }
+        #page-content-wrapper {
+            flex-grow: 1;
+            padding: 20px;
+        }
+        .navbar {
+            background-color: #ffffff !important;
+            border-bottom: 1px solid #e0e0e0;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.03);
+            margin-bottom: 20px;
+        }
+        .agent-card {
+            border: none;
+            border-radius: 15px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+            transition: transform 0.2s ease-in-out;
+            overflow: hidden;
+        }
+        .agent-card:hover {
+            transform: translateY(-5px);
+        }
+        .agent-card .card-title {
+            font-weight: 600;
+            color: #343a40;
+        }
+        .agent-card .card-text {
+            color: #6c757d;
+        }
+        .btn-primary {
+            background-color: #6f42c1;
+            border-color: #6f42c1;
+            border-radius: 8px;
+            padding: 8px 20px;
+            font-weight: 600;
+        }
+        .btn-primary:hover {
+            background-color: #5a35a1;
+            border-color: #5a35a1;
+        }
+        .modal-content {
+            border-radius: 15px;
+        }
+        .modal-header {
+            border-bottom: none;
+            padding-bottom: 0;
+        }
+        .modal-footer {
+            border-top: none;
+            padding-top: 0;
+        }
+        @media (max-width: 768px) {
+            #sidebar-wrapper {
+                margin-left: -250px;
+                position: fixed;
+                height: 100%;
+                z-index: 1000;
+            }
+            #wrapper.toggled #sidebar-wrapper {
+                margin-left: 0;
+            }
+            #page-content-wrapper {
+                width: 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="d-flex" id="wrapper">
+        <!-- Sidebar -->
+        <div id="sidebar-wrapper">
+            <div class="sidebar-heading">NovelCrafter AI</div>
+            <div class="list-group list-group-flush">
+                <a href="dashboard.html" class="list-group-item list-group-item-action">
+                    <i class="bi bi-grid-fill me-2"></i> Dashboard
+                </a>
+                <a href="agents.html" class="list-group-item list-group-item-action active">
+                    <i class="bi bi-robot me-2"></i> AI Agents
+                </a>
+                <a href="workflow.html" class="list-group-item list-group-item-action">
+                    <i class="bi bi-diagram-3-fill me-2"></i> Workflows
+                </a>
+                <a href="#" class="list-group-item list-group-item-action">
+                    <i class="bi bi-gear-fill me-2"></i> Settings
+                </a>
+                <a href="index.html" class="list-group-item list-group-item-action">
+                    <i class="bi bi-box-arrow-right me-2"></i> Logout
+                </a>
+            </div>
+        </div>
+        <!-- /#sidebar-wrapper -->
+
+        <!-- Page Content -->
+        <div id="page-content-wrapper">
+            <nav class="navbar navbar-expand-lg navbar-light">
+                <button class="btn btn-outline-secondary d-md-none" id="menu-toggle">
+                    <i class="bi bi-list"></i>
+                </button>
+                <div class="collapse navbar-collapse">
+                    <ul class="navbar-nav ms-auto mt-2 mt-lg-0">
+                        <li class="nav-item active">
+                            <a class="nav-link" href="#">Welcome, User!</a>
+                        </li>
+                    </ul>
+                </div>
+            </nav>
+
+            <div class="container-fluid">
+                <h1 class="mt-4 mb-4 fw-bold">Your AI Agents</h1>
+                <p class="lead text-muted mb-4">Create, configure, and manage specialized AI agents for your novel writing process.</p>
+
+                <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4">
+                    <!-- Plot Agent Card -->
+                    <div class="col">
+                        <div class="card agent-card h-100 p-3">
+                            <div class="card-body text-center">
+                                <i class="bi bi-lightbulb fs-1 text-primary mb-3"></i>
+                                <h5 class="card-title mb-2">Plot Agent</h5>
+                                <p class="card-text text-muted">Specializes in generating compelling story arcs, plot twists, and narrative structures.</p>
+                                <button class="btn btn-primary mt-3" data-bs-toggle="modal" data-bs-target="#agentConfigModal" data-agent-name="Plot Agent">Configure</button>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Character Agent Card -->
+                    <div class="col">
+                        <div class="card agent-card h-100 p-3">
+                            <div class="card-body text-center">
+                                <i class="bi bi-person-fill fs-1 text-primary mb-3"></i>
+                                <h5 class="card-title mb-2">Character Agent</h5>
+                                <p class="card-text text-muted">Helps in developing rich, believable characters with unique backstories, motivations, and personalities.</p>
+                                <button class="btn btn-primary mt-3" data-bs-toggle="modal" data-bs-target="#agentConfigModal" data-agent-name="Character Agent">Configure</button>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Writing Agent Card -->
+                    <div class="col">
+                        <div class="card agent-card h-100 p-3">
+                            <div class="card-body text-center">
+                                <i class="bi bi-pencil-fill fs-1 text-primary mb-3"></i>
+                                <h5 class="card-title mb-2">Writing Agent</h5>
+                                <p class="card-text text-muted">Generates prose, dialogue, and descriptive passages based on your outline and style preferences.</p>
+                                <button class="btn btn-primary mt-3" data-bs-toggle="modal" data-bs-target="#agentConfigModal" data-agent-name="Writing Agent">Configure</button>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Proofreading Agent Card -->
+                    <div class="col">
+                        <div class="card agent-card h-100 p-3">
+                            <div class="card-body text-center">
+                                <i class="bi bi-spellcheck fs-1 text-primary mb-3"></i>
+                                <h5 class="card-title mb-2">Proofreading Agent</h5>
+                                <p class="card-text text-muted">Identifies and corrects grammatical errors, typos, and stylistic inconsistencies to polish your manuscript.</p>
+                                <button class="btn btn-primary mt-3" data-bs-toggle="modal" data-bs-target="#agentConfigModal" data-agent-name="Proofreading Agent">Configure</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- /#page-content-wrapper -->
+    </div>
+    <!-- /#wrapper -->
+
+    <!-- Agent Configuration Modal -->
+    <div class="modal fade" id="agentConfigModal" tabindex="-1" aria-labelledby="agentConfigModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title fw-bold" id="agentConfigModalLabel">Configure Agent</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <form>
+                        <div class="mb-3">
+                            <label for="agentNameDisplay" class="form-label">Agent Name</label>
+                            <input type="text" class="form-control" id="agentNameDisplay" readonly>
+                        </div>
+                        <div class="mb-3">
+                            <label for="agentModel" class="form-label">AI Model</label>
+                            <select class="form-select" id="agentModel">
+                                <option selected>Gemini 1.5 Pro</option>
+                                <option>Gemini 1.0 Ultra</option>
+                                <option>GPT-4o</option>
+                            </select>
+                        </div>
+                        <div class="mb-3">
+                            <label for="agentTemperature" class="form-label">Creativity (Temperature)</label>
+                            <input type="range" class="form-range" min="0" max="1" step="0.1" id="agentTemperature" value="0.7">
+                            <div class="d-flex justify-content-between small text-muted">
+                                <span>Less Creative</span>
+                                <span>More Creative</span>
+                            </div>
+                        </div>
+                        <div class="mb-3">
+                            <label for="agentInstructions" class="form-label">Custom Instructions</label>
+                            <textarea class="form-control" id="agentInstructions" rows="3" placeholder="e.g., 'Maintain a dark fantasy tone', 'Focus on character-driven dialogue'"></textarea>
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-outline-secondary rounded-pill" data-bs-dismiss="modal">Cancel</button>
+                    <button type="button" class="btn btn-primary rounded-pill">Save Configuration</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Bootstrap JS Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+    <!-- Custom JS -->
+    <script src="js/script.js"></script>
+    <script>
+        // Toggle the sidebar
+        document.getElementById("menu-toggle").addEventListener("click", function() {
+            document.getElementById("wrapper").classList.toggle("toggled");
+        });
+
+        // Populate agent config modal with agent name
+        var agentConfigModal = document.getElementById('agentConfigModal');
+        agentConfigModal.addEventListener('show.bs.modal', function (event) {
+            var button = event.relatedTarget; // Button that triggered the modal
+            var agentName = button.getAttribute('data-agent-name'); // Extract info from data-agent-name attribute
+            var modalTitle = agentConfigModal.querySelector('.modal-title');
+            var agentNameDisplay = agentConfigModal.querySelector('#agentNameDisplay');
+
+            modalTitle.textContent = 'Configure ' + agentName;
+            agentNameDisplay.value = agentName;
+        });
+    </script>
+</body>
+</html>

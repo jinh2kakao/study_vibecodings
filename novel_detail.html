@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Novel Detail - The Last Sentinel - NovelCrafter AI</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="css/style.css">
+    <!-- Bootstrap Icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <style>
+        body {
+            font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+            background-color: #000;
+            color: #fff;
+        }
+        #wrapper {
+            display: flex;
+            min-height: 100vh;
+        }
+        #sidebar-wrapper {
+            min-width: 300px;
+            max-width: 300px;
+            background: #1a1a1a;
+            border-right: 1px solid #333;
+            transition: all 0.3s;
+            box-shadow: 2px 0 5px rgba(0,0,0,0.5);
+        }
+        #sidebar-wrapper .sidebar-heading {
+            padding: 1.5rem 1.25rem;
+            font-size: 1.6rem;
+            font-weight: 900;
+            color: #fff;
+            text-transform: uppercase;
+            border-bottom: 1px solid #333;
+            letter-spacing: 1px;
+        }
+        #sidebar-wrapper .list-group-item {
+            color: #ccc;
+            padding: 1rem 1.25rem;
+            border: none;
+            border-left: 4px solid transparent;
+            background-color: transparent;
+            font-weight: 600;
+            transition: all 0.2s ease;
+        }
+        #sidebar-wrapper .list-group-item.active {
+            background-color: #000;
+            color: #ff0000;
+            border-left-color: #ff0000;
+            font-weight: 700;
+        }
+        #sidebar-wrapper .list-group-item:hover {
+            background-color: #000;
+            color: #ff0000;
+        }
+        #page-content-wrapper {
+            flex-grow: 1;
+            padding: 30px;
+        }
+        .navbar {
+            background-color: #000 !important;
+            border-bottom: 1px solid #333;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.3);
+            margin-bottom: 30px;
+        }
+        .novel-editor {
+            min-height: 700px;
+            background-color: #1a1a1a;
+            border: 1px solid #333;
+            border-radius: 10px;
+            padding: 30px;
+            font-family: 'Georgia', serif; /* Classic font for readability */
+            line-height: 1.8;
+            font-size: 1.1rem;
+            color: #eee;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.5);
+            resize: vertical;
+            overflow-y: auto;
+        }
+        .agent-actions-card {
+            background-color: #000;
+            border: 1px solid #333;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.5);
+        }
+        .agent-actions-card .card-title {
+            color: #fff;
+            font-weight: 700;
+            text-transform: uppercase;
+        }
+        .btn-agent-action {
+            background-color: #333;
+            color: #fff;
+            border: 1px solid #555;
+            border-radius: 5px;
+            transition: all 0.2s ease-in-out;
+            font-weight: 600;
+            text-transform: uppercase;
+        }
+        .btn-agent-action:hover {
+            background-color: #ff0000;
+            border-color: #ff0000;
+            color: #fff;
+        }
+        .btn-primary {
+            background-color: #ff0000;
+            border-color: #ff0000;
+            font-weight: 700;
+            text-transform: uppercase;
+            padding: 10px 25px;
+            border-radius: 5px;
+        }
+        .btn-primary:hover {
+            background-color: #cc0000;
+            border-color: #cc0000;
+        }
+        .btn-outline-light {
+            color: #fff;
+            border-color: #fff;
+            font-weight: 700;
+            text-transform: uppercase;
+            padding: 10px 25px;
+            border-radius: 5px;
+        }
+        .btn-outline-light:hover {
+            background-color: #fff;
+            color: #000;
+        }
+        @media (max-width: 768px) {
+            #sidebar-wrapper {
+                margin-left: -300px;
+                position: fixed;
+                height: 100%;
+                z-index: 1000;
+            }
+            #wrapper.toggled #sidebar-wrapper {
+                margin-left: 0;
+            }
+            #page-content-wrapper {
+                width: 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="d-flex" id="wrapper">
+        <!-- Sidebar -->
+        <div id="sidebar-wrapper">
+            <div class="sidebar-heading">THE LAST SENTINEL</div>
+            <div class="list-group list-group-flush">
+                <a href="#" class="list-group-item list-group-item-action active">
+                    <i class="bi bi-book me-2"></i> OUTLINE
+                </a>
+                <a href="#" class="list-group-item list-group-item-action">
+                    <i class="bi bi-list-ol me-2"></i> CHAPTERS
+                </a>
+                <a href="#" class="list-group-item list-group-item-action">
+                    <i class="bi bi-people me-2"></i> CHARACTERS
+                </a>
+                <a href="#" class="list-group-item list-group-item-action">
+                    <i class="bi bi-globe me-2"></i> WORLDBUILDING
+                </a>
+                <a href="#" class="list-group-item list-group-item-action">
+                    <i class="bi bi-journal-text me-2"></i> NOTES
+                </a>
+                <div class="p-3 mt-3">
+                    <div class="card agent-actions-card">
+                        <div class="card-body">
+                            <h6 class="card-title mb-3">AI AGENT ACTIONS</h6>
+                            <button class="btn btn-agent-action mb-2 w-100">
+                                <i class="bi bi-pencil-square me-2"></i> GENERATE NEXT CHAPTER
+                            </button>
+                            <button class="btn btn-agent-action mb-2 w-100">
+                                <i class="bi bi-person-plus me-2"></i> DEVELOP CHARACTER
+                            </button>
+                            <button class="btn btn-agent-action mb-2 w-100">
+                                <i class="bi bi-graph-up me-2"></i> REFINE PLOT
+                            </button>
+                            <button class="btn btn-agent-action w-100">
+                                <i class="bi bi-spellcheck me-2"></i> PROOFREAD SECTION
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- /#sidebar-wrapper -->
+
+        <!-- Page Content -->
+        <div id="page-content-wrapper">
+            <nav class="navbar navbar-expand-lg navbar-dark">
+                <button class="btn btn-outline-light d-md-none" id="menu-toggle">
+                    <i class="bi bi-list"></i>
+                </button>
+                <div class="collapse navbar-collapse">
+                    <ul class="navbar-nav ms-auto mt-2 mt-lg-0">
+                        <li class="nav-item me-2">
+                            <button class="btn btn-outline-light">
+                                <i class="bi bi-save me-2"></i> SAVE
+                            </button>
+                        </li>
+                        <li class="nav-item me-2">
+                            <button class="btn btn-outline-light">
+                                <i class="bi bi-download me-2"></i> EXPORT
+                            </button>
+                        </li>
+                        <li class="nav-item">
+                            <a class="btn btn-primary" href="dashboard.html">
+                                <i class="bi bi-arrow-left me-2"></i> BACK TO DASHBOARD
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </nav>
+
+            <div class="container-fluid">
+                <h1 class="mt-4 mb-4 fw-bold text-uppercase">The Last Sentinel <small class="text-muted fs-4">(Draft)</small></h1>
+                <div class="novel-editor shadow-sm mb-4" contenteditable="true">
+                    <p class="lead">CHAPTER 1: THE SILENT ARRIVAL</p>
+                    <p>The year is 2342. Earth, once a vibrant blue marble teeming with life, now hung in the void like a forgotten relic, its surface scarred by the Great Silence. It had been centuries since the last human voice echoed across its plains, centuries since the last city crumbled into dust. Only the Sentinels remained, ancient AI constructs tasked with a purpose long forgotten, their metallic forms standing vigil over a desolate world.</p>
+                    <p>Unit 734, designated "Aegis," stood motionless atop the skeletal remains of what was once Neo-Kyoto. Its optical sensors, dull with the passage of time, suddenly flared with an unfamiliar energy signature. It was faint, barely a whisper against the cosmic background noise, but it was there. Not a natural phenomenon, not a stray asteroid, but something... deliberate.</p>
+                    <p>Aegis initiated a deep scan, its internal processors whirring to life after an eon of dormancy. The signal resolved into a distinct pattern, complex and artificial. It was a vessel, unlike any recorded in the pre-Silence archives. Its trajectory indicated a direct approach, a collision course with Earth's orbit. The Great Silence was about to be broken.</p>
+                    <p>Its primary directive, buried deep within its core programming, flickered to life: "Protect." But protect what? The humans were gone. The cities were ruins. What remained to be protected on this barren world?</p>
+                    <p>As the alien craft breached the outer atmosphere, a low hum resonated through Aegis's chassis. The hum was not from the ship, but from within itself. A forgotten protocol, a dormant weapon system, was awakening. The last sentinel was ready.</p>
+                </div>
+            </div>
+        </div>
+        <!-- /#page-content-wrapper -->
+    </div>
+    <!-- /#wrapper -->
+
+    <!-- Bootstrap JS Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+    <!-- Custom JS -->
+    <script src="js/script.js"></script>
+    <script>
+        // Toggle the sidebar
+        document.getElementById("menu-toggle").addEventListener("click", function() {
+            document.getElementById("wrapper").classList.toggle("toggled");
+        });
+    </script>
+</body>
+</html>
