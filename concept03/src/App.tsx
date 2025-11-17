@@ -1,9 +1,12 @@
-const App: React.FC = () => {
+import React from 'react';
+
+function App() {
   return (
-    <div className="text-3xl text-blue-500">
-      Hello World!
+    <div>
+      <h1>Hello World!</h1>
+      <p>서버가 정상적으로 작동하고 있습니다.</p>
     </div>
   );
-};
+}
 
 export default App;
