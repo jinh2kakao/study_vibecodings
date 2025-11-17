@@ -312,5 +312,6 @@ document.addEventListener('DOMContentLoaded', () => {
                 }
             });
         });
+
     }
 });

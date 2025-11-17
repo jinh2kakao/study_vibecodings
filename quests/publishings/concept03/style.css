@@ -225,3 +225,129 @@ body {
     border-top: 0;
     padding-top: 0;
 }
+
+/* concept03/style.css - (v1.7 Addendum) */
+
+/* (IA 1.0) 캔버스 2-단 레이아웃 */
+.orchestra-layout {
+    display: flex;
+    height: 75vh; /* 뷰포트 높이에 맞춘 캔버스 */
+    background-color: #fff;
+    border-radius: 1rem; /* v1.5 card style */
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+    overflow: hidden;
+}
+
+/* (IA 1.3) 좌측 에이전트 사이드바 */
+.agent-sidebar {
+    width: 280px;
+    padding: 1rem;
+    border-right: 1px solid #e9ecef;
+    background-color: #f8f9fa;
+    overflow-y: auto;
+}
+
+/* (IA 1.3) 드래그 가능한 에이전트 카드 */
+.agent-card {
+    cursor: grab;
+    user-select: none;
+    padding: 0.75rem 1rem;
+    margin-bottom: 0.5rem;
+    background-color: #fff;
+    border-radius: 0.5rem;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+    transition: all 0.2s ease;
+}
+.agent-card:hover {
+    background-color: var(--bs-primary-subtle);
+    color: var(--bs-primary-emphasis);
+}
+
+/* (IA 1.4) 메인 캔버스 */
+.canvas-main {
+    flex-grow: 1;
+    position: relative;
+    background-image: radial-gradient(var(--bs-gray-300) 1px, transparent 1px);
+    background-size: 15px 15px;
+    overflow: hidden;
+}
+
+/* (IA 4.7) '실행 중'일 때 캔버스 비활성화 */
+.canvas-main.read-only {
+    cursor: not-allowed;
+    background-color: #f8f9fa;
+    opacity: 0.7;
+}
+.canvas-main.read-only .node {
+    cursor: not-allowed;
+}
+
+/* (IA 1.5) 캔버스 위의 노드 (시뮬레이션) */
+.node {
+    position: absolute;
+    background-color: #fff;
+    border: 1px solid var(--bs-gray-400);
+    padding: 1rem;
+    border-radius: 0.5rem;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    cursor: grab;
+    width: 200px;
+    transition: all 0.3s ease;
+}
+.node:active { cursor: grabbing; }
+
+/* (IA 4.7) '실행 중'인 노드 시각 효과 */
+.node.state-running {
+    border-color: var(--bs-primary);
+    box-shadow: 0 0 0 4px var(--bs-primary-subtle);
+    animation: pulse 1.5s infinite;
+}
+
+ @keyframes pulse {
+    0% { box-shadow: 0 0 0 0px var(--bs-primary-subtle); }
+    100% { box-shadow: 0 0 0 10px rgba(0,123,255,0); }
+}
+
+/* (IA 1.6) 캔버스 툴바 */
+.canvas-toolbar {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    z-index: 10;
+}
+
+/* concept03/style.css - (v1.8 Addendum) */
+
+/* (IA 2.0) AI 인터뷰 채팅창 */
+.ai-interview-body {
+    display: flex;
+    flex-direction: column;
+    height: calc(100vh - 120px); /* Fullscreen modal body */
+}
+.chat-window {
+    flex-grow: 1;
+    overflow-y: auto;
+    padding: 1rem;
+}
+.chat-message {
+    max-width: 75%;
+    padding: 0.75rem 1rem;
+    margin-bottom: 0.5rem;
+    border-radius: 1rem; /* v1.5 pill style */
+    word-wrap: break-word;
+}
+.chat-message.ai {
+    background-color: var(--bs-light);
+    border-top-left-radius: 0;
+    align-self: flex-start;
+}
+.chat-message.user {
+    background-color: var(--bs-primary);
+    color: white;
+    border-top-right-radius: 0;
+    align-self: flex-end;
+}
+.chat-input-group {
+    border-top: 1px solid var(--bs-border-color);
+    padding: 1rem;
+}
