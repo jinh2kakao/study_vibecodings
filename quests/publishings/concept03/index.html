@@ -3,67 +3,134 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>AI 노블 메이커 - 회원가입</title>
+    <title>AI 노블 메이커 - 대시보드</title>
     <!-- Bootstrap 5.3 CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
     <!-- Custom CSS -->
     <link rel="stylesheet" href="style.css">
+    <!-- Bootstrap Icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
 </head>
 <body>
 
-    <div class="form-container">
-        <div class="card bg-body-tertiary shadow-lg border-0">
-            <div class="card-body p-4 p-md-5">
-                <h2 class="card-title text-center mb-4 fw-bold">AI 노블 메이커</h2>
-                <p class="text-center text-muted mb-5">새로운 계정을 생성하세요</p>
+    <div id="navbar-placeholder"></div>
 
-                <!-- Alert Placeholder for API messages -->
-                <div id="form-alert"></div>
+    <div class="container mt-4">
+        <div class="d-flex justify-content-between align-items-center mb-4">
+            <h2 class="mb-0">내 프로젝트</h2>
+            <button class="btn btn-primary" id="new-project-btn">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-plus-lg me-2" viewBox="0 0 16 16">
+                    <path fill-rule="evenodd" d="M8 2a.5.5 0 0 1 .5.5v5h5a.5.5 0 0 1 0 1h-5v5a.5.5 0 0 1-1 0v-5h-5a.5.5 0 0 1 0-1h5v-5A.5.5 0 0 1 8 2"/>
+                </svg>
+                새 소설 프로젝트
+            </button>
+        </div>
 
-                <form class="needs-validation" id="signup-form" novalidate>
-                    <!-- Email Input -->
-                    <div class="mb-3">
-                        <label for="email" class="form-label">이메일 주소</label>
-                        <input type="email" class="form-control" id="email" placeholder="name@example.com" required>
-                        <div class="invalid-feedback" id="email-feedback-format">유효한 이메일 주소를 입력하세요.</div>
-                        <div class="invalid-feedback" id="email-feedback-api"></div>
+        <!-- (v1.5) 핀터레스트 스타일 반응형 그리드 -->
+        <div class="row row-cols-1 row-cols-md-2 row-cols-lg-4 g-4">
+            <!-- Card 1 -->
+            <div class="col">
+                <div class="card project-card h-100">
+                    <img src="https://placehold.co/600x400/007bff/white?text=Project+A" class="card-img-top" alt="Project A">
+                    <div class="card-body">
+                        <h5 class="card-title">프로젝트 A</h5>
+                        <p class="card-text small text-muted">최근 수정: 2일 전</p>
                     </div>
-
-                    <!-- Password Input -->
-                    <div class="mb-3">
-                        <label for="password" class="form-label">비밀번호</label>
-                        <input type="password" class="form-control" id="password" required minlength="8">
-                        <div class="invalid-feedback">비밀번호는 8자 이상이어야 합니다.</div>
+                    <div class="card-footer bg-white border-0">
+                        <a href="workspace.html" class="btn btn-outline-primary btn-sm">워크스페이스로 이동</a>
                     </div>
+                </div>
+            </div>
 
-                    <!-- Password Confirm Input -->
-                    <div class="mb-4">
-                        <label for="password-confirm" class="form-label">비밀번호 확인</label>
-                        <input type="password" class="form-control" id="password-confirm" required>
-                        <div class="invalid-feedback" id="password-confirm-feedback">비밀번호가 일치하지 않습니다.</div>
+            <!-- Card 2 (다른 색상) -->
+            <div class="col">
+                <div class="card project-card h-100">
+                    <img src="https://placehold.co/600x400/6f42c1/white?text=Project+B" class="card-img-top" alt="Project B">
+                    <div class="card-body">
+                        <h5 class="card-title">프로젝트 B</h5>
+                        <p class="card-text small text-muted">최근 수정: 5일 전</p>
                     </div>
+                    <div class="card-footer bg-white border-0">
+                        <a href="workspace.html" class="btn btn-outline-primary btn-sm">워크스페이스로 이동</a>
+                    </div>
+                </div>
+            </div>
 
-                    <!-- Signup Button -->
-                    <button type="submit" class="btn btn-primary w-100 py-2 mb-3" id="signup-btn" disabled>
-                        가입하기
-                    </button>
+            <!-- Card 3 (다른 색상) -->
+            <div class="col">
+                <div class="card project-card h-100">
+                    <img src="https://placehold.co/600x400/198754/white?text=Project+C" class="card-img-top" alt="Project C">
+                    <div class="card-body">
+                        <h5 class="card-title">프로젝트 C</h5>
+                        <p class="card-text small text-muted">최근 수정: 1시간 전</p>
+                    </div>
+                    <div class="card-footer bg-white border-0">
+                        <a href="workspace.html" class="btn btn-outline-primary btn-sm">워크스페이스로 이동</a>
+                    </div>
+                </div>
+            </div>
 
-                    <!-- Google Signup Button -->
-                    <button type="button" class="btn btn-outline-secondary w-100 py-2">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="currentColor" class="bi bi-google me-2" viewBox="0 0 16 16">
-                            <path d="M15.545 6.558a9.42 9.42 0 0 1 .139 1.626c0 2.434-.87 4.492-2.384 5.885h.002C11.978 15.292 10.15 16 8 16A8 8 0 1 1 8 0a7.689 7.689 0 0 1 5.352 2.082l-2.284 2.284A4.347 4.347 0 0 0 8 3.166c-2.087 0-3.86 1.408-4.492 3.304a4.792 4.792 0 0 0 0 3.063h.003c.635 1.893 2.405 3.301 4.492 3.301 1.078 0 2.004-.276 2.722-.764h-.003a3.702 3.702 0 0 0 1.599-2.431H8v-3.08h7.545z"/>
-                        </svg>
-                        Google 계정으로 가입
-                    </button>
-                </form>
+            <!-- Card 4 (추가) -->
+            <div class="col">
+                <div class="card project-card h-100">
+                    <img src="https://placehold.co/600x400/fd7e14/white?text=Project+D" class="card-img-top" alt="Project D">
+                    <div class="card-body">
+                        <h5 class="card-title">프로젝트 D</h5>
+                        <p class="card-text small text-muted">최근 수정: 1일 전</p>
+                    </div>
+                    <div class="card-footer bg-white border-0">
+                        <a href="workspace.html" class="btn btn-outline-primary btn-sm">워크스페이스로 이동</a>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
+
+<!-- (v1.6) 새 프로젝트 생성 모달 (IA 2.2 Update) -->
+<div class="modal fade" id="newProjectModal" tabindex="-1">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content" style="border-radius: 1rem;">
+      <div class="modal-header border-0">
+        <h4 class="modal-title">새로운 세계 창조하기</h4>
+        <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+      </div>
+      <div class="modal-body">
+        <form>
+          <!-- 1. 프로젝트 제목 -->
+          <div class="mb-3">
+            <label for="projectTitle" class="form-label">프로젝트 제목</label>
+            <input type="text" class="form-control" id="projectTitle" placeholder="예: 어둠의 계승자">
+          </div>
+          <!-- 2. 핵심 장르 -->
+          <div class="mb-3">
+            <label for="projectGenre" class="form-label">핵심 장르</label>
+            <select class="form-select" id="projectGenre">
+              <option value="fantasy" selected>판타지</option>
+              <option value="romance">로맨스</option>
+              <option value="sf">SF</option>
+              <option value="mystery">미스터리</option>
+            </select>
+          </div>
+          <!-- 3. 로그라인 -->
+          <div class="mb-3">
+            <label for="projectLogline" class="form-label">로그라인 (한 줄 요약)</label>
+            <textarea class="form-control" id="projectLogline" rows="2" placeholder="예: 몰락한 가문의 마지막 생존자가 복수를 위해 금지된 마법을 배우는 이야기"></textarea>
+          </div>
+        </form>
+      </div>
+      <div class="modal-footer border-0">
+        <!-- v1.5 스타일 .rounded-pill 자동 적용 -->
+        <a href="workspace.html" class="btn btn-primary">[+ 프로젝트 생성하기]</a>
+      </div>
+    </div>
+  </div>
+</div>
 
     <!-- Bootstrap 5.3 JS (with Popper) -->
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.min.js" integrity="sha384-0pUGZvbkm6XF6gxjEnlmuGrJXVbNuzT9qBBavbLwCsOGabYfZo0T0to5eqruptLy" crossorigin="anonymous"></script>
     <!-- Custom JavaScript -->
+    <script src="global-nav.js"></script>
     <script src="app.js"></script>
 </body>
 </html>

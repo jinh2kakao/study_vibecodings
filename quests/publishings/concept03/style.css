@@ -1,173 +1,227 @@
-/* Global Styles for AI Novel Maker Mockup */
+/* concept03/style.css */
 
-html, body {
-    height: 100%;
-}
-
+/* (v1.5) Pinterest와 유사한 밝은 회색 배경 */
 body {
-    display: flex;
-    flex-direction: column; /* Allow content to stack vertically */
-    background-color: var(--bs-body-bg); /* Use Bootstrap's dark theme background */
-    color: var(--bs-body-color); /* Use Bootstrap's dark theme text color */
+    background-color: #f8f9fa;
+    color: #212529; /* 기본 텍스트 색상 */
 }
 
-/* Form Container for Login/Signup pages */
+/* 다크 모드 오버라이드 */
+[data-bs-theme="dark"] body {
+    background-color: #212529; /* Bootstrap dark body bg */
+    color: #f8f9fa; /* Bootstrap dark body color */
+}
+
+[data-bs-theme="dark"] .card {
+    background-color: #343a40 !important; /* Darker card background */
+    color: #f8f9fa;
+}
+
+[data-bs-theme="dark"] .card-body,
+[data-bs-theme="dark"] .card-footer {
+    background-color: #343a40 !important;
+}
+
+[data-bs-theme="dark"] .bg-body-tertiary {
+    background-color: #343a40 !important;
+}
+
+[data-bs-theme="dark"] .bg-dark-subtle {
+    background-color: #495057 !important;
+}
+
+[data-bs-theme="dark"] .text-muted {
+    color: #adb5bd !important;
+}
+
+/* 핀터레스트 스타일 카드 (v1.5) */
+.card {
+    border: 0 !important;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08) !important;
+    border-radius: 1rem !important; /* .rounded-4 */
+    transition: all 0.3s ease-in-out;
+}
+.card:hover {
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12) !important;
+    transform: translateY(-5px);
+}
+
+/* 대시보드 프로젝트 카드 (시각화) */
+.project-card img {
+    border-top-left-radius: 1rem;
+    border-top-right-radius: 1rem;
+    object-fit: cover;
+    height: 200px; /* 고정 높이로 시각적 통일성 */
+}
+
+/* 인증/온보딩용 중앙 카드 */
 .form-container {
-    flex-grow: 1; /* Allow it to take available space */
+    flex-grow: 1;
     display: flex;
     align-items: center;
     justify-content: center;
-    padding: 1rem; /* Add some padding */
+    padding: 1rem;
 }
-
 .form-container > .card {
     max-width: 450px;
     width: 100%;
 }
 
+/* 부드러운 'Pill' 버튼 (v1.5) */
+.btn-primary, .btn-secondary, .btn-danger, .btn-outline-secondary, .btn-outline-primary {
+    border-radius: 50rem !important; /* .rounded-pill */
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
+    font-weight: 600;
+}
+
+/* 부드러운 탭 (v1.5) */
+.nav-pills .nav-link {
+    border-radius: 50rem !important; /* .rounded-pill */
+}
+.nav-pills .nav-link.active {
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+/* 반응형 레이아웃: 모바일에서 탭이 수직으로 쌓이지 않도록 (Workspace) */
+ @media (max-width: 767.98px) {
+    .workspace-tabs .nav {
+        flex-wrap: nowrap;
+        overflow-x: auto; /* 모바일에서 탭 스크롤 */
+        -webkit-overflow-scrolling: touch;
+        padding-bottom: 1rem;
+    }
+    .workspace-tabs .nav .nav-item {
+        flex: 0 0 auto;
+    }
+}
+
 /* Navbar adjustments for dark theme */
-.navbar {
-    background-color: var(--bs-body-bg) !important; /* Ensure navbar matches body background */
-    border-bottom-color: var(--bs-border-color-translucent) !important;
+[data-bs-theme="dark"] .navbar {
+    background-color: #343a40 !important; /* Ensure navbar matches body background */
+    border-bottom-color: #495057 !important;
 }
 
-.navbar-brand {
-    color: var(--bs-body-color) !important;
+[data-bs-theme="dark"] .navbar-brand {
+    color: #f8f9fa !important;
 }
 
-.navbar-text {
-    color: var(--bs-secondary-color) !important;
+[data-bs-theme="dark"] .navbar-text {
+    color: #adb5bd !important;
 }
 
-/* Card styling for dark theme */
-.card {
-    background-color: var(--bs-body-bg);
-    border-color: var(--bs-border-color-translucent);
+[data-bs-theme="dark"] .nav-tabs {
+    border-bottom-color: #495057;
 }
 
-.card-title, .form-label {
-    color: var(--bs-body-color);
+[data-bs-theme="dark"] .nav-tabs .nav-link {
+    color: #adb5bd;
 }
 
-.card.bg-body-tertiary {
-    background-color: var(--bs-tertiary-bg) !important;
+[data-bs-theme="dark"] .nav-tabs .nav-link:hover:not(.active):not(.disabled) {
+    color: #f8f9fa;
 }
 
-/* Input field styling for dark theme */
-.form-control {
-    background-color: var(--bs-body-bg);
-    color: var(--bs-body-color);
-    border-color: var(--bs-border-color);
+[data-bs-theme="dark"] .nav-tabs .nav-link.active {
+    color: var(--bs-primary);
+    border-bottom: 2px solid var(--bs-primary);
 }
 
-.form-control:focus {
-    background-color: var(--bs-body-bg);
-    color: var(--bs-body-color);
+[data-bs-theme="dark"] .tab-content {
+    background-color: #343a40;
+    border-color: #495057;
+}
+
+[data-bs-theme="dark"] .modal-content {
+    background-color: #343a40;
+    color: #f8f9fa;
+    border-color: #495057;
+}
+
+[data-bs-theme="dark"] .modal-header, [data-bs-theme="dark"] .modal-footer {
+    border-color: #495057;
+}
+
+[data-bs-theme="dark"] .form-control {
+    background-color: #495057;
+    color: #f8f9fa;
+    border-color: #6c757d;
+}
+
+[data-bs-theme="dark"] .form-control:focus {
+    background-color: #495057;
+    color: #f8f9fa;
     border-color: var(--bs-focus-border-color);
-    box-shadow: 0 0 0 0.25rem var(--bs-focus-ring-color);
+    box-shadow: 0 0 0 0.25rem rgba(13, 110, 253, 0.25); /* Default BS5 focus shadow */
 }
 
-/* Placeholder text color for dark theme */
-.form-control::placeholder {
-    color: var(--bs-secondary-color);
-    opacity: 0.7;
+[data-bs-theme="dark"] .form-control::placeholder {
+    color: #adb5bd;
 }
 
-/* Button styling */
-.btn-primary {
+[data-bs-theme="dark"] .alert-warning {
+    background-color: #ffc107;
+    color: #212529;
+    border-color: #ffc107;
+}
+
+[data-bs-theme="dark"] .alert-warning .alert-heading {
+    color: #212529;
+}
+
+[data-bs-theme="dark"] .alert-warning hr {
+    border-top-color: rgba(0, 0, 0, 0.1);
+}
+
+[data-bs-theme="dark"] .list-group-item {
+    background-color: #495057 !important;
+    color: #f8f9fa;
+    border-color: #6c757d;
+}
+
+[data-bs-theme="dark"] .text-danger {
+    color: #dc3545 !important;
+}
+
+[data-bs-theme="dark"] .text-muted {
+    color: #adb5bd !important;
+}
+
+[data-bs-theme="dark"] .form-check-label {
+    color: #f8f9fa;
+}
+
+[data-bs-theme="dark"] .form-check-input {
+    background-color: #495057;
+    border-color: #6c757d;
+}
+
+[data-bs-theme="dark"] .form-check-input:checked {
     background-color: var(--bs-primary);
     border-color: var(--bs-primary);
 }
 
-.btn-primary:hover {
-    background-color: var(--bs-primary-hover);
-    border-color: var(--bs-primary-hover);
+/* concept03/style.css - (v1.6 Addendum) */
+
+/* (IA 2.0) 워크스페이스 '설정' 탭의 하위 네비게이션 */
+.settings-nav .nav-link {
+    font-weight: 500;
+    color: var(--bs-secondary-emphasis);
+    padding: 0.75rem 1rem;
+}
+.settings-nav .nav-link.active {
+    background-color: var(--bs-primary-subtle)!important;
+    color: var(--bs-primary-emphasis)!important;
+    border-left: 4px solid var(--bs-primary);
+    border-radius: 0 0.5rem 0.5rem 0 !important;
 }
 
-.btn-outline-secondary {
-    color: var(--bs-secondary-color);
-    border-color: var(--bs-secondary-color);
+/* (IA 2.4) 핀터레스트 스타일 '인물 카드' (v1.5 카드 상속) */
+.character-card .card-body {
+    padding-bottom: 0.5rem;
 }
-
-.btn-outline-secondary:hover {
-    background-color: var(--bs-secondary);
-    color: var(--bs-body-bg);
-    border-color: var(--bs-secondary);
-}
-
-/* Project Card specific styles */
-.project-card {
-    cursor: pointer;
-    transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
-}
-
-.project-card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.2);
-}
-
-/* Tab Navigation (Nav Pills/Tabs) */
-.nav-tabs {
-    border-bottom-color: var(--bs-border-color-translucent);
-}
-
-.nav-tabs .nav-link {
-    color: var(--bs-secondary-color);
-    border-color: transparent;
-    transition: all 0.2s ease-in-out;
-}
-
-.nav-tabs .nav-link:hover:not(.active):not(.disabled) {
-    color: var(--bs-body-color);
-    border-color: transparent;
-}
-
-.nav-tabs .nav-link.active {
-    color: var(--bs-primary);
+.character-card .card-footer {
     background-color: transparent;
-    border-color: transparent;
-    border-bottom: 2px solid var(--bs-primary);
-}
-
-.tab-content {
-    background-color: var(--bs-body-bg);
-    border-color: var(--bs-border-color-translucent);
-}
-
-/* CRITICAL: Override Bootstrap's disabled tab behavior to allow click events (IA 3.2) */
-.nav-tabs .nav-link.disabled {
-  pointer-events: auto !important; /* Allow click events */
-  cursor: not-allowed !important; /* Indicate it's not fully interactive */
-  opacity: 0.6; /* Visually dim it */
-}
-
-/* Paywall Modal specific styles */
-.modal-content {
-    background-color: var(--bs-body-bg);
-    color: var(--bs-body-color);
-    border-color: var(--bs-border-color-translucent);
-}
-
-.modal-header, .modal-footer {
-    border-color: var(--bs-border-color-translucent);
-}
-
-.modal-title {
-    color: var(--bs-body-color);
-}
-
-.btn-close {
-    filter: invert(1) grayscale(100%) brightness(200%); /* Adjust close button for dark theme */
-}
-
-.modal-body ul {
-    padding-left: 1.5rem;
-}
-
-.modal-body ul li {
-    margin-bottom: 0.5rem;
-}
-
-.modal-body ul li svg {
-    vertical-align: text-bottom;
+    border-top: 0;
+    padding-top: 0;
 }
