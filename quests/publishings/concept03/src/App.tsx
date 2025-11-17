@@ -1,10 +1,27 @@
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
+
+function Login() {
+  return <h2>Login Page</h2>;
+}
+
+function Signup() {
+  return <h2>Signup Page</h2>;
+}
+
+function Dashboard() {
+  return <h2>Dashboard Page</h2>;
+}
 
 function App() {
   return (
-    <div>
-      <h1>Hello World!</h1>
-      <p>서버가 정상적으로 작동하고 있습니다.</p>
-    </div>
+    <BrowserRouter>
+      <Routes>
+        <Route path="/login" element={<Login />} />
+        <Route path="/signup" element={<Signup />} />
+        <Route path="/dashboard" element={<Dashboard />} />
+        <Route path="/" element={<Login />} /> {/* Default route */}
+      </Routes>
+    </BrowserRouter>
   );
 }
 
