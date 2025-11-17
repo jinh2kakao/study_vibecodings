@@ -351,3 +351,75 @@ body {
     border-top: 1px solid var(--bs-border-color);
     padding: 1rem;
 }
+/* concept03/style.css - (v1.9 Addendum) */
+
+/* (IA 2.0) 3단 레이아웃 (결과물 상세) */
+.output-layout-container {
+    display: grid;
+    grid-template-columns: 280px 1fr 320px; /* 좌(목록) | 중(콘텐츠) | 우(컨텍스트) */
+    grid-template-rows: calc(100vh - 100px); /* (Viewport Height - Navbar Height) */
+    gap: 1rem;
+}
+.output-sidebar, .output-content, .output-context {
+    height: 100%;
+    overflow-y: auto;
+}
+.output-content {
+    background-color: #fff;
+    padding: 2rem;
+    border-radius: 1rem; /* v1.5 card style */
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+}
+
+/* (IA 2.1) 좌측 산출물 목록 */
+.artifact-list .list-group-item {
+    border: 0;
+    border-radius: 0.5rem;
+    font-weight: 500;
+}
+.artifact-list .list-group-item.active {
+    background-color: var(--bs-primary);
+    color: white;
+}
+
+/* (IA 2.2) 중앙 마크다운 뷰어 (v1.9 Max Case) */
+.markdown-viewer h3 {
+    font-weight: 700;
+    margin-top: 2rem;
+    margin-bottom: 1rem;
+    border-bottom: 1px solid var(--bs-border-color);
+    padding-bottom: 0.5rem;
+}
+.markdown-viewer strong {
+    /* [메타::POV] 같은 태그 스타일 */
+    color: var(--bs-primary-emphasis);
+    font-family: monospace;
+    font-size: 0.9em;
+    background-color: var(--bs-primary-subtle);
+    padding: 2px 6px;
+    border-radius: 4px;
+}
+.markdown-viewer hr {
+    margin-top: 1.5rem;
+    margin-bottom: 1.5rem;
+}
+
+/* (IA 2.3) 우측 컨텍스트 패널 */
+.context-panel .card {
+    margin-bottom: 1rem;
+}
+.context-panel .card-body {
+    padding: 1.25rem;
+}
+.context-panel .list-group-item {
+    padding: 0.5rem 0;
+    border: 0;
+}
+
+/* (IA 1.0) 결과물 탭 (Job History Card) */
+.job-history-card {
+    transition: all 0.2s ease;
+}
+.job-history-card:hover {
+    background-color: var(--bs-light);
+}

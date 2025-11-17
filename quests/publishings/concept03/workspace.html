@@ -240,29 +240,58 @@
               </div>
             </div>
 
-            <!-- Outputs Tab Pane (IA 3.3) -->
-            <div class="tab-pane fade p-3 border rounded bg-body-tertiary" id="outputs-pane" role="tabpanel" aria-labelledby="outputs-tab" tabindex="0">
-                <div id="outputs-free-view" class="text-center py-5">
-                    <h4 class="text-muted">생성된 결과물이 이곳에 표시됩니다.</h4>
-                    <p class="text-muted">AI 에이전트들이 생성한 소설 초안, 캐릭터 설정, 이미지 등을 확인하세요.</p>
+            <!-- (v1.9) '결과물' 탭 콘텐츠 (IA 1.0) - 기존 내용 덮어쓰기 -->
+            <div class="tab-pane fade p-3 border rounded bg-body-tertiary" id="outputs-pane" role="tabpanel">
+              
+              <div class="d-flex justify-content-between align-items-center mb-3">
+                <h4><i class="bi bi-file-earmark-text-fill"></i> 생성된 결과물 (Job History)</h4>
+                <button class="btn btn-outline-secondary btn-sm">
+                    <i class="bi bi-arrow-clockwise"></i> 새로고침
+                </button>
+              </div>
+              <p class="text-muted">'오케스트라 캔버스'에서 실행한 작업 이력입니다.</p>
+
+              <!-- (IA 1.0) '실행 완료 카드' (v1.5 스타일) -->
+              <div class="card job-history-card p-3 mb-3">
+                <div class="d-flex justify-content-between align-items-center">
+                  <div>
+                    <h5 class="mb-1">챕터 1: 새로운 시작</h5>
+                    <small class="text-muted">
+                      <span class="text-success">✅ 실행 완료</span> - 2025년 11월 17일 16:10
+                    </small>
+                    <div class="mt-2">
+                      <!-- (IA 1.0) 'Max Case' 산출물 태그 -->
+                      <span class="badge rounded-pill bg-primary">소설 챕터</span>
+                      <span class="badge rounded-pill bg-info">플롯</span>
+                      <span class="badge rounded-pill bg-warning text-dark">인물</span>
+                      <span class="badge rounded-pill bg-secondary">세계관</span>
+                    </div>
+                  </div>
+                  <div>
+                    <!-- (IA 1.0) 상세 페이지로 이동 -->
+                    <a href="output-detail.html" class="btn btn-primary">[상세 결과물 보기]</a>
+                  </div>
                 </div>
-                <div id="outputs-pro-view" class="d-none">
-                    <h4>생성된 결과물 (Pro Sample)</h4>
-                    <ul class="list-group mt-3">
-                        <li class="list-group-item bg-dark-subtle d-flex justify-content-between align-items-center">
-                            <span class="text-truncate">챕터 1 초안 - "새로운 시작"</span>
-                            <span class="badge bg-info rounded-pill">소설</span>
-                        </li>
-                        <li class="list-group-item bg-dark-subtle d-flex justify-content-between align-items-center">
-                            <span class="text-truncate">주인공 '엘라라' 캐릭터 설정</span>
-                            <span class="badge bg-success rounded-pill">캐릭터</span>
-                        </li>
-                        <li class="list-group-item bg-dark-subtle d-flex justify-content-between align-items-center">
-                            <span class="text-truncate">판타지 세계관 지도 (초안)</span>
-                            <span class="badge bg-warning text-dark rounded-pill">이미지</span>
-                        </li>
-                    </ul>
+              </div>
+
+              <!-- '실행 완료 카드' (목업 2) -->
+              <div class="card job-history-card p-3 mb-3">
+                <div class="d-flex justify-content-between align-items-center">
+                  <div>
+                    <h5 class="mb-1">인물 '카이저' 설정 (초안)</h5>
+                    <small class="text-muted">
+                      <span class="text-danger">❌ 실행 실패</span> - 2025년 11월 17일 14:30
+                    </small>
+                    <div class="mt-2">
+                      <span class="badge rounded-pill bg-warning text-dark">인물</span>
+                    </div>
+                  </div>
+                  <div>
+                    <a href="#" class="btn btn-outline-secondary">[실패 로그 보기]</a>
+                  </div>
                 </div>
+              </div>
+
             </div>
         </div>
 
