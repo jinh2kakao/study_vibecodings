@@ -1,6 +1,34 @@
-import React from 'react';
+import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 
 function Login() {
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
+  const navigate = useNavigate();
+
+  const handleLogin = (e: React.FormEvent) => {
+    e.preventDefault();
+    // Simulate API call
+    console.log('Attempting login with:', { email, password });
+    // In a real application, you would make an API call here
+    // and handle JWT token reception.
+    // For now, simulate success and redirect to dashboard.
+    setTimeout(() => {
+      console.log('Login successful, redirecting to dashboard.');
+      navigate('/dashboard');
+    }, 1000);
+  };
+
+  const handleGoogleLogin = () => {
+    console.log('Initiating Google OAuth login...');
+    // In a real application, you would initiate Google OAuth flow here.
+    // For now, simulate success and redirect to dashboard.
+    setTimeout(() => {
+      console.log('Google login successful, redirecting to dashboard.');
+      navigate('/dashboard');
+    }, 1000);
+  };
+
   return (
     <div className="min-h-screen flex items-center justify-center bg-gray-50 py-12 px-4 sm:px-6 lg:px-8">
       <div className="max-w-md w-full space-y-8">
@@ -9,7 +37,7 @@ function Login() {
             Sign in to your account
           </h2>
         </div>
-        <form className="mt-8 space-y-6" action="#" method="POST">
+        <form className="mt-8 space-y-6" onSubmit={handleLogin}>
           <input type="hidden" name="remember" defaultValue="true" />
           <div className="rounded-md shadow-sm -space-y-px">
             <div>
@@ -24,6 +52,8 @@ function Login() {
                 required
                 className="appearance-none rounded-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-t-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm"
                 placeholder="Email address"
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
               />
             </div>
             <div>
@@ -38,6 +68,8 @@ function Login() {
                 required
                 className="appearance-none rounded-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-b-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm"
                 placeholder="Password"
+                value={password}
+                onChange={(e) => setPassword(e.target.value)}
               />
             </div>
           </div>
@@ -84,6 +116,7 @@ function Login() {
           <div className="mt-6">
             <button
               type="button"
+              onClick={handleGoogleLogin}
               className="w-full flex items-center justify-center py-2 px-4 border border-gray-300 rounded-md shadow-sm text-sm font-medium text-gray-700 bg-white hover:bg-gray-50"
             >
               <img

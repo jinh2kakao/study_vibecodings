@@ -1,6 +1,38 @@
-import React from 'react';
+import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 
 function Signup() {
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
+  const [confirmPassword, setConfirmPassword] = useState('');
+  const navigate = useNavigate();
+
+  const handleSignup = (e: React.FormEvent) => {
+    e.preventDefault();
+    if (password !== confirmPassword) {
+      alert('Passwords do not match!');
+      return;
+    }
+    // Simulate API call
+    console.log('Attempting signup with:', { email, password });
+    // In a real application, you would make an API call here.
+    // For now, simulate success and redirect to login.
+    setTimeout(() => {
+      console.log('Signup successful, redirecting to login.');
+      navigate('/login');
+    }, 1000);
+  };
+
+  const handleGoogleSignup = () => {
+    console.log('Initiating Google OAuth signup...');
+    // In a real application, you would initiate Google OAuth flow here.
+    // For now, simulate success and redirect to login.
+    setTimeout(() => {
+      console.log('Google signup successful, redirecting to login.');
+      navigate('/login');
+    }, 1000);
+  };
+
   return (
     <div className="min-h-screen flex items-center justify-center bg-gray-50 py-12 px-4 sm:px-6 lg:px-8">
       <div className="max-w-md w-full space-y-8">
@@ -9,7 +41,7 @@ function Signup() {
             Create a new account
           </h2>
         </div>
-        <form className="mt-8 space-y-6" action="#" method="POST">
+        <form className="mt-8 space-y-6" onSubmit={handleSignup}>
           <input type="hidden" name="remember" defaultValue="true" />
           <div className="rounded-md shadow-sm -space-y-px">
             <div>
@@ -24,6 +56,8 @@ function Signup() {
                 required
                 className="appearance-none rounded-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-t-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm"
                 placeholder="Email address"
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
               />
             </div>
             <div>
@@ -38,6 +72,8 @@ function Signup() {
                 required
                 className="appearance-none rounded-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm"
                 placeholder="Password"
+                value={password}
+                onChange={(e) => setPassword(e.target.value)}
               />
             </div>
             <div>
@@ -52,6 +88,8 @@ function Signup() {
                 required
                 className="appearance-none rounded-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-b-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm"
                 placeholder="Confirm Password"
+                value={confirmPassword}
+                onChange={(e) => setConfirmPassword(e.target.value)}
               />
             </div>
           </div>
@@ -78,6 +116,7 @@ function Signup() {
           <div className="mt-6">
             <button
               type="button"
+              onClick={handleGoogleSignup}
               className="w-full flex items-center justify-center py-2 px-4 border border-gray-300 rounded-md shadow-sm text-sm font-medium text-gray-700 bg-white hover:bg-gray-50"
             >
               <img
