@@ -1,0 +1,173 @@
+/* Global Styles for AI Novel Maker Mockup */
+
+html, body {
+    height: 100%;
+}
+
+body {
+    display: flex;
+    flex-direction: column; /* Allow content to stack vertically */
+    background-color: var(--bs-body-bg); /* Use Bootstrap's dark theme background */
+    color: var(--bs-body-color); /* Use Bootstrap's dark theme text color */
+}
+
+/* Form Container for Login/Signup pages */
+.form-container {
+    flex-grow: 1; /* Allow it to take available space */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 1rem; /* Add some padding */
+}
+
+.form-container > .card {
+    max-width: 450px;
+    width: 100%;
+}
+
+/* Navbar adjustments for dark theme */
+.navbar {
+    background-color: var(--bs-body-bg) !important; /* Ensure navbar matches body background */
+    border-bottom-color: var(--bs-border-color-translucent) !important;
+}
+
+.navbar-brand {
+    color: var(--bs-body-color) !important;
+}
+
+.navbar-text {
+    color: var(--bs-secondary-color) !important;
+}
+
+/* Card styling for dark theme */
+.card {
+    background-color: var(--bs-body-bg);
+    border-color: var(--bs-border-color-translucent);
+}
+
+.card-title, .form-label {
+    color: var(--bs-body-color);
+}
+
+.card.bg-body-tertiary {
+    background-color: var(--bs-tertiary-bg) !important;
+}
+
+/* Input field styling for dark theme */
+.form-control {
+    background-color: var(--bs-body-bg);
+    color: var(--bs-body-color);
+    border-color: var(--bs-border-color);
+}
+
+.form-control:focus {
+    background-color: var(--bs-body-bg);
+    color: var(--bs-body-color);
+    border-color: var(--bs-focus-border-color);
+    box-shadow: 0 0 0 0.25rem var(--bs-focus-ring-color);
+}
+
+/* Placeholder text color for dark theme */
+.form-control::placeholder {
+    color: var(--bs-secondary-color);
+    opacity: 0.7;
+}
+
+/* Button styling */
+.btn-primary {
+    background-color: var(--bs-primary);
+    border-color: var(--bs-primary);
+}
+
+.btn-primary:hover {
+    background-color: var(--bs-primary-hover);
+    border-color: var(--bs-primary-hover);
+}
+
+.btn-outline-secondary {
+    color: var(--bs-secondary-color);
+    border-color: var(--bs-secondary-color);
+}
+
+.btn-outline-secondary:hover {
+    background-color: var(--bs-secondary);
+    color: var(--bs-body-bg);
+    border-color: var(--bs-secondary);
+}
+
+/* Project Card specific styles */
+.project-card {
+    cursor: pointer;
+    transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+}
+
+.project-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.2);
+}
+
+/* Tab Navigation (Nav Pills/Tabs) */
+.nav-tabs {
+    border-bottom-color: var(--bs-border-color-translucent);
+}
+
+.nav-tabs .nav-link {
+    color: var(--bs-secondary-color);
+    border-color: transparent;
+    transition: all 0.2s ease-in-out;
+}
+
+.nav-tabs .nav-link:hover:not(.active):not(.disabled) {
+    color: var(--bs-body-color);
+    border-color: transparent;
+}
+
+.nav-tabs .nav-link.active {
+    color: var(--bs-primary);
+    background-color: transparent;
+    border-color: transparent;
+    border-bottom: 2px solid var(--bs-primary);
+}
+
+.tab-content {
+    background-color: var(--bs-body-bg);
+    border-color: var(--bs-border-color-translucent);
+}
+
+/* CRITICAL: Override Bootstrap's disabled tab behavior to allow click events (IA 3.2) */
+.nav-tabs .nav-link.disabled {
+  pointer-events: auto !important; /* Allow click events */
+  cursor: not-allowed !important; /* Indicate it's not fully interactive */
+  opacity: 0.6; /* Visually dim it */
+}
+
+/* Paywall Modal specific styles */
+.modal-content {
+    background-color: var(--bs-body-bg);
+    color: var(--bs-body-color);
+    border-color: var(--bs-border-color-translucent);
+}
+
+.modal-header, .modal-footer {
+    border-color: var(--bs-border-color-translucent);
+}
+
+.modal-title {
+    color: var(--bs-body-color);
+}
+
+.btn-close {
+    filter: invert(1) grayscale(100%) brightness(200%); /* Adjust close button for dark theme */
+}
+
+.modal-body ul {
+    padding-left: 1.5rem;
+}
+
+.modal-body ul li {
+    margin-bottom: 0.5rem;
+}
+
+.modal-body ul li svg {
+    vertical-align: text-bottom;
+}
