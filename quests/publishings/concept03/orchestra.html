@@ -1,31 +1,37 @@
+<!DOCTYPE html>
+<html lang="ko">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>AI 노블 메이커 - 오케스트라 캔버스</title>
+    <title>Orchestra - AI 노블 메이커</title>
+    <!-- (v1.5) 기존 스타일시트 -->
     <link rel="stylesheet" href="style.css">
+    <!-- (v2.1) 오케스트라 전용 스타일 -->
+    <link rel="stylesheet" href="orchestra.css">
     <!-- Google Fonts (Inter) -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
     <!-- Font Awesome (for icons) -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 </head>
 <body>
     <div class="page-container">
-        <!-- Sidebar -->
+        <!-- (v1.5) Sidebar (index.html과 동일) -->
         <aside class="sidebar">
             <div class="sidebar-top">
                 <a href="index.html" class="logo">
                     <i class="fa-solid fa-atom"></i>
                 </a>
                 <nav class="sidebar-nav">
-                    <a href="index.html" class="nav-item active"><i class="fa-solid fa-house"></i></a> <!-- 내 프로젝트 (대시보드) -->
-                    <a href="agents.html" class="nav-item"><i class="fa-solid fa-robot"></i></a> <!-- 에이전트 관리 -->
-                    <a href="templates.html" class="nav-item"><i class="fa-solid fa-layer-group"></i></a> <!-- 템플릿 -->
-                    <a href="settings.html" class="nav-item"><i class="fa-solid fa-gear"></i></a> <!-- 설정 및 구독 -->
+                    <a href="index.html" class="nav-item"><i class="fa-solid fa-house"></i></a> 
+                    <a href="agents.html" class="nav-item active"><i class="fa-solid fa-robot"></i></a> <!-- Active 변경 -->
+                    <a href="templates.html" class="nav-item"><i class="fa-solid fa-layer-group"></i></a>
+                    <a href="settings.html" class="nav-item"><i class="fa-solid fa-gear"></i></a>
                 </nav>
             </div>
             <div class="sidebar-bottom">
+                <!-- (v1.3) QA 토글 (index.html과 동일) -->
                 <div class="pro-mode-toggle">
                     <label class="switch">
                         <input type="checkbox" id="pro-mode-test-toggle">
@@ -33,65 +39,110 @@
                     </label>
                     <span class="pro-mode-label">Pro Mode (Test)</span>
                 </div>
-                <a href="#" class="nav-item profile">
+                <a href="mypage.html" class="nav-item profile"> <!-- (v1.10) mypage.html 링크 -->
                     <img src="https://placehold.co/40x40/9B59B6/white?text=P" alt="Profile">
                 </a>
             </div>
         </aside>
 
-        <!-- Main Content -->
+        <!-- (v1.5) Main Wrapper (index.html과 동일) -->
         <div class="main-wrapper">
+
+            <!-- (v2.1) Top Header (Orchestra 전용으로 수정) -->
             <header class="top-header">
+                <!-- (v1.6) 프로젝트 헤더 -->
                 <div class="page-title-header">
-                    <h1>My First Novel</h1>
-                    <span class="header-breadcrumb">/</span>
-                    <span class="header-breadcrumb">Orchestra</span>
+                    <h1 class="header-breadcrumb">Project:</h1>
+                    <h1>네오-서울의 그림자</h1>
                 </div>
+                <!-- (v1.7) 캔버스 툴바 -->
                 <div class="header-actions">
-                    <button class="btn btn-secondary" id="save-workflow-btn">
-                        <i class="fa-solid fa-save"></i> Save Workflow
+                    <button class="btn btn-secondary" id="btn-save-workflow">
+                        <i class="fa-solid fa-cloud-arrow-up"></i> Save Workflow
                     </button>
-                    <button class="btn btn-primary" id="run-workflow-btn">
+                    <button class="btn btn-primary" id="btn-run-workflow">
                         <i class="fa-solid fa-play"></i> Run Workflow
                     </button>
                 </div>
             </header>
 
-            <main class="content-area full-bleed">
-                <div class="orchestra-layout">
-                    <!-- Agent Library -->
-                    <div class="agent-library">
-                        <h4><i class="fa-solid fa-users"></i> Agent Library</h4>
-                        <p>Drag agents onto the canvas</p>
-                        <div class="agent-card" draggable="true">
-                            <i class="fa-solid fa-globe"></i>
-                            <span>World Builder</span>
-                        </div>
-                        <div class="agent-card" draggable="true">
-                            <i class="fa-solid fa-pencil-alt"></i>
-                            <span>Plot Generator</span>
-                        </div>
-                        <div class="agent-card" draggable="true">
-                            <i class="fa-solid fa-book-open"></i>
-                            <span>Chapter Writer</span>
-                        </div>
-                         <div class="agent-card" draggable="true">
-                            <i class="fa-solid fa-user-edit"></i>
-                            <span>Character Analyst</span>
+            <!-- (v1.5) Content Area (index.html과 동일) -->
+            <main class="content-area full-bleed"> <!-- full-bleed로 패딩 제거 -->
+
+                <!-- (v1.6) 워크스페이스 탭 -->
+                <nav class="project-tabs">
+                    <a href="#" class="project-tab-item" id="settings-tab">설정 (v1.6)</a>
+                    <a href="#" class="project-tab-item" id="agents-tab">에이전트 (v1.2)</a>
+                    <a href="#" class="project-tab-item active" id="orchestra-tab">오케스트라 캔버스 (v1.7)</a>
+                    <a href="#" class="project-tab-item" id="outputs-tab">결과물 (v1.9)</a>
+                </nav>
+
+                <!-- (v2.1) 탭 콘텐츠 -->
+                <div class="project-tab-content" style="height: calc(100% - 70px);">
+
+                    <!-- (v1.7) '오케스트라' 탭 콘텐츠 (Active) - Max Case 적용 -->
+                    <div class="project-tab-pane active" id="orchestra-pane" style="height: 100%;">
+                        <!-- (style.css의 .orchestra-layout 사용) -->
+                        <div class="orchestra-layout">
+                            <!-- (v1.7) 좌측 에이전트 라이브러리 -->
+                            <div class="agent-library">
+                                <h4><i class="fa-solid fa-robot"></i> 에이전트 라이브러리</h4>
+                                <p>에이전트를 캔버스로 드래그하세요.</p>
+                                <div class="agent-card" data-agent-name="1. 세계관 설정"><i class="fa-solid fa-globe"></i> 1. 세계관 설정</div>
+                                <div class="agent-card" data-agent-name="2. 플롯 생성기"><i class="fa-solid fa-pencil"></i> 2. 플롯 생성기</div>
+                                <div class="agent-card" data-agent-name="3. 챕터 집필가"><i class="fa-solid fa-book-open"></i> 3. 챕터 집필가</div>
+                                <div class="agent-card" data-agent-name="4. 비평가"><i class="fa-solid fa-comments"></i> 4. 비평가</div>
+                            </div>
+
+                            <!-- (v1.7) 메인 캔버스 (Max Case) -->
+                            <div class="canvas-main" id="orchestra-canvas">
+                                <!-- (v1.7 Max Case) 노드 및 엣지 (시뮬레이션) -->
+                                <div class="node" style="top: 150px; left: 50px;">
+                                    <div class="handle handle-out"></div>
+                                    <h6><i class="fa-solid fa-globe"></i> 1. 세계관 설정</h6>
+                                    <div class="node-body small text-muted">v1.6의 글로벌 컨텍스트를 참조하여 세계관 규칙을 확정합니다.</div>
+                                </div>
+                                <div class="node" style="top: 50px; left: 350px;">
+                                    <div class="handle handle-in"></div>
+                                    <div class="handle handle-out"></div>
+                                    <h6><i class="fa-solid fa-pencil"></i> 2. 플롯 생성기</h6>
+                                    <div class="node-body small text-muted">'세계관'을 입력받아 '챕터 1'의 상세 플롯을 생성합니다.</div>
+                                </div>
+                                <div class="node" style="top: 150px; left: 650px;">
+                                    <div class="handle handle-in"></div>
+                                    <div class="handle handle-out"></div>
+                                    <h6><i class="fa-solid fa-book-open"></i> 3. 챕터 집필가</h6>
+                                    <div class="node-body small text-muted">'플롯'과 '인물' 정보를 받아 챕터 초안을 작성합니다.</div>
+                                </div>
+                                <div class="node" style="top: 250px; left: 950px;">
+                                    <div class="handle handle-in"></div>
+                                    <h6><i class="fa-solid fa-comments"></i> 4. 비평가</h6>
+                                    <div class="node-body small text-muted">'초안'을 읽고 v1.6의 톤앤매너와 일치하는지 검토합니다.</div>
+                                </div>
+                                <!-- (v1.7) 엣지(Edge) SVG 시뮬레이션 -->
+                                <svg style="position:absolute; top:0; left:0; width:100%; height:100%; z-index:-1;">
+                                    <path class="edge-path" d="M 270 160 C 320 160, 320 60, 350 60"></path>
+                                    <path class="edge-path" d="M 570 60 C 620 60, 620 160, 650 160"></path>
+                                    <path class="edge-path" d="M 870 160 C 920 160, 920 260, 950 260"></path>
+                                </svg>
+                            </div>
                         </div>
                     </div>
 
-                    <!-- Main Canvas -->
-                    <div class="canvas-main">
-                        <div class="canvas-hint">
-                            <h3>Orchestra Canvas</h3>
-                            <p>Drag agents from the library to start building your workflow.</p>
-                        </div>
-                        <!-- Nodes will be added here dynamically by JS -->
-                    </div>
+                    <!-- (기타 탭 Pane들 - v1.6, v1.2, v1.9) -->
+                    <div class="project-tab-pane" id="settings-pane">... (v1.6 설정) ...</div>
+                    <div class="project-tab-pane" id="agents-pane">... (v1.2 에이전트) ...</div>
+                    <div class="project-tab-pane" id="outputs-pane">... (v1.9 결과물) ...</div>
                 </div>
             </main>
         </div>
     </div>
-    <script src="orchestra.js"></script>
+    <!-- (v1.5) 기존 글로벌 JS -->
+    <script src="app.js" defer></script>
+    <!-- (v2.1) 오케스트라 전용 JS -->
+    <script src="orchestra.js" defer></script> 
+    <!-- (v1.8) 인물 생성 JS (필요시) -->
+    <!-- <script src="character.js" defer></script> -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 </body>
+</html>
