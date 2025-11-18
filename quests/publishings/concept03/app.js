@@ -32,7 +32,7 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 
-    // Simple tab switching logic for settings page (re-added for settings.html)
+    // Simple tab switching logic for settings page
     const settingsNavItems = document.querySelectorAll('.settings-nav-item');
     const settingsPanes = document.querySelectorAll('.settings-pane');
 
@@ -54,6 +54,41 @@ document.addEventListener('DOMContentLoaded', () => {
                     targetPane.classList.add('active');
                 }
             });
+        });
+    }
+
+    // Handle "Upgrade to Pro" button click in settings
+    const upgradeToProBtn = document.getElementById('upgrade-to-pro-btn');
+    if (upgradeToProBtn) {
+        upgradeToProBtn.addEventListener('click', (e) => {
+            e.preventDefault();
+            console.log('Simulating redirect to Stripe checkout for Pro upgrade.');
+            alert('Stripe 체크아웃 페이지로 이동합니다.');
+            window.location.href = 'pro-plan.html'; // Redirect to pro-plan page for now
+        });
+    }
+
+    // Handle "Upgrade" button click in Billing pane
+    const billingUpgradeBtn = document.getElementById('billing-upgrade-btn');
+    if (billingUpgradeBtn) {
+        billingUpgradeBtn.addEventListener('click', (e) => {
+            e.preventDefault();
+            console.log('Simulating redirect to Stripe checkout for Billing upgrade.');
+            alert('Stripe 체크아웃 페이지로 이동합니다.');
+            window.location.href = 'pro-plan.html'; // Redirect to pro-plan page for now
+        });
+    }
+
+    // Handle "Delete Account" button click
+    const deleteAccountBtn = document.getElementById('delete-account-btn');
+    if (deleteAccountBtn) {
+        deleteAccountBtn.addEventListener('click', () => {
+            if (confirm('정말로 계정을 삭제하시겠습니까? 이 작업은 되돌릴 수 없습니다.')) {
+                console.log('Simulating account deletion...');
+                alert('계정이 삭제되었습니다.');
+                // In a real app, you'd make an API call and then redirect to login/signup
+                window.location.href = 'login.html';
+            }
         });
     }
 });
