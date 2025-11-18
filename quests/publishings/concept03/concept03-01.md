@@ -20,16 +20,12 @@ https://jinh2kakao.github.io/study_vibecodings/quests/publishings/concept03/refe
 
 
 HTML 구조 제안:
-
+```
 <body> 안에 <div class='container'>를 생성하고, 이 안에 <aside class='sidebar'>, <main class='main-content'>를 포함하도록 합니다.
-
 <main class='main-content'> 안에는 <header class='top-header'>와 <section class='content-area'>를 포함합니다.
-
 <section class='content-area'> 안에는 Search Input, Page Title, Description, Prompt Grid를 배치합니다.
-
 Prompt Grid는 각 프롬프트 카드를 담는 <div class='prompt-card'> 요소들로 구성됩니다.
-
-
+```
 
 CSS 스타일 세부 지침:
 Reset CSS: 브라우저 기본 스타일을 재설정하는 CSS를 포함하도록 합니다.
@@ -70,6 +66,7 @@ Windows 정품 인증 워터마크 처리:
 첨부 이미지에 있는 'Windows 정품 인증' 워터마크는 웹 페이지의 요소가 아니므로, CSS 또는 HTML에 반영하지 않습니다. 이는 스크린샷 자체의 문제입니다.
 
 [OUTPUT_DELIVERABLES]
+```
 HTML Structure (index.html): <body> 태그 내부의 전체적인 HTML 구조를 제시합니다.
 
 CSS Styles (styles.css 또는 <style> 태그 내): 위 지침에 따라 body, .container, .sidebar, .main-content, .top-header, .prompt-grid, .prompt-card 등 핵심 요소들에 대한 CSS 규칙을 구체적으로 작성합니다.
@@ -77,3 +74,4 @@ CSS Styles (styles.css 또는 <style> 태그 내): 위 지침에 따라 body, .c
 Icon Integration Guide: 어떤 아이콘 라이브러리를 사용하고 어떻게 적용해야 하는지에 대한 간단한 지침을 제공합니다.
 
 Key Considerations: 구현 시 주의사항 또는 추가적으로 고려할 사항을 요약합니다.
+```
