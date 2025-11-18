@@ -1,136 +1,118 @@
 <!DOCTYPE html>
-<html lang="ko" data-bs-theme="dark">
+<html lang="ko">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>AI 노블 메이커 - 대시보드</title>
-    <!-- Bootstrap 5.3 CSS -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
-    <!-- Custom CSS -->
+    <title>Vibe V-Prompter</title>
     <link rel="stylesheet" href="style.css">
-    <!-- Bootstrap Icons -->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <!-- Google Fonts (Inter) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <!-- Font Awesome (for icons) -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 </head>
 <body>
-
-    <div id="navbar-placeholder"></div>
-
-    <div class="container mt-4">
-        <div class="d-flex justify-content-between align-items-center mb-4">
-            <h2 class="mb-0">내 프로젝트</h2>
-            <button class="btn btn-primary" id="new-project-btn">
-                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-plus-lg me-2" viewBox="0 0 16 16">
-                    <path fill-rule="evenodd" d="M8 2a.5.5 0 0 1 .5.5v5h5a.5.5 0 0 1 0 1h-5v5a.5.5 0 0 1-1 0v-5h-5a.5.5 0 0 1 0-1h5v-5A.5.5 0 0 1 8 2"/>
-                </svg>
-                새 소설 프로젝트
-            </button>
-        </div>
-
-        <!-- (v1.5) 핀터레스트 스타일 반응형 그리드 -->
-        <div class="row row-cols-1 row-cols-md-2 row-cols-lg-4 g-4">
-            <!-- Card 1 -->
-            <div class="col">
-                <div class="card project-card h-100">
-                    <img src="https://placehold.co/600x400/007bff/white?text=Project+A" class="card-img-top" alt="Project A">
-                    <div class="card-body">
-                        <h5 class="card-title">프로젝트 A</h5>
-                        <p class="card-text small text-muted">최근 수정: 2일 전</p>
-                    </div>
-                    <div class="card-footer bg-white border-0">
-                        <a href="workspace.html" class="btn btn-outline-primary btn-sm">워크스페이스로 이동</a>
-                    </div>
-                </div>
+    <div class="page-container">
+        <!-- Sidebar -->
+        <aside class="sidebar">
+            <div class="sidebar-top">
+                <a href="#" class="logo">
+                    <i class="fa-solid fa-atom"></i>
+                </a>
+                <nav class="sidebar-nav">
+                    <a href="#" class="nav-item"><i class="fa-solid fa-th-large"></i></a>
+                    <a href="#" class="nav-item active"><i class="fa-solid fa-lightbulb"></i></a>
+                    <a href="#" class="nav-item"><i class="fa-solid fa-folder"></i></a>
+                    <a href="#" class="nav-item"><i class="fa-solid fa-chart-line"></i></a>
+                </nav>
             </div>
-
-            <!-- Card 2 (다른 색상) -->
-            <div class="col">
-                <div class="card project-card h-100">
-                    <img src="https://placehold.co/600x400/6f42c1/white?text=Project+B" class="card-img-top" alt="Project B">
-                    <div class="card-body">
-                        <h5 class="card-title">프로젝트 B</h5>
-                        <p class="card-text small text-muted">최근 수정: 5일 전</p>
-                    </div>
-                    <div class="card-footer bg-white border-0">
-                        <a href="workspace.html" class="btn btn-outline-primary btn-sm">워크스페이스로 이동</a>
-                    </div>
-                </div>
+            <div class="sidebar-bottom">
+                <a href="#" class="nav-item"><i class="fa-solid fa-cog"></i></a>
+                <a href="#" class="nav-item profile">
+                    <img src="https://placehold.co/40x40/9B59B6/white?text=P" alt="Profile">
+                </a>
             </div>
+        </aside>
 
-            <!-- Card 3 (다른 색상) -->
-            <div class="col">
-                <div class="card project-card h-100">
-                    <img src="https://placehold.co/600x400/198754/white?text=Project+C" class="card-img-top" alt="Project C">
-                    <div class="card-body">
-                        <h5 class="card-title">프로젝트 C</h5>
-                        <p class="card-text small text-muted">최근 수정: 1시간 전</p>
-                    </div>
-                    <div class="card-footer bg-white border-0">
-                        <a href="workspace.html" class="btn btn-outline-primary btn-sm">워크스페이스로 이동</a>
-                    </div>
+        <!-- Main Content -->
+        <div class="main-wrapper">
+            <header class="top-header">
+                <div class="search-bar">
+                    <i class="fa-solid fa-search"></i>
+                    <input type="text" placeholder="Search prompts, agents, outputs...">
                 </div>
-            </div>
+                <button class="btn btn-primary">
+                    <i class="fa-solid fa-plus"></i> Create New Prompt
+                </button>
+            </header>
 
-            <!-- Card 4 (추가) -->
-            <div class="col">
-                <div class="card project-card h-100">
-                    <img src="https://placehold.co/600x400/fd7e14/white?text=Project+D" class="card-img-top" alt="Project D">
-                    <div class="card-body">
-                        <h5 class="card-title">프로젝트 D</h5>
-                        <p class="card-text small text-muted">최근 수정: 1일 전</p>
-                    </div>
-                    <div class="card-footer bg-white border-0">
-                        <a href="workspace.html" class="btn btn-outline-primary btn-sm">워크스페이스로 이동</a>
-                    </div>
+            <main class="content-area">
+                <div class="page-title">
+                    <h1>Prompts</h1>
+                    <p>Browse and manage your prompts, or create a new one to get started.</p>
                 </div>
-            </div>
+
+                <div class="prompt-grid">
+                    <!-- Card 1 -->
+                    <div class="prompt-card">
+                        <div class="card-header">
+                            <span class="category">CONTENT WRITING</span>
+                            <div class="tags">
+                                <span class="tag tag-my-prompt">My Prompt</span>
+                                <span class="tag tag-pro"><i class="fa-solid fa-lock"></i> PRO</span>
+                            </div>
+                        </div>
+                        <div class="card-body">
+                            <h3 class="card-title">Character backstory generator</h3>
+                            <p class="card-description">Create a rich and detailed backstory for your characters, including their motivations, fears, and secrets.</p>
+                        </div>
+                        <div class="card-footer">
+                            <div class="stats">
+                                <span class="stat-item"><i class="fa-regular fa-heart"></i> 1.2k</span>
+                                <span class="stat-item"><i class="fa-regular fa-comment"></i> 89</span>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Card 2 -->
+                    <div class="prompt-card">
+                        <div class="card-header">
+                            <span class="category">MARKETING</span>
+                        </div>
+                        <div class="card-body">
+                            <h3 class="card-title">AIDA Copywriting</h3>
+                            <p class="card-description">Generate persuasive marketing copy using the AIDA (Attention, Interest, Desire, Action) framework.</p>
+                        </div>
+                        <div class="card-footer">
+                            <div class="stats">
+                                <span class="stat-item"><i class="fa-regular fa-heart"></i> 980</span>
+                                <span class="stat-item"><i class="fa-regular fa-comment"></i> 120</span>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Card 3 -->
+                    <div class="prompt-card">
+                        <div class="card-header">
+                            <span class="category">DEVELOPMENT</span>
+                            <div class="tags">
+                                <span class="tag tag-pro"><i class="fa-solid fa-lock"></i> PRO</span>
+                            </div>
+                        </div>
+                        <div class="card-body">
+                            <h3 class="card-title">Regex pattern generator</h3>
+                            <p class="card-description">Describe the pattern you need and get a corresponding regular expression, with explanations.</p>
+                        </div>
+                        <div class="card-footer">
+                            <div class="stats">
+                                <span class="stat-item"><i class="fa-regular fa-heart"></i> 2.5k</span>
+                                <span class="stat-item"><i class="fa-regular fa-comment"></i> 245</span>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Add more cards as needed -->
+                </div>
+            </main>
         </div>
     </div>
-
-<!-- (v1.6) 새 프로젝트 생성 모달 (IA 2.2 Update) -->
-<div class="modal fade" id="newProjectModal" tabindex="-1">
-  <div class="modal-dialog modal-dialog-centered">
-    <div class="modal-content" style="border-radius: 1rem;">
-      <div class="modal-header border-0">
-        <h4 class="modal-title">새로운 세계 창조하기</h4>
-        <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
-      </div>
-      <div class="modal-body">
-        <form>
-          <!-- 1. 프로젝트 제목 -->
-          <div class="mb-3">
-            <label for="projectTitle" class="form-label">프로젝트 제목</label>
-            <input type="text" class="form-control" id="projectTitle" placeholder="예: 어둠의 계승자">
-          </div>
-          <!-- 2. 핵심 장르 -->
-          <div class="mb-3">
-            <label for="projectGenre" class="form-label">핵심 장르</label>
-            <select class="form-select" id="projectGenre">
-              <option value="fantasy" selected>판타지</option>
-              <option value="romance">로맨스</option>
-              <option value="sf">SF</option>
-              <option value="mystery">미스터리</option>
-            </select>
-          </div>
-          <!-- 3. 로그라인 -->
-          <div class="mb-3">
-            <label for="projectLogline" class="form-label">로그라인 (한 줄 요약)</label>
-            <textarea class="form-control" id="projectLogline" rows="2" placeholder="예: 몰락한 가문의 마지막 생존자가 복수를 위해 금지된 마법을 배우는 이야기"></textarea>
-          </div>
-        </form>
-      </div>
-      <div class="modal-footer border-0">
-        <!-- v1.5 스타일 .rounded-pill 자동 적용 -->
-        <a href="workspace.html" class="btn btn-primary">[+ 프로젝트 생성하기]</a>
-      </div>
-    </div>
-  </div>
-</div>
-
-    <!-- Bootstrap 5.3 JS (with Popper) -->
-    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.min.js" integrity="sha384-0pUGZvbkm6XF6gxjEnlmuGrJXVbNuzT9qBBavbLwCsOGabYfZo0T0to5eqruptLy" crossorigin="anonymous"></script>
-    <!-- Custom JavaScript -->
-    <script src="global-nav.js"></script>
-    <script src="app.js"></script>
 </body>
 </html>
