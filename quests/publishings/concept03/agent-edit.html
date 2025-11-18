@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI 노블 메이커 - 에이전트 편집</title>
+    <link rel="stylesheet" href="style.css">
+    <!-- Google Fonts (Inter) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <!-- Font Awesome (for icons) -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+<body>
+    <div class="page-container">
+        <!-- Sidebar -->
+        <aside class="sidebar">
+            <div class="sidebar-top">
+                <a href="index.html" class="logo">
+                    <i class="fa-solid fa-atom"></i>
+                </a>
+                <nav class="sidebar-nav">
+                    <a href="index.html" class="nav-item"><i class="fa-solid fa-house"></i></a> <!-- 내 프로젝트 (대시보드) -->
+                    <a href="agents.html" class="nav-item active"><i class="fa-solid fa-robot"></i></a> <!-- 에이전트 관리 -->
+                    <a href="templates.html" class="nav-item"><i class="fa-solid fa-layer-group"></i></a> <!-- 템플릿 -->
+                    <a href="settings.html" class="nav-item"><i class="fa-solid fa-gear"></i></a> <!-- 설정 및 구독 -->
+                </nav>
+            </div>
+            <div class="sidebar-bottom">
+                <div class="pro-mode-toggle">
+                    <label class="switch">
+                        <input type="checkbox" id="pro-mode-test-toggle">
+                        <span class="slider round"></span>
+                    </label>
+                    <span class="pro-mode-label">Pro Mode (Test)</span>
+                </div>
+                <a href="#" class="nav-item profile">
+                    <img src="https://placehold.co/40x40/9B59B6/white?text=P" alt="Profile">
+                </a>
+            </div>
+        </aside>
+
+        <!-- Main Content -->
+        <div class="main-wrapper">
+            <header class="top-header">
+                <div class="page-title-header">
+                    <a href="agents.html" class="subtle-link"><i class="fa-solid fa-arrow-left"></i> 에이전트 목록</a>
+                    <h1 id="agent-edit-title">새 에이전트 생성</h1>
+                </div>
+                <div class="header-actions">
+                    <button class="btn btn-danger" id="delete-agent-btn" style="display: none;">
+                        <i class="fa-solid fa-trash"></i> 삭제
+                    </button>
+                    <button class="btn btn-primary" id="save-agent-btn">
+                        <i class="fa-solid fa-save"></i> 저장
+                    </button>
+                </div>
+            </header>
+
+            <main class="content-area">
+                <div class="form-container">
+                    <div class="content-card">
+                        <form id="agent-form">
+                            <div class="form-group">
+                                <label for="agent-name" class="form-label">에이전트 이름</label>
+                                <input type="text" class="form-input" id="agent-name" placeholder="예: 세계관 구축 에이전트" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="system-prompt" class="form-label">시스템 프롬프트</label>
+                                <textarea class="form-input" id="system-prompt" rows="10" placeholder="이 에이전트가 어떤 역할을 수행해야 하는지 자세히 설명하세요. 예: 당신은 사용자가 제공하는 정보를 바탕으로 판타지 세계관의 역사, 지리, 문화, 종족 등을 상세하게 구축하는 전문 에이전트입니다."></textarea>
+                            </div>
+                            <div class="form-group">
+                                <label for="model-name" class="form-label">AI 모델</label>
+                                <select class="form-input" id="model-name" name="model_name">
+                                    <option value="gpt-4o">GPT-4o</option>
+                                    <option value="claude-3-sonnet">Claude 3 Sonnet</option>
+                                    <option value="gemini-1.5-pro">Gemini 1.5 Pro</option>
+                                    <option value="llama-3-8b">Llama 3 8B</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label for="api-key-id" class="form-label">인증 키</label>
+                                <select class="form-input" id="api-key-id" name="api_key_id">
+                                    <option value="">-- 키 선택 --</option>
+                                    <!-- API keys will be loaded here by JavaScript -->
+                                </select>
+                                <a href="settings.html#api-keys" class="subtle-link" style="align-self: flex-end; margin-top: 8px;">키 관리하러 가기</a>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </main>
+        </div>
+    </div>
+    <script src="app.js"></script>
+    <script src="agent-edit.js"></script>
+</body>
+</html>

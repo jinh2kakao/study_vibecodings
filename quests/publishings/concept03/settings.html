@@ -28,6 +28,13 @@
                 </nav>
             </div>
             <div class="sidebar-bottom">
+                <div class="pro-mode-toggle">
+                    <label class="switch">
+                        <input type="checkbox" id="pro-mode-test-toggle">
+                        <span class="slider round"></span>
+                    </label>
+                    <span class="pro-mode-label">Pro Mode (Test)</span>
+                </div>
                 <a href="#" class="nav-item profile">
                     <img src="https://placehold.co/40x40/9B59B6/white?text=P" alt="Profile">
                 </a>
@@ -63,6 +70,9 @@
                         </a>
                         <a href="#" class="settings-nav-item" data-target="account-pane">
                             <i class="fa-solid fa-user-circle"></i> Account
+                        </a>
+                        <a href="#" class="settings-nav-item" data-target="api-keys-pane" id="api-keys-nav-item">
+                            <i class="fa-solid fa-key"></i> API Keys
                         </a>
                     </nav>
 
@@ -126,6 +136,30 @@
                                 <h4>Danger Zone</h4>
                                 <p>Deleting your account is permanent and cannot be undone.</p>
                                 <button class="btn btn-danger" id="delete-account-btn">Delete Account</button>
+                            </div>
+                        </div>
+
+                        <!-- API Keys Pane -->
+                        <div class="settings-pane" id="api-keys-pane">
+                            <h3>API Key Management</h3>
+                            <div class="content-card">
+                                <p>Manage your external API keys for AI models. These keys are securely stored and used by your agents.</p>
+                                <div class="api-key-list">
+                                    <!-- API Keys will be loaded here by JavaScript -->
+                                    <div class="api-key-item">
+                                        <span class="key-alias">My OpenAI Key</span>
+                                        <span class="masked-key">sk-********************xyz</span>
+                                        <button class="btn btn-danger btn-small"><i class="fa-solid fa-trash"></i></button>
+                                    </div>
+                                    <div class="api-key-item">
+                                        <span class="key-alias">My Claude Key</span>
+                                        <span class="masked-key">sk-ant-********************abc</span>
+                                        <button class="btn btn-danger btn-small"><i class="fa-solid fa-trash"></i></button>
+                                    </div>
+                                </div>
+                                <button class="btn btn-secondary" id="add-api-key-btn" style="margin-top: 20px;">
+                                    <i class="fa-solid fa-plus"></i> 새 API 키 추가
+                                </button>
                             </div>
                         </div>
                     </div>
