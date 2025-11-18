@@ -35,26 +35,19 @@ Master Spec v1.9에 명시된 모든 API 엔드포인트의 Request/Response 스
 P0 핵심 API (반드시 정의 필요):
 
 POST /api/auth/signup (v1.1)
-
 POST /api/projects (v1.6)
-
 PUT /api/projects/{id} (v1.6 - Global Context 저장)
-
 GET/POST/PUT /api/projects/{id}/characters/{char_id} (v1.8)
-
 GET /api/templates (v1.2)
-
 POST /api/agents (v1.2 - 403 로직 포함)
-
 POST /api/workflows/{id} (v1.7)
-
 POST /api/jobs/execute/{id} (v1.7 - Async 202)
-
 GET /api/outputs?job_id={id} (v1.9)
-
-GET /api/notifications (v1.2)
-
 POST /api/stripe/webhook (v1.1)
+
+(범위 조정) 감사(Audit) 결과에 따라, 아래 기능은 P1으로 연기(Defer)되었으므로 P0 설계 범위에서 제외합니다:
+- 글로벌 알림 시스템 (v1.2): GET /api/notifications 및 관련 UI/DB
+- 에이전트별 사용량 통계 (v5.4)
 
 산출물 2: 데이터베이스 스키마 (ERD 및 상세 정의)
 
