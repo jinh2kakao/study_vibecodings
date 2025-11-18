@@ -1,130 +1,124 @@
 <!DOCTYPE html>
-<html lang="ko" data-bs-theme="dark">
+<html lang="ko">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Pro 플랜 상세 안내 - AI 노블 메이커</title>
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
-  <link rel="stylesheet" href="style.css"> <!-- Custom CSS for consistency -->
-  <style>
-    .feature-icon {
-      font-size: 3rem;
-      color: var(--bs-primary);
-    }
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vibe V-Prompter - Pro Plan</title>
+    <link rel="stylesheet" href="style.css">
+    <!-- Google Fonts (Inter) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <!-- Font Awesome (for icons) -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 </head>
 <body>
+    <div class="page-container">
+        <!-- Sidebar -->
+        <aside class="sidebar">
+            <div class="sidebar-top">
+                <a href="index.html" class="logo">
+                    <i class="fa-solid fa-atom"></i>
+                </a>
+                <nav class="sidebar-nav">
+                    <a href="index.html" class="nav-item"><i class="fa-solid fa-house"></i></a> <!-- 내 프로젝트 (대시보드) -->
+                    <a href="agents.html" class="nav-item"><i class="fa-solid fa-robot"></i></a> <!-- 에이전트 관리 -->
+                    <a href="templates.html" class="nav-item"><i class="fa-solid fa-layer-group"></i></a> <!-- 템플릿 -->
+                    <a href="settings.html" class="nav-item"><i class="fa-solid fa-gear"></i></a> <!-- 설정 및 구독 -->
+                </nav>
+            </div>
+            <div class="sidebar-bottom">
+                <a href="#" class="nav-item profile">
+                    <img src="https://placehold.co/40x40/9B59B6/white?text=P" alt="Profile">
+                </a>
+            </div>
+        </aside>
 
-  <!-- (IA 1.3) 글로벌 Navbar 삽입 위치 -->
-  <div id="navbar-placeholder"></div>
+        <!-- Main Content -->
+        <div class="main-wrapper">
+            <main class="content-area">
+                <!-- Hero Section -->
+                <div class="hero-section">
+                    <h1>Evolve your AI assistant into an AI writing team.</h1>
+                    <p class="hero-subtitle">Go beyond simple prompts. Build automated writing workflows, delegate repetitive tasks to your AI team, and focus solely on your creative story.</p>
+                    <div class="hero-cta">
+                        <a href="settings.html" class="btn btn-primary btn-large">Upgrade to Pro Now</a>
+                        <a href="index.html" class="btn btn-secondary btn-large">Back to Dashboard</a>
+                    </div>
+                </div>
 
-  <!-- (IA 1.4) Hero Section -->
-  <div class="container px-4 py-5 text-center">
-    <h1 class="display-4 fw-bold">AI 어시스턴트를 'AI 작가팀'으로 진화시키세요.</h1>
-    <div class="col-lg-8 mx-auto">
-      <p class="lead my-4">단순한 글쓰기 AI를 넘어, 당신만의 자동화된 집필 워크플로우를 구축하세요. 반복적인 작업을 AI에게 맡기고, 당신은 오직 창의적인 스토리에만 집중하세요.</p>
-      <div class="d-grid gap-2 d-sm-flex justify-content-sm-center">
-        <a href="settings.html" class="btn btn-primary btn-lg px-4 gap-3">즉시 Pro로 업그레이드</a>
-        <a href="index.html" class="btn btn-outline-secondary btn-lg px-4">대시보드로 돌아가기</a>
-      </div>
+                <!-- Features Section -->
+                <div class="prompt-grid">
+                    <div class="prompt-card">
+                        <div class="card-body">
+                            <h3 class="card-title"><i class="fa-solid fa-diagram-project"></i> Orchestra Canvas</h3>
+                            <p class="card-description">Visually design workflows that pass the output of a 'Plot Generator' to a 'Chapter Writer' automatically.</p>
+                        </div>
+                    </div>
+                    <div class="prompt-card">
+                        <div class="card-body">
+                            <h3 class="card-title"><i class="fa-solid fa-star"></i> Pro Templates</h3>
+                            <p class="card-description">Access dozens of premium templates like 'Plot Twist Generator' and build a team of unlimited AI agents.</p>
+                        </div>
+                    </div>
+                    <div class="prompt-card">
+                        <div class="card-body">
+                            <h3 class="card-title"><i class="fa-solid fa-bolt"></i> High-Volume & API</h3>
+                            <p class="card-description">Write non-stop with 100x more monthly tokens than the Free plan and get access to the developer API.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Comparison Table -->
+                <div class="content-card">
+                    <h2 class="text-center">Free vs. Pro</h2>
+                    <table class="comparison-table">
+                        <thead>
+                            <tr>
+                                <th>Feature</th>
+                                <th>Free</th>
+                                <th class="pro-column">Pro</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>AI Agents</td>
+                                <td>1 Agent</td>
+                                <td class="pro-column"><i class="fa-solid fa-infinity"></i> Unlimited</td>
+                            </tr>
+                            <tr>
+                                <td>Agent Templates</td>
+                                <td>Basic</td>
+                                <td class="pro-column">Basic + Pro Templates</td>
+                            </tr>
+                            <tr>
+                                <td>Orchestra Canvas</td>
+                                <td><i class="fa-solid fa-times"></i></td>
+                                <td class="pro-column"><i class="fa-solid fa-check"></i></td>
+                            </tr>
+                            <tr>
+                                <td>Monthly Tokens</td>
+                                <td>10,000</td>
+                                <td class="pro-column">1,000,000</td>
+                            </tr>
+                            <tr>
+                                <td>API Access</td>
+                                <td><i class="fa-solid fa-times"></i></td>
+                                <td class="pro-column"><i class="fa-solid fa-check"></i></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                 <!-- Final CTA -->
+                 <div class="hero-section">
+                    <h2>Command your 'AI Writing Team' today.</h2>
+                    <div class="hero-cta">
+                        <a href="settings.html" class="btn btn-primary btn-large">Upgrade to Pro Now</a>
+                    </div>
+                </div>
+            </main>
+        </div>
     </div>
-  </div>
-
-  <!-- (IA 1.4) Feature Sections -->
-  <div class="container px-4 py-5">
-    <div class="row g-4 py-5 row-cols-1 row-cols-lg-3">
-      <!-- Feature 1: Orchestra Canvas -->
-      <div class="col d-flex align-items-start">
-        <div class="feature-icon d-inline-flex align-items-center justify-content-center bg-primary-subtle text-primary-emphasis rounded-3 me-3 p-2">
-          <i class="bi bi-diagram-3-fill"></i>
-        </div>
-        <div>
-          <h3 class="fs-2">오케스트라 캔버스</h3>
-          <p>시각적 캔버스에서 '플롯 생성기'의 결과를 '챕터 집필가'에게 자동으로 전달하는 워크플로우를 드래그 앤 드롭으로 설계하세요.</p>
-        </div>
-      </div>
-      <!-- Feature 2: Pro Templates -->
-      <div class="col d-flex align-items-start">
-        <div class="feature-icon d-inline-flex align-items-center justify-content-center bg-primary-subtle text-primary-emphasis rounded-3 me-3 p-2">
-          <i class="bi bi-stars"></i>
-        </div>
-        <div>
-          <h3 class="fs-2">Pro 템플릿 & 무제한 에이전트</h3>
-          <p>'플롯 트위스트 생성기', '심층 캐릭터 분석가' 등 수십 개의 프리미엄 Pro 템플릿과 무제한의 AI 에이전트 팀을 구성하세요.</p>
-        </div>
-      </div>
-      <!-- Feature 3: API & Volume -->
-      <div class="col d-flex align-items-start">
-        <div class="feature-icon d-inline-flex align-items-center justify-content-center bg-primary-subtle text-primary-emphasis rounded-3 me-3 p-2">
-          <i class="bi bi-lightning-charge-fill"></i>
-        </div>
-        <div>
-          <h3 class="fs-2">대용량 토큰 & API 접근</h3>
-          <p>Free 플랜 대비 100배 더 많은 월간 토큰으로 장편 소설도 중단 없이 집필하세요. Pro 유저는 외부 연동 API에 접근할 수 있습니다.</p>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <!-- (IA 1.4) Comparison Table -->
-  <div class="container px-4 py-5">
-    <h2 class="pb-2 border-bottom text-center">Free vs Pro 비교</h2>
-    <div class="table-responsive">
-      <table class="table table-striped table-hover align-middle">
-        <thead>
-          <tr class="text-center">
-            <th style="width: 34%;"></th>
-            <th style="width: 33%;"><h3>Free</h3></th>
-            <th style="width: 33%;"><h3 class="text-primary">Pro</h3></th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <th scope="row" class="text-start">AI 에이전트 생성</th>
-            <td class="text-center">1개</td>
-            <td class="text-center fw-bold"><i class="bi bi-infinity text-primary"></i> 무제한</td>
-          </tr>
-          <tr>
-            <th scope="row" class="text-start">에이전트 템플릿</th>
-            <td class="text-center">Basic 템플릿</td>
-            <td class="text-center fw-bold"><i class="bi bi-check-circle-fill text-primary"></i> Basic + Pro 템플릿</td>
-          </tr>
-          <tr>
-            <th scope="row" class="text-start">오케스트라 캔버스</th>
-            <td class="text-center"><i class="bi bi-x-circle-fill text-muted"></i></td>
-            <td class="text-center"><i class="bi bi-check-circle-fill text-primary"></i></td>
-          </tr>
-          <tr>
-            <th scope="row" class="text-start">월간 토큰</th>
-            <td class="text-center">10,000</td>
-            <td class="text-center fw-bold text-primary">1,000,000</td>
-          </tr>
-          <tr>
-            <th scope="row" class="text-start">글로벌 알림</th>
-            <td class="text-center"><i class="bi bi-x-circle-fill text-muted"></i></td>
-            <td class="text-center"><i class="bi bi-check-circle-fill text-primary"></i></td>
-          </tr>
-          <tr>
-            <th scope="row" class="text-start">API 접근</th>
-            <td class="text-center"><i class="bi bi-x-circle-fill text-muted"></i></td>
-            <td class="text-center"><i class="bi bi-check-circle-fill text-primary"></i></td>
-          </tr>
-        </tbody>
-      </table>
-    </div>
-  </div>
-
-  <!-- (IA 1.4) Final CTA -->
-  <div class="container py-5 text-center">
-    <h2 class="display-5">지금 바로 당신의 'AI 작가팀'을 지휘하세요.</h2>
-    <div class="d-grid gap-2 col-6 mx-auto mt-4">
-      <a href="settings.html" class="btn btn-primary btn-lg">즉시 Pro로 업그레이드</a>
-    </div>
-  </div>
-
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
-  <!-- (IA 1.3) 글로벌 Navbar JS 로드 -->
-  <script src="global-nav.js" defer></script>
 </body>
 </html>

@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI 노블 메이커 - 템플릿</title>
+    <link rel="stylesheet" href="style.css">
+    <!-- Google Fonts (Inter) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <!-- Font Awesome (for icons) -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+<body>
+    <div class="page-container">
+        <!-- Sidebar -->
+        <aside class="sidebar">
+            <div class="sidebar-top">
+                <a href="index.html" class="logo">
+                    <i class="fa-solid fa-atom"></i>
+                </a>
+                <nav class="sidebar-nav">
+                    <a href="index.html" class="nav-item"><i class="fa-solid fa-house"></i></a> <!-- 내 프로젝트 (대시보드) -->
+                    <a href="agents.html" class="nav-item"><i class="fa-solid fa-robot"></i></a> <!-- 에이전트 관리 -->
+                    <a href="templates.html" class="nav-item active"><i class="fa-solid fa-layer-group"></i></a> <!-- 템플릿 -->
+                    <a href="settings.html" class="nav-item"><i class="fa-solid fa-gear"></i></a> <!-- 설정 및 구독 -->
+                </nav>
+            </div>
+            <div class="sidebar-bottom">
+                <a href="#" class="nav-item profile">
+                    <img src="https://placehold.co/40x40/9B59B6/white?text=P" alt="Profile">
+                </a>
+            </div>
+        </aside>
+
+        <!-- Main Content -->
+        <div class="main-wrapper">
+            <header class="top-header">
+                <div class="search-bar">
+                    <i class="fa-solid fa-search"></i>
+                    <input type="text" placeholder="템플릿 검색...">
+                </div>
+                <button class="btn btn-primary">
+                    <i class="fa-solid fa-plus"></i> 새 템플릿 생성
+                </button>
+            </header>
+
+            <main class="content-area">
+                <div class="page-title">
+                    <h1>템플릿 (Templates)</h1>
+                    <p>새 프로젝트나 에이전트를 생성할 때 사용할 템플릿을 관리합니다.</p>
+                </div>
+
+                <div class="prompt-grid">
+                    <!-- Placeholder for Template Cards -->
+                    <div class="prompt-card">
+                        <div class="card-header">
+                            <span class="category">PROJECT TEMPLATE</span>
+                        </div>
+                        <div class="card-body">
+                            <h3 class="card-title">판타지 소설 기본 템플릿</h3>
+                            <p class="card-description">세계관, 주요 인물, 플롯 개요가 포함된 판타지 소설 프로젝트 템플릿입니다.</p>
+                        </div>
+                        <div class="card-footer">
+                            <span class="last-updated">버전: 1.0</span>
+                        </div>
+                    </div>
+                    <div class="prompt-card">
+                        <div class="card-header">
+                            <span class="category">AGENT TEMPLATE</span>
+                            <div class="tags">
+                                <span class="tag tag-pro">PRO</span>
+                            </div>
+                        </div>
+                        <div class="card-body">
+                            <h3 class="card-title">심층 캐릭터 분석 에이전트</h3>
+                            <p class="card-description">인물의 성격, 배경, 관계를 심층적으로 분석하고 발전시킵니다.</p>
+                        </div>
+                        <div class="card-footer">
+                            <span class="last-updated">버전: 1.2</span>
+                        </div>
+                    </div>
+                </div>
+            </main>
+        </div>
+    </div>
+</body>
+</html>

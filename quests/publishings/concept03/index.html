@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Vibe V-Prompter</title>
+    <title>AI 노블 메이커 - 대시보드</title>
     <link rel="stylesheet" href="style.css">
     <!-- Google Fonts (Inter) -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -17,18 +17,17 @@
         <!-- Sidebar -->
         <aside class="sidebar">
             <div class="sidebar-top">
-                <a href="#" class="logo">
+                <a href="index.html" class="logo">
                     <i class="fa-solid fa-atom"></i>
                 </a>
                 <nav class="sidebar-nav">
-                    <a href="#" class="nav-item"><i class="fa-solid fa-th-large"></i></a>
-                    <a href="#" class="nav-item active"><i class="fa-solid fa-lightbulb"></i></a>
-                    <a href="#" class="nav-item"><i class="fa-solid fa-folder"></i></a>
-                    <a href="#" class="nav-item"><i class="fa-solid fa-chart-line"></i></a>
+                    <a href="index.html" class="nav-item active"><i class="fa-solid fa-house"></i></a> <!-- 내 프로젝트 (대시보드) -->
+                    <a href="agents.html" class="nav-item"><i class="fa-solid fa-robot"></i></a> <!-- 에이전트 관리 -->
+                    <a href="templates.html" class="nav-item"><i class="fa-solid fa-layer-group"></i></a> <!-- 템플릿 -->
+                    <a href="settings.html" class="nav-item"><i class="fa-solid fa-gear"></i></a> <!-- 설정 및 구독 -->
                 </nav>
             </div>
             <div class="sidebar-bottom">
-                <a href="#" class="nav-item"><i class="fa-solid fa-cog"></i></a>
                 <a href="#" class="nav-item profile">
                     <img src="https://placehold.co/40x40/9B59B6/white?text=P" alt="Profile">
                 </a>
@@ -40,79 +39,75 @@
             <header class="top-header">
                 <div class="search-bar">
                     <i class="fa-solid fa-search"></i>
-                    <input type="text" placeholder="Search prompts, agents, outputs...">
+                    <input type="text" placeholder="내 프로젝트 검색...">
                 </div>
-                <button class="btn btn-primary">
-                    <i class="fa-solid fa-plus"></i> Create New Prompt
+                <button class="btn btn-primary" id="create-new-project-btn">
+                    <i class="fa-solid fa-plus"></i> 새 프로젝트 생성
                 </button>
             </header>
 
             <main class="content-area">
                 <div class="page-title">
-                    <h1>Prompts</h1>
-                    <p>Browse and manage your prompts, or create a new one to get started.</p>
+                    <h1>내 프로젝트 (My Projects)</h1>
+                    <p>최근에 작업한 프로젝트를 확인하고 관리합니다.</p>
                 </div>
 
-                <div class="prompt-grid">
-                    <!-- Card 1 -->
-                    <div class="prompt-card">
-                        <div class="card-header">
-                            <span class="category">CONTENT WRITING</span>
-                            <div class="tags">
-                                <span class="tag tag-my-prompt">My Prompt</span>
-                                <span class="tag tag-pro"><i class="fa-solid fa-lock"></i> PRO</span>
+                <div class="project-grid">
+                    <!-- Project Card 1 -->
+                    <a href="#" class="project-card-link" data-project-id="proj_neo_seoul">
+                        <div class="project-card">
+                            <div class="card-header">
+                                <span class="tag tag-status-success">Success</span>
+                                <div class="tags">
+                                    <span class="tag tag-pro">PRO</span>
+                                </div>
+                            </div>
+                            <div class="card-body">
+                                <h3 class="card-title">네오-서울의 그림자</h3>
+                                <p class="card-description">세계관: 2042년, 거대 기업이 지배하는 사이버펑크 도시에서 기억을 잃은 용병의 이야기.</p>
+                            </div>
+                            <div class="card-footer">
+                                <span class="last-updated">5분 전 수정</span>
                             </div>
                         </div>
-                        <div class="card-body">
-                            <h3 class="card-title">Character backstory generator</h3>
-                            <p class="card-description">Create a rich and detailed backstory for your characters, including their motivations, fears, and secrets.</p>
-                        </div>
-                        <div class="card-footer">
-                            <div class="stats">
-                                <span class="stat-item"><i class="fa-regular fa-heart"></i> 1.2k</span>
-                                <span class="stat-item"><i class="fa-regular fa-comment"></i> 89</span>
+                    </a>
+                    <!-- Project Card 2 -->
+                    <a href="#" class="project-card-link" data-project-id="proj_magic_sword">
+                        <div class="project-card">
+                            <div class="card-header">
+                                <span class="tag tag-status-running">Running</span>
+                            </div>
+                            <div class="card-body">
+                                <h3 class="card-title">아카데미의 마법검</h3>
+                                <p class="card-description">플롯 요약: 평범한 학생이 전설의 마법검을 발견하며 숨겨진 운명에 눈을 뜨게 된다.</p>
+                            </div>
+                            <div class="card-footer">
+                                <span class="last-updated">1시간 전 수정</span>
                             </div>
                         </div>
-                    </div>
-                    <!-- Card 2 -->
-                    <div class="prompt-card">
-                        <div class="card-header">
-                            <span class="category">MARKETING</span>
-                        </div>
-                        <div class="card-body">
-                            <h3 class="card-title">AIDA Copywriting</h3>
-                            <p class="card-description">Generate persuasive marketing copy using the AIDA (Attention, Interest, Desire, Action) framework.</p>
-                        </div>
-                        <div class="card-footer">
-                            <div class="stats">
-                                <span class="stat-item"><i class="fa-regular fa-heart"></i> 980</span>
-                                <span class="stat-item"><i class="fa-regular fa-comment"></i> 120</span>
+                    </a>
+                    <!-- Project Card 3 -->
+                    <a href="#" class="project-card-link" data-project-id="proj_regressor_romance">
+                        <div class="project-card">
+                            <div class="card-header">
+                                <span class="tag tag-status-idle">Idle</span>
+                                <div class="tags">
+                                    <span class="tag tag-free">FREE</span>
+                                </div>
+                            </div>
+                            <div class="card-body">
+                                <h3 class="card-title">회귀자의 로맨스 판타지</h3>
+                                <p class="card-description">세계관: 비극적 죽음 이후, 모든 것을 되돌리기 위해 과거로 회귀한 공작 영애의 복수와 사랑.</p>
+                            </div>
+                            <div class="card-footer">
+                                <span class="last-updated">3일 전 수정</span>
                             </div>
                         </div>
-                    </div>
-                    <!-- Card 3 -->
-                    <div class="prompt-card">
-                        <div class="card-header">
-                            <span class="category">DEVELOPMENT</span>
-                            <div class="tags">
-                                <span class="tag tag-pro"><i class="fa-solid fa-lock"></i> PRO</span>
-                            </div>
-                        </div>
-                        <div class="card-body">
-                            <h3 class="card-title">Regex pattern generator</h3>
-                            <p class="card-description">Describe the pattern you need and get a corresponding regular expression, with explanations.</p>
-                        </div>
-                        <div class="card-footer">
-                            <div class="stats">
-                                <span class="stat-item"><i class="fa-regular fa-heart"></i> 2.5k</span>
-                                <span class="stat-item"><i class="fa-regular fa-comment"></i> 245</span>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- Add more cards as needed -->
+                    </a>
                 </div>
             </main>
         </div>
     </div>
+    <script src="app.js"></script>
 </body>
 </html>
