@@ -1069,4 +1069,73 @@ input:checked + .slider:before {
     gap: 5px;
 }
 
+/* Pinterest Style Character Cards */
+.character-cards-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); /* Responsive columns */
+    gap: 20px;
+    /* Optional: For a true masonry layout, you might need JavaScript or a library.
+       For pure CSS, we can simulate it with grid-auto-rows and careful sizing,
+       or simply let items flow naturally. */
+}
 
+.character-card-pinterest {
+    background-color: var(--card-bg);
+    border: 1px solid var(--border-color);
+    border-radius: 12px;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.character-card-pinterest:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+    border-color: var(--accent-primary);
+}
+
+.character-card-pinterest img {
+    width: 100%;
+    height: auto; /* Maintain aspect ratio */
+    display: block;
+}
+
+.character-card-pinterest .card-body {
+    padding: 15px;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.character-card-pinterest .card-title {
+    font-size: 16px;
+    font-weight: 600;
+    color: var(--text-primary);
+    margin-bottom: 0; /* Override default margin */
+}
+
+.character-card-pinterest .card-text {
+    font-size: 13px;
+    color: var(--text-secondary);
+    line-height: 1.4;
+}
+
+/* Custom styles for Bootstrap Modal to match dark theme */
+.modal-content {
+    background-color: var(--card-bg);
+    color: var(--text-primary);
+    border: 1px solid var(--border-color);
+}
+
+.modal-header {
+    border-bottom: 1px solid var(--border-color);
+}
+
+.modal-footer {
+    border-top: 1px solid var(--border-color);
+}
+
+.btn-close {
+    filter: invert(1) grayscale(100%) brightness(200%); /* Adjust for dark background */
+}
