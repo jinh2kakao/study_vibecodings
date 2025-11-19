@@ -63,13 +63,13 @@
                     </a>
                 </li>
                 <li class="sidebar-item">
-                    <a href="#" class="sidebar-link">
+                    <a href="templates.html" class="sidebar-link">
                         <i class="bi bi-journal-richtext"></i>
                         <span>Templates</span>
                     </a>
                 </li>
                 <li class="sidebar-item">
-                    <a href="#" class="sidebar-link">
+                    <a href="settings.html" class="sidebar-link">
                         <i class="bi bi-gear"></i>
                         <span>Settings</span>
                     </a>
@@ -96,36 +96,85 @@
             <div class="output-layout p-3">
                 <!-- Column 1: Output List -->
                 <div class="output-column output-list">
-                    <h5 class="mb-3">산출물 목록</h5>
-                    <div class="list-group list-group-flush">
-                        <a href="#" class="list-group-item list-group-item-action active" aria-current="true">
+                    <h5 class="mb-3">산출물 목록 (Artifacts)</h5>
+                    <div id="artifacts-list" class="list-group list-group-flush">
+                        <a href="#" class="list-group-item list-group-item-action active" data-target="art_1">
                             1. 챕터 1 본문 (최종)
                         </a>
-                        <a href="#" class="list-group-item list-group-item-action">2. 플롯 초안</a>
-                        <a href="#" class="list-group-item list-group-item-action">3. 인물 분석 노트</a>
-                        <a href="#" class="list-group-item list-group-item-action">4. 세계관 설정</a>
+                        <a href="#" class="list-group-item list-group-item-action" data-target="art_2">
+                            2. 플롯 초안
+                        </a>
+                        <a href="#" class="list-group-item list-group-item-action" data-target="art_3">
+                            3. 인물 분석 노트
+                        </a>
+                        <a href="#" class="list-group-item list-group-item-action" data-target="art_4">
+                            4. 세계관 설정
+                        </a>
                     </div>
                 </div>
 
                 <!-- Column 2: Content Viewer -->
                 <div class="output-column">
-                    <div class="d-flex justify-content-between align-items-center mb-3">
-                        <h5 class="mb-0">콘텐츠 뷰어</h5>
+                     <div class="d-flex justify-content-between align-items-center mb-3">
+                        <h5 class="mb-0">콘텐츠 뷰어 (Dynamic Content)</h5>
                         <button class="btn btn-sm btn-outline-secondary rounded-pill">
                             <i class="bi bi-pencil me-1"></i> 편집
                         </button>
                     </div>
-                    <div class="content-viewer">
-                        <h3 class="mb-3">챕터 1: 붉은 달의 그림자</h3>
-                        <p><strong>[메타::POV]</strong> 3인칭 제한적 시점 (진)</p>
-                        <p>네온사인이 비처럼 쏟아지는 신-서울의 밤. 진은 낡은 건물 옥상 난간에 걸터앉아 아래를 내려다보았다. 그의 눈에 비친 도시는 거대한 전자 회로처럼 복잡하게 얽혀 빛나고 있었다. 손에 든 데이터 칩에는 의뢰받은 정보가 담겨 있었다. '카이로스'라는 거대 기업의 비리. 이걸 터뜨리면 도시는 한바탕 혼란에 빠질 것이다.</p>
-                        <p>"시작해볼까."</p>
-                        <p>진은 칩을 자신의 사이버덱에 연결했다. 그의 의식이 데이터의 바다로 다이빙했다.</p>
-                        <hr>
-                        <textarea class="form-control" rows="10" placeholder="내용을 편집하세요...">### 챕터 1: 붉은 달의 그림자
+                    <div id="content-viewer">
+                        <div id="art_1" class="content-pane">
+                            <pre class="bg-light p-3 rounded">### 챕터 1: 붉은 달의 그림자
 
 **[메타::POV]** 3인칭 제한적 시점 (진)...
-                        </textarea>
+
+(소설 본문 내용...)</pre>
+                        </div>
+                        <div id="art_2" class="content-pane d-none">
+                            <pre class="bg-light p-3 rounded">### 챕터 1 플롯 구조 (3막 구성)
+
+**1. 발단 (Hook):**
+- 비 내리는 네오-서울의 뒷골목 묘사.
+- 주인공 '진'이 신라 타워를 올려다보며 복수를 다짐.
+
+**2. 전개 (Development):**
+- 카이저의 드론 순찰을 피하는 긴장감 조성.
+- 조력자 '카이'와의 통신 연결.
+
+**3. 위기 (Crisis):**
+- 예상치 못한 검문 발생. 사이버네틱 팔의 오작동.
+
+**4. 절정/결말 (Climax/Resolution):**
+- 기지를 발휘해 검문 통과, 타워 내부 잠입 성공.</pre>
+                        </div>
+                        <div id="art_3" class="content-pane d-none">
+                            <pre class="bg-light p-3 rounded">### 인물 심리 분석 노트: 진 (Jin)
+
+**현재 상태:**
+- 극도의 긴장감과 억눌린 분노 상태.
+- 과거의 트라우마(가족의 죽음)가 환청처럼 들림.
+
+**행동 동기:**
+- '생존'보다는 '복수'가 우선순위.
+- 위험한 상황에서도 물러서지 않는 '충동성'이 드러남.
+
+**주요 대사 톤:**
+- 짧고 냉소적인 독백. 타인에게는 방어적인 태도.</pre>
+                        </div>
+                        <div id="art_4" class="content-pane d-none">
+                            <pre class="bg-light p-3 rounded">### 세계관 설정: 신라 타워 (Silla Tower)
+
+**개요:**
+- 네오-서울의 랜드마크이자 지배 기업 '신라'의 본사.
+- 높이 1230m, 도시의 모든 에너지를 독점 공급.
+
+**구역 구분:**
+- **상층부 (Sky Haven):** 고위 간부 거주, 청정 공기 유지.
+- **중층부 (Corporate Zone):** 업무 지구, 보안 레벨 A.
+- **하층부 (The Root):** 에너지 처리 시설, 하층민 접근 불가 구역.
+
+**특별 규칙:**
+- 타워 반경 500m 내에서는 허가받지 않은 모든 전파 통신이 차단됨.</pre>
+                        </div>
                     </div>
                 </div>
 
@@ -142,12 +191,8 @@
                             <span class="value text-success"><i class="bi bi-check-circle-fill me-1"></i>Success</span>
                         </div>
                         <div class="info-list-item">
-                            <span class="label">소요 시간</span>
-                            <span class="value">48.5s</span>
-                        </div>
-                        <div class="info-list-item">
-                            <span class="label">설정</span>
-                            <span class="value">판타지, 어둡게, 진(Jin)</span>
+                            <span class="label">연결된 에이전트</span>
+                            <span class="value">플롯 생성기 -> 챕터 집필가</span>
                         </div>
                     </div>
                     <div class="d-grid gap-2">
