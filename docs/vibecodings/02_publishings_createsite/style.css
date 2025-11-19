@@ -1,0 +1,160 @@
+:root {
+    --sidebar-width: 260px;
+    --sidebar-bg: #111827;
+    --content-bg: #F9FAFB;
+    --primary-accent: #9B59B6;
+    --primary-accent-darker: #8E44AD;
+    --sidebar-text: #9CA3AF;
+    --text-light: #FFF;
+    --text-dark: #111827;
+    --border-color: #E5E7EB;
+}
+
+/* 1. Typography & Body */
+body {
+    font-family: 'Inter', sans-serif;
+    background-color: var(--content-bg);
+    color: var(--text-dark);
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-weight: 600;
+}
+
+/* 2. Layout Structure */
+.sidebar-layout {
+    display: flex;
+    min-height: 100vh;
+}
+
+.dark-sidebar {
+    width: var(--sidebar-width);
+    background-color: var(--sidebar-bg);
+    color: var(--sidebar-text);
+    display: flex;
+    flex-direction: column;
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100vh;
+    padding: 1.5rem;
+    transition: margin-left 0.3s;
+}
+
+.main-content {
+    flex-grow: 1;
+    margin-left: var(--sidebar-width);
+    padding: 2rem;
+    background-color: var(--content-bg);
+}
+
+/* 3. Sidebar Components */
+.sidebar-header {
+    margin-bottom: 2rem;
+}
+
+.sidebar-brand {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--text-light);
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+}
+.sidebar-brand .bi {
+    color: var(--primary-accent);
+}
+
+.sidebar-nav {
+    list-style: none;
+    padding-left: 0;
+    flex-grow: 1;
+}
+
+.sidebar-item {
+    margin-bottom: 0.5rem;
+}
+
+.sidebar-link {
+    display: flex;
+    align-items: center;
+    padding: 0.75rem 1rem;
+    border-radius: 0.5rem;
+    color: var(--sidebar-text);
+    text-decoration: none;
+    transition: background-color 0.2s, color 0.2s;
+}
+
+.sidebar-link:hover {
+    background-color: #1F2937;
+    color: var(--text-light);
+}
+
+.sidebar-item.active .sidebar-link {
+    background-color: var(--primary-accent);
+    color: var(--text-light);
+    font-weight: 500;
+}
+
+.sidebar-link .bi {
+    margin-right: 0.75rem;
+    font-size: 1.1rem;
+}
+
+.sidebar-footer {
+    margin-top: auto;
+}
+
+/* 4. Pinterest-style Cards */
+.card {
+    border: 0;
+    box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.075); /* shadow-sm */
+    border-radius: 1rem !important; /* rounded-4 */
+}
+
+/* 5. Buttons & Forms */
+.btn-primary {
+    background-color: var(--primary-accent);
+    border-color: var(--primary-accent);
+}
+
+.btn-primary:hover, .btn-primary:focus {
+    background-color: var(--primary-accent-darker);
+    border-color: var(--primary-accent-darker);
+}
+
+.btn.rounded-pill {
+    border-radius: 50rem !important;
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
+}
+
+.form-check-input:checked {
+    background-color: var(--primary-accent);
+    border-color: var(--primary-accent);
+}
+
+/* 6. Bootstrap Component Overrides */
+.nav-pills .nav-link.active, .nav-pills .show>.nav-link {
+    background-color: var(--primary-accent);
+}
+
+.progress-bar {
+    background-color: var(--primary-accent);
+}
+
+a {
+    color: var(--primary-accent);
+}
+a:hover {
+    color: var(--primary-accent-darker);
+}
+
+.text-primary {
+    color: var(--primary-accent) !important;
+}
+
+.list-group-item-action.active {
+    background-color: var(--primary-accent);
+    border-color: var(--primary-accent);
+}

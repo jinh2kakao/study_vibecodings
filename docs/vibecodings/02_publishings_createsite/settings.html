@@ -6,13 +6,13 @@
     <title>AI 노블 메이커 - Settings</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
-    <link rel="stylesheet" href="custom.css">
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-    <div class="d-flex">
-        <!-- Fixed Dark Sidebar -->
-        <nav class="sidebar">
+    <div class="sidebar-layout">
+        <!-- v2.1 Dark Sidebar -->
+        <aside class="dark-sidebar">
             <div class="sidebar-header">
                 <a href="index.html" class="sidebar-brand">
                     <i class="bi bi-stars me-2"></i>
@@ -22,7 +22,7 @@
             <ul class="sidebar-nav">
                 <li class="sidebar-item">
                     <a href="index.html" class="sidebar-link">
-                        <i class="bi bi-grid-1x2-fill"></i>
+                        <i class="bi bi-grid-fill"></i>
                         <span>Dashboard</span>
                     </a>
                 </li>
@@ -34,7 +34,7 @@
                 </li>
                 <li class="sidebar-item">
                     <a href="templates.html" class="sidebar-link">
-                        <i class="bi bi-journal-richtext"></i>
+                        <i class="bi bi-layers-fill"></i>
                         <span>Templates</span>
                     </a>
                 </li>
@@ -46,10 +46,6 @@
                 </li>
             </ul>
             <div class="sidebar-footer">
-                <div class="form-check form-switch mb-3">
-                    <input class="form-check-input" type="checkbox" id="proModeSwitch">
-                    <label class="form-check-label" for="proModeSwitch">Pro Mode</label>
-                </div>
                 <a href="mypage.html" class="sidebar-link mb-2">
                     <i class="bi bi-person-circle"></i>
                     <span>My Page</span>
@@ -59,11 +55,11 @@
                     <span>Logout</span>
                 </a>
             </div>
-        </nav>
+        </aside>
 
         <!-- Main Content -->
         <main class="main-content">
-            <div class="container-fluid p-4">
+            <div class="container-fluid">
                 <!-- Header -->
                 <div class="mb-4">
                     <h1 class="h3 mb-0">설정 및 구독 (Settings)</h1>
@@ -88,7 +84,7 @@
                     <div class="tab-content flex-grow-1" id="v-pills-tabContent">
                         <!-- Subscription Tab -->
                         <div class="tab-pane fade show active" id="v-pills-subscription" role="tabpanel" aria-labelledby="v-pills-subscription-tab">
-                            <div class="card border-0 shadow-sm rounded-4">
+                            <div class="card">
                                 <div class="card-body p-4">
                                     <h5 class="mb-3">내 구독 플랜</h5>
                                     <div class="p-4 rounded-3 bg-light mb-4">
@@ -113,7 +109,7 @@
                                             <li class="mb-2"><i class="bi bi-check-circle-fill text-primary me-2"></i>오케스트라 캔버스 기능</li>
                                             <li class="mb-0"><i class="bi bi-check-circle-fill text-primary me-2"></i>월 100만 토큰 제공</li>
                                         </ul>
-                                        <a href="pro-plan.html" class="btn btn-primary w-100">Pro로 업그레이드</a>
+                                        <a href="pro-plan.html" class="btn btn-primary rounded-pill w-100">Pro로 업그레이드</a>
                                     </div>
                                 </div>
                             </div>
@@ -121,23 +117,23 @@
 
                         <!-- Billing Tab -->
                         <div class="tab-pane fade" id="v-pills-billing" role="tabpanel" aria-labelledby="v-pills-billing-tab">
-                           <div class="card border-0 shadow-sm rounded-4 text-center p-5">
+                           <div class="card text-center p-5">
                                 <div class="card-body">
                                     <i class="bi bi-lock-fill fs-1 text-muted mb-3"></i>
                                     <h5 class="card-title">Pro 플랜 전용 기능입니다</h5>
                                     <p class="text-muted">결제 수단 및 인보이스 관리는 Pro 플랜 구독 후 Stripe 보안 포털에서 안전하게 진행됩니다.</p>
-                                     <a href="pro-plan.html" class="btn btn-primary mt-3">Pro 플랜 살펴보기</a>
+                                     <a href="pro-plan.html" class="btn btn-primary rounded-pill mt-3">Pro 플랜 살펴보기</a>
                                 </div>
                             </div>
                         </div>
 
                         <!-- API Keys Tab -->
                         <div class="tab-pane fade" id="v-pills-api-keys" role="tabpanel" aria-labelledby="v-pills-api-keys-tab">
-                             <div class="card border-0 shadow-sm rounded-4">
+                             <div class="card">
                                 <div class="card-body p-4">
                                     <div class="d-flex justify-content-between align-items-center mb-3">
                                         <h5 class="mb-0">API 키 관리</h5>
-                                        <button class="btn btn-primary btn-sm"><i class="bi bi-plus-lg me-1"></i>새 API 키 생성</button>
+                                        <button class="btn btn-primary btn-sm rounded-pill"><i class="bi bi-plus-lg me-1"></i>새 API 키 생성</button>
                                     </div>
                                     <p class="text-muted">외부 애플리케이션 연동을 위한 API 키를 관리합니다. 키는 다시 표시되지 않으니 안전한 곳에 보관하세요.</p>
                                     <ul class="list-group">
@@ -158,7 +154,7 @@
 
                         <!-- Account Tab -->
                         <div class="tab-pane fade" id="v-pills-account" role="tabpanel" aria-labelledby="v-pills-account-tab">
-                            <div class="card border-0 shadow-sm rounded-4 mb-4">
+                            <div class="card mb-4">
                                 <div class="card-body p-4">
                                     <h5 class="mb-3">비밀번호 변경</h5>
                                     <form>
@@ -170,11 +166,11 @@
                                             <label for="newPassword" class="form-label">새 비밀번호</label>
                                             <input type="password" class="form-control" id="newPassword">
                                         </div>
-                                        <button type="submit" class="btn btn-primary">비밀번호 변경</button>
+                                        <button type="submit" class="btn btn-primary rounded-pill">비밀번호 변경</button>
                                     </form>
                                 </div>
                             </div>
-                            <div class="card border-danger shadow-sm rounded-4">
+                            <div class="card border-danger">
                                 <div class="card-body p-4">
                                     <h5 class="text-danger mb-2">Danger Zone</h5>
                                     <p class="text-muted">이 작업은 되돌릴 수 없습니다. 신중하게 진행해주세요.</p>
@@ -189,6 +185,6 @@
     </div>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="main.js"></script>
+    <script src="layout.js"></script>
 </body>
 </html>

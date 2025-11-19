@@ -6,43 +6,31 @@
     <title>AI 노블 메이커 - Output Detail</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
-    <link rel="stylesheet" href="custom.css">
+    <link rel="stylesheet" href="style.css">
     <style>
-        .output-layout {
+        .main-content {
+            display: flex;
+            flex-direction: column;
+            height: 100vh;
+        }
+        .output-grid {
             display: grid;
             grid-template-columns: 300px 1fr 320px;
-            gap: 1rem;
-            height: calc(100vh - 56px); /* Full height minus header */
+            gap: 1.5rem;
+            flex-grow: 1;
+            overflow: hidden;
         }
         .output-column {
-            background-color: #FFF;
-            border-radius: 0.5rem;
-            padding: 1.5rem;
-            overflow-y: auto;
             height: 100%;
-        }
-        .output-list .list-group-item {
-            cursor: pointer;
-        }
-        .output-list .list-group-item.active {
-            font-weight: 500;
-        }
-        .info-list-item {
-            display: flex;
-            justify-content: space-between;
-            padding: 0.5rem 0;
-            border-bottom: 1px solid #E5E7EB;
-        }
-        .info-list-item .label {
-            color: #6B7280;
+            overflow-y: auto;
         }
     </style>
 </head>
 <body>
 
-    <div class="d-flex">
-        <!-- Sidebar -->
-        <nav class="sidebar">
+    <div class="sidebar-layout">
+        <!-- v2.1 Dark Sidebar -->
+        <aside class="dark-sidebar">
             <div class="sidebar-header">
                 <a href="index.html" class="sidebar-brand">
                     <i class="bi bi-stars me-2"></i>
@@ -52,7 +40,7 @@
             <ul class="sidebar-nav">
                 <li class="sidebar-item">
                     <a href="index.html" class="sidebar-link">
-                        <i class="bi bi-grid-1x2-fill"></i>
+                        <i class="bi bi-grid-fill"></i>
                         <span>Dashboard</span>
                     </a>
                 </li>
@@ -64,22 +52,18 @@
                 </li>
                 <li class="sidebar-item">
                     <a href="templates.html" class="sidebar-link">
-                        <i class="bi bi-journal-richtext"></i>
+                        <i class="bi bi-layers-fill"></i>
                         <span>Templates</span>
                     </a>
                 </li>
                 <li class="sidebar-item">
                     <a href="settings.html" class="sidebar-link">
-                        <i class="bi bi-gear"></i>
+                        <i class="bi bi-gear-fill"></i>
                         <span>Settings</span>
                     </a>
                 </li>
             </ul>
             <div class="sidebar-footer">
-                <div class="form-check form-switch mb-3">
-                    <input class="form-check-input" type="checkbox" id="proModeSwitch" checked>
-                    <label class="form-check-label" for="proModeSwitch">Pro Mode</label>
-                </div>
                 <a href="mypage.html" class="sidebar-link mb-2">
                     <i class="bi bi-person-circle"></i>
                     <span>My Page</span>
@@ -89,113 +73,61 @@
                     <span>Logout</span>
                 </a>
             </div>
-        </nav>
+        </aside>
 
         <!-- Main Content -->
         <main class="main-content">
-            <div class="output-layout p-3">
+            <header class="d-flex justify-content-between align-items-center mb-4">
+                 <nav aria-label="breadcrumb">
+                    <ol class="breadcrumb mb-0">
+                        <li class="breadcrumb-item"><a href="index.html">Projects</a></li>
+                        <li class="breadcrumb-item"><a href="index.html">네오-서울의 그림자</a></li>
+                        <li class="breadcrumb-item active" aria-current="page">Outputs</li>
+                    </ol>
+                </nav>
+            </header>
+            
+            <div class="output-grid">
                 <!-- Column 1: Output List -->
-                <div class="output-column output-list">
+                <div class="output-column card p-3">
                     <h5 class="mb-3">산출물 목록 (Artifacts)</h5>
                     <div id="artifacts-list" class="list-group list-group-flush">
-                        <a href="#" class="list-group-item list-group-item-action active" data-target="art_1">
-                            1. 챕터 1 본문 (최종)
-                        </a>
-                        <a href="#" class="list-group-item list-group-item-action" data-target="art_2">
-                            2. 플롯 초안
-                        </a>
-                        <a href="#" class="list-group-item list-group-item-action" data-target="art_3">
-                            3. 인물 분석 노트
-                        </a>
-                        <a href="#" class="list-group-item list-group-item-action" data-target="art_4">
-                            4. 세계관 설정
-                        </a>
+                        <a href="#" class="list-group-item list-group-item-action active" data-target="art_1">1. 챕터 1 본문 (최종)</a>
+                        <a href="#" class="list-group-item list-group-item-action" data-target="art_2">2. 플롯 초안</a>
+                        <a href="#" class="list-group-item list-group-item-action" data-target="art_3">3. 인물 분석 노트</a>
+                        <a href="#" class="list-group-item list-group-item-action" data-target="art_4">4. 세계관 설정</a>
                     </div>
                 </div>
 
                 <!-- Column 2: Content Viewer -->
-                <div class="output-column">
+                <div class="output-column card p-3">
                      <div class="d-flex justify-content-between align-items-center mb-3">
-                        <h5 class="mb-0">콘텐츠 뷰어 (Dynamic Content)</h5>
-                        <button class="btn btn-sm btn-outline-secondary rounded-pill">
-                            <i class="bi bi-pencil me-1"></i> 편집
-                        </button>
+                        <h5 class="mb-0">콘텐츠 뷰어</h5>
+                        <button class="btn btn-sm btn-outline-secondary rounded-pill"><i class="bi bi-pencil me-1"></i> 편집</button>
                     </div>
-                    <div id="content-viewer">
+                    <div id="content-viewer" class="bg-light p-3 rounded h-100">
                         <div id="art_1" class="content-pane">
-                            <pre class="bg-light p-3 rounded">### 챕터 1: 붉은 달의 그림자
+                            <pre>### 챕터 1: 붉은 달의 그림자
 
 **[메타::POV]** 3인칭 제한적 시점 (진)...
 
 (소설 본문 내용...)</pre>
                         </div>
-                        <div id="art_2" class="content-pane d-none">
-                            <pre class="bg-light p-3 rounded">### 챕터 1 플롯 구조 (3막 구성)
-
-**1. 발단 (Hook):**
-- 비 내리는 네오-서울의 뒷골목 묘사.
-- 주인공 '진'이 신라 타워를 올려다보며 복수를 다짐.
-
-**2. 전개 (Development):**
-- 카이저의 드론 순찰을 피하는 긴장감 조성.
-- 조력자 '카이'와의 통신 연결.
-
-**3. 위기 (Crisis):**
-- 예상치 못한 검문 발생. 사이버네틱 팔의 오작동.
-
-**4. 절정/결말 (Climax/Resolution):**
-- 기지를 발휘해 검문 통과, 타워 내부 잠입 성공.</pre>
-                        </div>
-                        <div id="art_3" class="content-pane d-none">
-                            <pre class="bg-light p-3 rounded">### 인물 심리 분석 노트: 진 (Jin)
-
-**현재 상태:**
-- 극도의 긴장감과 억눌린 분노 상태.
-- 과거의 트라우마(가족의 죽음)가 환청처럼 들림.
-
-**행동 동기:**
-- '생존'보다는 '복수'가 우선순위.
-- 위험한 상황에서도 물러서지 않는 '충동성'이 드러남.
-
-**주요 대사 톤:**
-- 짧고 냉소적인 독백. 타인에게는 방어적인 태도.</pre>
-                        </div>
-                        <div id="art_4" class="content-pane d-none">
-                            <pre class="bg-light p-3 rounded">### 세계관 설정: 신라 타워 (Silla Tower)
-
-**개요:**
-- 네오-서울의 랜드마크이자 지배 기업 '신라'의 본사.
-- 높이 1230m, 도시의 모든 에너지를 독점 공급.
-
-**구역 구분:**
-- **상층부 (Sky Haven):** 고위 간부 거주, 청정 공기 유지.
-- **중층부 (Corporate Zone):** 업무 지구, 보안 레벨 A.
-- **하층부 (The Root):** 에너지 처리 시설, 하층민 접근 불가 구역.
-
-**특별 규칙:**
-- 타워 반경 500m 내에서는 허가받지 않은 모든 전파 통신이 차단됨.</pre>
-                        </div>
+                        <div id="art_2" class="content-pane d-none"><pre>### 챕터 1 플롯 구조 (3막 구성)...</pre></div>
+                        <div id="art_3" class="content-pane d-none"><pre>### 인물 심리 분석 노트: 진 (Jin)...</pre></div>
+                        <div id="art_4" class="content-pane d-none"><pre>### 세계관 설정: 신라 타워 (Silla Tower)...</pre></div>
                     </div>
                 </div>
 
                 <!-- Column 3: Generation Context -->
-                <div class="output-column">
+                <div class="output-column card p-3">
                     <h5 class="mb-3">생성 컨텍스트</h5>
-                    <div class="info-list mb-4">
-                        <div class="info-list-item">
-                            <span class="label">워크플로우</span>
-                            <span class="value">첫 챕터 생성기</span>
-                        </div>
-                        <div class="info-list-item">
-                            <span class="label">상태</span>
-                            <span class="value text-success"><i class="bi bi-check-circle-fill me-1"></i>Success</span>
-                        </div>
-                        <div class="info-list-item">
-                            <span class="label">연결된 에이전트</span>
-                            <span class="value">플롯 생성기 -> 챕터 집필가</span>
-                        </div>
-                    </div>
-                    <div class="d-grid gap-2">
+                    <ul class="list-group list-group-flush">
+                        <li class="list-group-item d-flex justify-content-between"><strong>워크플로우</strong><span>첫 챕터 생성기</span></li>
+                        <li class="list-group-item d-flex justify-content-between"><strong>상태</strong><span class="text-success">Success</span></li>
+                        <li class="list-group-item d-flex justify-content-between"><strong>연결된 에이전트</strong><span>플롯 생성기 -> 챕터 집필가</span></li>
+                    </ul>
+                    <div class="d-grid gap-2 mt-auto">
                         <button class="btn btn-primary rounded-pill">다시 실행</button>
                         <button class="btn btn-outline-secondary rounded-pill">워크플로우 편집</button>
                     </div>
@@ -205,6 +137,34 @@
     </div>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="main.js"></script>
+    <script src="layout.js"></script>
+    <script>
+        // Basic tab switching logic for output detail page
+        document.addEventListener('DOMContentLoaded', function () {
+            const artifactsList = document.getElementById('artifacts-list');
+            if(artifactsList) {
+                const links = artifactsList.querySelectorAll('.list-group-item-action');
+                const panes = document.querySelectorAll('.content-pane');
+
+                links.forEach(link => {
+                    link.addEventListener('click', function (e) {
+                        e.preventDefault();
+                        
+                        links.forEach(l => l.classList.remove('active'));
+                        this.classList.add('active');
+
+                        const targetId = this.getAttribute('data-target');
+                        panes.forEach(pane => {
+                            if (pane.id === targetId) {
+                                pane.classList.remove('d-none');
+                            } else {
+                                pane.classList.add('d-none');
+                            }
+                        });
+                    });
+                });
+            }
+        });
+    </script>
 </body>
 </html>

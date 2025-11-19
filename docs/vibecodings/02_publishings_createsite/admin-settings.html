@@ -6,96 +6,88 @@
     <title>Settings - AI Novel Maker Admin</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
-    <link rel="stylesheet" href="admin-custom.css">
+    <link rel="stylesheet" href="style.css">
 </head>
-<body class="sb-nav-fixed">
+<body>
 
-    <!-- Top Navbar -->
-    <nav class="sb-topnav navbar navbar-expand navbar-dark bg-dark">
-        <a class="navbar-brand ps-3" href="admin.html">AI Novel Maker Admin</a>
-        <button class="btn btn-link btn-sm order-1 order-lg-0 me-4 me-lg-0" id="sidebarToggle" href="#!"><i class="bi bi-list"></i></button>
-        <ul class="navbar-nav ms-auto ms-md-0 me-3 me-lg-4">
-            <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle" id="navbarDropdown" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false"><i class="bi bi-person-fill"></i></a>
-                <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
-                    <li><a class="dropdown-item" href="#!">Settings</a></li>
-                    <li><a class="dropdown-item" href="#!">Activity Log</a></li>
-                    <li><hr class="dropdown-divider" /></li>
-                    <li><a class="dropdown-item" href="#!">Logout</a></li>
-                </ul>
-            </li>
-        </ul>
-    </nav>
-
-    <div id="layoutSidenav">
-        <!-- Side Navbar -->
-        <div id="layoutSidenav_nav">
-            <nav class="sb-sidenav accordion sb-sidenav-dark" id="sidenavAccordion">
-                <div class="sb-sidenav-menu">
-                    <div class="nav">
-                        <div class="sb-sidenav-menu-heading">Core</div>
-                        <a class="nav-link" href="admin.html">
-                            <div class="sb-nav-link-icon"><i class="bi bi-speedometer2"></i></div>
-                            Dashboards
-                        </a>
-                        <div class="sb-sidenav-menu-heading">Management</div>
-                        <a class="nav-link" href="admin-users.html">
-                            <div class="sb-nav-link-icon"><i class="bi bi-people"></i></div>
-                            User Management
-                        </a>
-                        <a class="nav-link" href="admin-templates.html">
-                            <div class="sb-nav-link-icon"><i class="bi bi-layout-text-window-reverse"></i></div>
-                            Templates (CMS)
-                        </a>
-                        <a class="nav-link" href="admin-system.html">
-                            <div class="sb-nav-link-icon"><i class="bi bi-bar-chart-line"></i></div>
-                            System & FinOps
-                        </a>
-                        <a class="nav-link active" href="admin-settings.html">
-                            <div class="sb-nav-link-icon"><i class="bi bi-gear"></i></div>
-                            Settings
-                        </a>
-                    </div>
-                </div>
-                <div class="sb-sidenav-footer">
-                    <div class="small">Logged in as:</div>
-                    Admin User
-                </div>
-            </nav>
-        </div>
+    <div class="sidebar-layout">
+        <!-- v2.1 Dark Sidebar for Admin -->
+        <aside class="dark-sidebar">
+            <div class="sidebar-header">
+                <a href="admin.html" class="sidebar-brand">
+                    <i class="bi bi-shield-lock-fill me-2"></i>
+                    <span>Admin Panel</span>
+                </a>
+            </div>
+            <ul class="sidebar-nav">
+                <li class="sidebar-item">
+                    <a href="admin.html" class="sidebar-link">
+                        <i class="bi bi-speedometer2"></i>
+                        <span>Dashboard</span>
+                    </a>
+                </li>
+                <li class="sidebar-item">
+                    <a href="admin-users.html" class="sidebar-link">
+                        <i class="bi bi-people-fill"></i>
+                        <span>User Management</span>
+                    </a>
+                </li>
+                <li class="sidebar-item">
+                    <a href="admin-templates.html" class="sidebar-link">
+                        <i class="bi bi-file-earmark-richtext-fill"></i>
+                        <span>Template Management</span>
+                    </a>
+                </li>
+                <li class="sidebar-item">
+                    <a href="admin-system.html" class="sidebar-link">
+                        <i class="bi bi-cpu-fill"></i>
+                        <span>System Management</span>
+                    </a>
+                </li>
+                <li class="sidebar-item active">
+                    <a href="admin-settings.html" class="sidebar-link">
+                        <i class="bi bi-sliders"></i>
+                        <span>Admin Settings</span>
+                    </a>
+                </li>
+            </ul>
+            <div class="sidebar-footer">
+                <a href="index.html" class="sidebar-link">
+                    <i class="bi bi-arrow-left-circle"></i>
+                    <span>Back to App</span>
+                </a>
+            </div>
+        </aside>
 
         <!-- Main Content -->
-        <div id="layoutSidenav_content">
-            <main>
-                <div class="container-fluid px-4">
-                    <h1 class="mt-4">Settings</h1>
-                    <ol class="breadcrumb mb-4">
-                        <li class="breadcrumb-item"><a href="admin.html">Dashboard</a></li>
-                        <li class="breadcrumb-item active">Settings</li>
-                    </ol>
-                    
-                    <div class="card mb-4">
-                        <div class="card-header">
-                            System Settings
-                        </div>
-                        <div class="card-body">
-                            <p>This is a placeholder page for system settings.</p>
-                            <!-- Add settings form fields here -->
-                        </div>
+        <main class="main-content">
+            <div class="container-fluid">
+                <h1 class="h3 mb-4">Admin Settings</h1>
+                
+                <div class="card">
+                    <div class="card-header">
+                        Global System Configurations
+                    </div>
+                    <div class="card-body">
+                        <p>This is a placeholder page for global system configurations.</p>
+                        <form>
+                            <div class="mb-3">
+                                <label class="form-label">OpenAI API Key</label>
+                                <input type="password" class="form-control" value="sk-....1234">
+                            </div>
+                            <div class="mb-3">
+                                <label class="form-label">Max Tokens per Request</label>
+                                <input type="number" class="form-control" value="4096">
+                            </div>
+                            <button type="submit" class="btn btn-primary rounded-pill">Save Settings</button>
+                        </form>
                     </div>
                 </div>
-            </main>
-            <footer class="py-4 bg-light mt-auto">
-                <div class="container-fluid px-4">
-                    <div class="d-flex align-items-center justify-content-between small">
-                        <div class="text-muted">Copyright &copy; AI Novel Maker 2025</div>
-                    </div>
-                </div>
-            </footer>
-        </div>
+            </div>
+        </main>
     </div>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="admin-main.js"></script>
+    <script src="layout.js"></script>
 </body>
 </html>
