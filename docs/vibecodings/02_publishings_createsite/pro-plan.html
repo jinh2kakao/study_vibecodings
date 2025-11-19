@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="ko">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -14,61 +15,96 @@
             padding: 6rem 1rem;
             text-align: center;
         }
+
         .feature-list {
             padding: 4rem 1rem;
         }
+
         .comparison-table {
             padding: 4rem 1rem;
             background-color: #FFF;
         }
     </style>
 </head>
+
 <body>
 
-    <!-- Simple Navbar for this page -->
-    <nav class="navbar navbar-dark" style="background-color: var(--sidebar-bg);">
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark py-3">
         <div class="container">
-            <a class="navbar-brand sidebar-brand" href="index.html">
-                <i class="bi bi-stars me-2"></i>
-                AI Novel Maker
+            <a class="navbar-brand d-flex align-items-center" href="index.html">
+                <i class="bi bi-stars text-primary me-2 fs-4"></i>
+                <span class="fw-bold tracking-tight">AI Novel Maker</span>
             </a>
-            <a href="index.html" class="btn btn-outline-light rounded-pill">대시보드로 돌아가기</a>
+            <div class="d-flex gap-2">
+                <a href="index.html" class="btn btn-outline-light btn-sm rounded-pill px-4">대시보드로 돌아가기</a>
+            </div>
         </div>
     </nav>
 
     <!-- Hero Section -->
-    <header class="hero-section">
-        <div class="container">
-            <h1 class="display-4 fw-bold">AI 작가팀으로 진화하세요</h1>
-            <p class="lead my-4">Pro 플랜으로 당신의 창작 가능성을 무한히 확장하고, <br> 세상에 없던 이야기를 만들어보세요.</p>
-            <a href="#" class="btn btn-primary btn-lg rounded-pill">즉시 업그레이드</a>
+    <header class="hero-section position-relative overflow-hidden">
+        <div class="container position-relative z-1">
+            <div class="row justify-content-center text-center">
+                <div class="col-lg-8">
+                    <span class="badge bg-primary-soft text-primary rounded-pill px-3 py-2 mb-4 fw-semibold">Pro
+                        Membership</span>
+                    <h1 class="display-4 fw-bold mb-4 text-white">AI 작가팀으로 진화하세요</h1>
+                    <p class="lead text-white-50 mb-5 mx-auto" style="max-width: 600px;">Pro 플랜으로 당신의 창작 가능성을 무한히 확장하고,
+                        <br class="d-none d-md-block"> 세상에 없던 이야기를 만들어보세요.</p>
+                    <div class="d-flex justify-content-center gap-3">
+                        <a href="#" class="btn btn-primary btn-lg rounded-pill px-5 shadow-lg hover-lift">즉시 업그레이드</a>
+                        <a href="#features" class="btn btn-outline-light btn-lg rounded-pill px-5 hover-lift">기능
+                            살펴보기</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Abstract Background Shapes -->
+        <div class="position-absolute top-0 start-0 w-100 h-100 opacity-10"
+            style="background: radial-gradient(circle at 50% 50%, #4F46E5 0%, transparent 50%); pointer-events: none;">
         </div>
     </header>
 
     <!-- Feature List -->
-    <section class="feature-list">
-        <div class="container text-center">
-            <h2 class="mb-5">Pro 플랜의 핵심 기능</h2>
-            <div class="row">
+    <section class="feature-list py-5" id="features">
+        <div class="container py-5">
+            <div class="text-center mb-5">
+                <h2 class="fw-bold mb-2">Pro 플랜의 핵심 기능</h2>
+                <p class="text-muted">전문 작가를 위한 강력한 도구들을 만나보세요.</p>
+            </div>
+            <div class="row g-4">
                 <div class="col-md-4">
-                    <div class="p-3">
-                        <i class="bi bi-diagram-3-fill fs-1 text-primary"></i>
-                        <h3 class="h4 mt-3">오케스트라 캔버스</h3>
-                        <p class="text-muted">AI 에이전트를 시각적으로 연결하여 복잡하고 정교한 워크플로우를 설계하세요.</p>
+                    <div class="card h-100 border-0 shadow-sm hover-lift">
+                        <div class="card-body p-4 text-center">
+                            <div class="bg-primary-soft d-inline-flex p-3 rounded-circle text-primary mb-4">
+                                <i class="bi bi-diagram-3-fill fs-3"></i>
+                            </div>
+                            <h3 class="h5 fw-bold mb-3">오케스트라 캔버스</h3>
+                            <p class="text-muted mb-0">AI 에이전트를 시각적으로 연결하여 복잡하고 정교한 워크플로우를 설계하세요.</p>
+                        </div>
                     </div>
                 </div>
                 <div class="col-md-4">
-                    <div class="p-3">
-                        <i class="bi bi-robot fs-1 text-primary"></i>
-                        <h3 class="h4 mt-3">무제한 에이전트 생성</h3>
-                        <p class="text-muted">필요한 만큼 다양한 역할을 수행하는 맞춤형 AI 에이전트를 무제한으로 만드세요.</p>
+                    <div class="card h-100 border-0 shadow-sm hover-lift">
+                        <div class="card-body p-4 text-center">
+                            <div class="bg-success-soft d-inline-flex p-3 rounded-circle text-success mb-4">
+                                <i class="bi bi-robot fs-3"></i>
+                            </div>
+                            <h3 class="h5 fw-bold mb-3">무제한 에이전트 생성</h3>
+                            <p class="text-muted mb-0">필요한 만큼 다양한 역할을 수행하는 맞춤형 AI 에이전트를 무제한으로 만드세요.</p>
+                        </div>
                     </div>
                 </div>
                 <div class="col-md-4">
-                    <div class="p-3">
-                        <i class="bi bi-cpu-fill fs-1 text-primary"></i>
-                        <h3 class="h4 mt-3">대용량 컨텍스트 토큰</h3>
-                        <p class="text-muted">더 긴 컨텍스트를 기억하는 AI와 함께 깊이 있고 일관성 있는 장편 소설을 집필하세요.</p>
+                    <div class="card h-100 border-0 shadow-sm hover-lift">
+                        <div class="card-body p-4 text-center">
+                            <div class="bg-warning-soft d-inline-flex p-3 rounded-circle text-warning mb-4">
+                                <i class="bi bi-cpu-fill fs-3"></i>
+                            </div>
+                            <h3 class="h5 fw-bold mb-3">대용량 컨텍스트 토큰</h3>
+                            <p class="text-muted mb-0">더 긴 컨텍스트를 기억하는 AI와 함께 깊이 있고 일관성 있는 장편 소설을 집필하세요.</p>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -76,58 +112,83 @@
     </section>
 
     <!-- Comparison Table -->
-    <section class="comparison-table">
-        <div class="container">
-            <h2 class="text-center mb-5">플랜 비교</h2>
-            <div class="table-responsive card">
-                <table class="table table-bordered text-center mb-0">
-                    <thead class="table-light">
-                        <tr>
-                            <th scope="col" class="text-start p-3">Feature</th>
-                            <th scope="col" class="p-3">Free</th>
-                            <th scope="col" class="p-3">Pro</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td class="text-start p-3">프로젝트 생성</td>
-                            <td>3개</td>
-                            <td>무제한</td>
-                        </tr>
-                        <tr>
-                            <td class="text-start p-3">AI 에이전트</td>
-                            <td>5개 기본 제공</td>
-                            <td>무제한 생성 및 커스텀</td>
-                        </tr>
-                        <tr>
-                            <td class="text-start p-3">오케스트라 캔버스</td>
-                            <td><i class="bi bi-x-lg text-danger"></i></td>
-                            <td><i class="bi bi-check-lg text-primary"></i></td>
-                        </tr>
-                        <tr>
-                            <td class="text-start p-3">월 생성 단어</td>
-                            <td>50,000 단어</td>
-                            <td>1,000,000 단어</td>
-                        </tr>
-                        <tr>
-                            <td class="text-start p-3">컨텍스트 토큰</td>
-                            <td>Standard</td>
-                            <td>Large</td>
-                        </tr>
-                        <tr>
-                            <td class="text-start p-3"></td>
-                            <td class="p-3"><span class="badge bg-secondary-soft">Current Plan</span></td>
-                            <td class="p-3"><a href="#" class="btn btn-primary rounded-pill">Upgrade to Pro</a></td>
-                        </tr>
-                    </tbody>
-                </table>
+    <section class="comparison-table py-5 bg-light">
+        <div class="container py-5">
+            <div class="text-center mb-5">
+                <h2 class="fw-bold mb-2">플랜 비교</h2>
+                <p class="text-muted">나에게 맞는 최적의 플랜을 선택하세요.</p>
+            </div>
+            <div class="card border-0 shadow-lg overflow-hidden">
+                <div class="table-responsive">
+                    <table class="table table-hover mb-0 text-center align-middle">
+                        <thead class="bg-white border-bottom">
+                            <tr>
+                                <th scope="col" class="text-start p-4 w-25">Feature</th>
+                                <th scope="col" class="p-4 w-25">
+                                    <div class="fw-bold fs-5">Free</div>
+                                    <div class="text-muted small fw-normal">입문자용</div>
+                                </th>
+                                <th scope="col" class="p-4 w-25 bg-primary-soft">
+                                    <div class="fw-bold fs-5 text-primary">Pro</div>
+                                    <div class="text-primary small fw-normal">전문가용</div>
+                                </th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td class="text-start p-4 fw-medium">프로젝트 생성</td>
+                                <td class="p-4 text-muted">3개</td>
+                                <td class="p-4 fw-bold bg-primary-soft-hover">무제한</td>
+                            </tr>
+                            <tr>
+                                <td class="text-start p-4 fw-medium">AI 에이전트</td>
+                                <td class="p-4 text-muted">5개 기본 제공</td>
+                                <td class="p-4 fw-bold bg-primary-soft-hover">무제한 생성 및 커스텀</td>
+                            </tr>
+                            <tr>
+                                <td class="text-start p-4 fw-medium">오케스트라 캔버스</td>
+                                <td class="p-4 text-muted"><i class="bi bi-x-lg text-danger opacity-50"></i></td>
+                                <td class="p-4 bg-primary-soft-hover"><i
+                                        class="bi bi-check-circle-fill text-primary fs-5"></i></td>
+                            </tr>
+                            <tr>
+                                <td class="text-start p-4 fw-medium">월 생성 단어</td>
+                                <td class="p-4 text-muted">50,000 단어</td>
+                                <td class="p-4 fw-bold bg-primary-soft-hover">1,000,000 단어</td>
+                            </tr>
+                            <tr>
+                                <td class="text-start p-4 fw-medium">컨텍스트 토큰</td>
+                                <td class="p-4 text-muted">Standard (4k)</td>
+                                <td class="p-4 fw-bold bg-primary-soft-hover">Large (32k)</td>
+                            </tr>
+                            <tr class="border-0">
+                                <td class="text-start p-4 border-0"></td>
+                                <td class="p-4 border-0"><span
+                                        class="badge bg-secondary-soft text-secondary rounded-pill px-3 py-2">Current
+                                        Plan</span></td>
+                                <td class="p-4 border-0 bg-primary-soft-hover"><a href="#"
+                                        class="btn btn-primary rounded-pill px-4 shadow-sm hover-lift">Upgrade to
+                                        Pro</a></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
             </div>
         </div>
     </section>
 
     <!-- Footer -->
-    <footer class="py-4 mt-5 bg-light">
+    <footer class="py-5 bg-white border-top">
         <div class="container text-center">
+            <div class="mb-4">
+                <i class="bi bi-stars text-primary fs-4"></i>
+                <span class="fw-bold ms-2 fs-5">AI Novel Maker</span>
+            </div>
+            <div class="d-flex justify-content-center gap-4 mb-4">
+                <a href="#" class="text-muted text-decoration-none hover-text-primary">Terms</a>
+                <a href="#" class="text-muted text-decoration-none hover-text-primary">Privacy</a>
+                <a href="#" class="text-muted text-decoration-none hover-text-primary">Contact</a>
+            </div>
             <small class="text-muted">&copy; 2025 AI Novel Maker. All Rights Reserved.</small>
         </div>
     </footer>
@@ -135,4 +196,5 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
     <script src="layout.js"></script>
 </body>
+
 </html>
