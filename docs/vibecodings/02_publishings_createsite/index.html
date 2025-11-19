@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI 노블 메이커 - Dashboard</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <link rel="stylesheet" href="custom.css">
+</head>
+<body>
+
+    <div class="d-flex">
+        <!-- Fixed Dark Sidebar -->
+        <nav class="sidebar">
+            <div class="sidebar-header">
+                <a href="index.html" class="sidebar-brand">
+                    <i class="bi bi-stars me-2"></i>
+                    <span>AI Novel Maker</span>
+                </a>
+            </div>
+            <ul class="sidebar-nav">
+                <li class="sidebar-item active">
+                    <a href="index.html" class="sidebar-link">
+                        <i class="bi bi-grid-1x2-fill"></i>
+                        <span>Dashboard</span>
+                    </a>
+                </li>
+                <li class="sidebar-item">
+                    <a href="orchestra.html" class="sidebar-link">
+                        <i class="bi bi-robot"></i>
+                        <span>Agent Management</span>
+                    </a>
+                </li>
+                <li class="sidebar-item">
+                    <a href="#" class="sidebar-link">
+                        <i class="bi bi-journal-richtext"></i>
+                        <span>Templates</span>
+                    </a>
+                </li>
+                <li class="sidebar-item">
+                    <a href="#" class="sidebar-link">
+                        <i class="bi bi-gear"></i>
+                        <span>Settings</span>
+                    </a>
+                </li>
+            </ul>
+            <div class="sidebar-footer">
+                <div class="form-check form-switch mb-3">
+                    <input class="form-check-input" type="checkbox" id="proModeSwitch">
+                    <label class="form-check-label" for="proModeSwitch">Pro Mode</label>
+                </div>
+                <a href="mypage.html" class="sidebar-link mb-2">
+                    <i class="bi bi-person-circle"></i>
+                    <span>My Page</span>
+                </a>
+                <a href="#" class="sidebar-link">
+                    <i class="bi bi-box-arrow-left"></i>
+                    <span>Logout</span>
+                </a>
+            </div>
+        </nav>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <div class="container-fluid p-4">
+                <!-- Header -->
+                <div class="d-flex justify-content-between align-items-center mb-4">
+                    <h1 class="h3 mb-0">내 프로젝트 (My Projects)</h1>
+                    <button class="btn btn-primary rounded-pill" data-bs-toggle="modal" data-bs-target="#newProjectModal">
+                        <i class="bi bi-plus-lg me-1"></i> 새 프로젝트 생성
+                    </button>
+                </div>
+
+                <!-- Project Cards -->
+                <div class="row">
+                    <div class="col-12 col-md-6 col-lg-4 mb-4">
+                        <div class="card h-100 border-0 shadow-sm rounded-4">
+                            <img src="https://placehold.co/600x400/1E293B/FFFFFF?text=Neo-Seoul" class="card-img-top rounded-top-4" alt="네오-서울의 그림자">
+                            <div class="card-body">
+                                <h5 class="card-title">네오-서울의 그림자</h5>
+                                <p class="card-text text-muted small">2042년, 거대 기업이 지배하는 사이버펑크 도시...</p>
+                                <a href="output-detail.html" class="stretched-link"></a>
+                            </div>
+                            <div class="card-footer bg-white border-0 pt-0">
+                                <span class="badge bg-primary-soft">Pro</span>
+                                <small class="text-muted ms-2">5분 전 수정</small>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-12 col-md-6 col-lg-4 mb-4">
+                        <div class="card h-100 border-0 shadow-sm rounded-4">
+                            <img src="https://placehold.co/600x400/8B5CF6/FFFFFF?text=Magic+Sword" class="card-img-top rounded-top-4" alt="아카데미의 마법검">
+                            <div class="card-body">
+                                <h5 class="card-title">아카데미의 마법검</h5>
+                                <p class="card-text text-muted small">평범한 학생이 전설의 마법검을 발견하며...</p>
+                                <a href="output-detail.html" class="stretched-link"></a>
+                            </div>
+                            <div class="card-footer bg-white border-0 pt-0">
+                                <span class="badge bg-success-soft">Running</span>
+                                <small class="text-muted ms-2">1시간 전 수정</small>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-12 col-md-6 col-lg-4 mb-4">
+                        <div class="card h-100 border-0 shadow-sm rounded-4">
+                            <img src="https://placehold.co/600x400/F472B6/FFFFFF?text=Romance" class="card-img-top rounded-top-4" alt="회귀자의 로맨스 판타지">
+                            <div class="card-body">
+                                <h5 class="card-title">회귀자의 로맨스 판타지</h5>
+                                <p class="card-text text-muted small">비극적 죽음 이후, 모든 것을 되돌리기 위해...</p>
+                                <a href="output-detail.html" class="stretched-link"></a>
+                            </div>
+                            <div class="card-footer bg-white border-0 pt-0">
+                                <span class="badge bg-secondary-soft">Free</span>
+                                <small class="text-muted ms-2">3일 전 수정</small>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <!-- New Project Modal -->
+    <div class="modal fade" id="newProjectModal" tabindex="-1" aria-labelledby="newProjectModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="newProjectModalLabel">새로운 세계 창조하기</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <form>
+                        <div class="mb-3">
+                            <label for="projectTitle" class="form-label">프로젝트 제목</label>
+                            <input type="text" class="form-control" id="projectTitle" placeholder="예: 네오-서울의 그림자">
+                        </div>
+                        <div class="mb-3">
+                            <label for="projectGenre" class="form-label">핵심 장르</label>
+                            <select class="form-select" id="projectGenre">
+                                <option selected>장르를 선택하세요...</option>
+                                <option value="1">사이버펑크</option>
+                                <option value="2">판타지</option>
+                                <option value="3">로맨스 판타지</option>
+                                <option value="4">무협</option>
+                                <option value="5">현대</option>
+                            </select>
+                        </div>
+                        <div class="mb-3">
+                            <label for="projectLogline" class="form-label">로그라인</label>
+                            <textarea class="form-control" id="projectLogline" rows="3" placeholder="한 문장으로 프로젝트를 설명해주세요."></textarea>
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary rounded-pill" data-bs-dismiss="modal">취소</button>
+                    <button type="button" class="btn btn-primary rounded-pill">생성하기</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="main.js"></script>
+</body>
+</html>

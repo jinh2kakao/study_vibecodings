@@ -1,89 +1,73 @@
+// concept03/orchestra.js
 document.addEventListener('DOMContentLoaded', () => {
-    const urlParams = new URLSearchParams(window.location.search);
-    const projectId = urlParams.get('project_id');
+    // v2.1: 툴바 버튼이 .top-header에 있음
+    const btnSave = document.getElementById('btn-save-workflow');
+    const btnRun = document.getElementById('btn-run-workflow');
 
-    if (projectId) {
-        console.log(`Orchestra Canvas loaded for Project ID: ${projectId}`);
-        // In a real application, you would fetch project-specific data here
-        // e.g., fetch(`/api/projects/${projectId}/workflow`).
-        // For now, we'll update the title to reflect the project ID.
-        const projectTitleElement = document.querySelector('.page-title-header h1');
-        if (projectTitleElement) {
-            projectTitleElement.textContent = `Project: ${projectId}`;
+    const orchestraPane = document.getElementById('orchestra-pane');
+    if (!orchestraPane) return; // 오케스트라 탭이 아니면 중단
+
+    // 캔버스 UI 요소
+    const canvasMain = document.getElementById('orchestra-canvas');
+    const agentSidebar = orchestraPane.querySelector('.agent-library');
+
+    let canvasState = 'saved'; // 'saved', 'modified', 'running'
+    let nodeCount = 4; // Max Case: 4개 노드가 이미 있음
+
+    function updateUIbyState() {
+        if (!btnSave || !btnRun || !canvasMain) return; 
+
+        // style.css의 .btn:disabled 스타일이 적용됨
+        if (canvasState === 'modified') {
+            btnSave.disabled = false;
+            btnRun.disabled = true; 
+            btnRun.innerHTML = '<i class="fa-solid fa-play"></i> Run Workflow';
+            // canvasMain.classList.remove('read-only'); // (추가 기능)
         }
-    } else {
-        console.warn('No Project ID found in URL. Loading generic Orchestra Canvas.');
-        const projectTitleElement = document.querySelector('.page-title-header h1');
-        if (projectTitleElement) {
-            projectTitleElement.textContent = 'New Project Workflow';
+        else if (canvasState === 'running') {
+            btnSave.disabled = true;
+            btnRun.disabled = true;
+            btnRun.innerHTML = '<i class="fa-solid fa-spinner fa-spin"></i> Running...';
+            // canvasMain.classList.add('read-only'); // (추가 기능)
+        }
+        else { // 'saved'
+            btnSave.disabled = true;
+            btnRun.disabled = false;
+            btnRun.innerHTML = '<i class="fa-solid fa-play"></i> Run Workflow';
+            // canvasMain.classList.remove('read-only');
         }
     }
 
-    // Handle "Save Workflow" button click
-    const saveWorkflowBtn = document.getElementById('save-workflow-btn');
-    if (saveWorkflowBtn) {
-        saveWorkflowBtn.addEventListener('click', () => {
-            console.log(`Simulating API call: PUT /api/projects/${projectId} (Save Workflow)`);
-            // Simulate API call
-            setTimeout(() => {
-                alert(`워크플로우가 저장되었습니다! 프로젝트 ID: ${projectId}`);
-            }, 500);
-        });
-    }
-
-    // Handle "Run Workflow" button click
-    const runWorkflowBtn = document.getElementById('run-workflow-btn');
-    if (runWorkflowBtn) {
-        runWorkflowBtn.addEventListener('click', () => {
-            console.log(`Simulating API call: POST /api/jobs/execute/${projectId} (Run Workflow)`);
-            alert(`워크플로우 실행을 시작합니다! 프로젝트 ID: ${projectId}`);
-
-            // Simulate API call and polling for results
-            setTimeout(() => {
-                console.log('Simulating job execution...');
-                const jobId = 'job_' + Date.now();
-                alert(`작업이 시작되었습니다. Job ID: ${jobId}. 결과 확인을 위해 폴링 시작.`);
-
-                // Simulate polling for results (e.g., every 2 seconds)
-                let pollCount = 0;
-                const maxPolls = 5;
-                const pollInterval = setInterval(() => {
-                    pollCount++;
-                    console.log(`Polling for results for Job ID: ${jobId} (Attempt ${pollCount}/${maxPolls})`);
-                    // Simulate GET /api/outputs?job_id={id}
-                    if (pollCount >= maxPolls) {
-                        clearInterval(pollInterval);
-                        alert(`작업 완료! Job ID: ${jobId}. 결과 페이지로 이동합니다.`);
-                        window.location.href = `output-detail.html?job_id=${jobId}&project_id=${projectId}`;
-                    }
-                }, 2000);
-
-            }, 1000);
-        });
-    }
-
-    // Placeholder for drag and drop functionality (not fully implemented here)
-    const agentCards = document.querySelectorAll('.agent-card');
-    const canvasMain = document.querySelector('.canvas-main');
-
-    agentCards.forEach(card => {
-        card.addEventListener('dragstart', (e) => {
-            e.dataTransfer.setData('text/plain', e.target.textContent);
-            console.log('Dragging agent:', e.target.textContent);
-        });
+    btnSave.addEventListener('click', () => {
+        btnSave.innerHTML = '<i class="fa-solid fa-spinner fa-spin"></i> Saving...';
+        btnSave.disabled = true;
+        setTimeout(() => { 
+            canvasState = 'saved';
+            updateUIbyState();
+        }, 800);
     });
 
-    if (canvasMain) {
-        canvasMain.addEventListener('dragover', (e) => {
-            e.preventDefault(); // Allow drop
-        });
+    btnRun.addEventListener('click', () => {
+        canvasState = 'running';
+        updateUIbyState();
+        setTimeout(() => {
+            canvasState = 'saved';
+            updateUIbyState();
+            // v1.2 알림 센터 시뮬레이션 (alert 대신)
+            console.log("워크플로우 실행 완료! (v1.2 🔔 알림 센터에 '완료' 알림이 표시됩니다.)");
+        }, 3000); 
+    });
 
-        canvasMain.addEventListener('drop', (e) => {
-            e.preventDefault();
-            const data = e.dataTransfer.getData('text/plain');
-            console.log('Dropped agent:', data);
-            // In a real app, you'd create a new node element here
-            alert(`Agent "${data}" dropped on canvas!`);
-        });
-    }
+    // '드래그' 시뮬레이션
+    agentSidebar.addEventListener('click', (e) => {
+        if (canvasState === 'running') return; 
+        const agentCard = e.target.closest('.agent-card');
+        if (agentCard) {
+            alert(agentCard.dataset.agentName + " 노드가 캔버스에 추가되었습니다. (시뮬레이션)");
+            nodeCount++;
+            canvasState = 'modified'; 
+            updateUIbyState();
+        }
+    });
+    updateUIbyState(); // 초기 상태 설정
 });
