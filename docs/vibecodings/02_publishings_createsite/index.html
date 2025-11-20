@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="ko">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -8,6 +9,7 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
     <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
 
     <div class="sidebar-layout">
@@ -63,7 +65,8 @@
                 <!-- Header -->
                 <div class="d-flex justify-content-between align-items-center mb-4">
                     <h1 class="h3 mb-0">내 프로젝트 (My Projects)</h1>
-                    <button class="btn btn-primary rounded-pill" data-bs-toggle="modal" data-bs-target="#newProjectModal">
+                    <button class="btn btn-primary rounded-pill" data-bs-toggle="modal"
+                        data-bs-target="#newProjectModal">
                         <i class="bi bi-plus-lg me-1"></i> 새 프로젝트 생성
                     </button>
                 </div>
@@ -72,7 +75,8 @@
                 <div class="row" data-masonry='{"percentPosition": true }'>
                     <div class="col-12 col-md-6 col-lg-4 mb-4">
                         <div class="card">
-                            <img src="https://placehold.co/600x400/1E293B/FFFFFF?text=Neo-Seoul" class="card-img-top" alt="네오-서울의 그림자">
+                            <img src="https://placehold.co/600x400/1E293B/FFFFFF?text=Neo-Seoul" class="card-img-top"
+                                alt="네오-서울의 그림자">
                             <div class="card-body">
                                 <h5 class="card-title">네오-서울의 그림자</h5>
                                 <p class="card-text text-muted small">2042년, 거대 기업이 지배하는 사이버펑크 도시...</p>
@@ -86,7 +90,8 @@
                     </div>
                     <div class="col-12 col-md-6 col-lg-4 mb-4">
                         <div class="card">
-                            <img src="https://placehold.co/600x400/8B5CF6/FFFFFF?text=Magic+Sword" class="card-img-top" alt="아카데미의 마법검">
+                            <img src="https://placehold.co/600x400/8B5CF6/FFFFFF?text=Magic+Sword" class="card-img-top"
+                                alt="아카데미의 마법검">
                             <div class="card-body">
                                 <h5 class="card-title">아카데미의 마법검</h5>
                                 <p class="card-text text-muted small">평범한 학생이 전설의 마법검을 발견하며...</p>
@@ -100,7 +105,8 @@
                     </div>
                     <div class="col-12 col-md-6 col-lg-4 mb-4">
                         <div class="card">
-                            <img src="https://placehold.co/600x400/F472B6/FFFFFF?text=Romance" class="card-img-top" alt="회귀자의 로맨스 판타지">
+                            <img src="https://placehold.co/600x400/F472B6/FFFFFF?text=Romance" class="card-img-top"
+                                alt="회귀자의 로맨스 판타지">
                             <div class="card-body">
                                 <h5 class="card-title">회귀자의 로맨스 판타지</h5>
                                 <p class="card-text text-muted small">비극적 죽음 이후, 모든 것을 되돌리기 위해...</p>
@@ -118,7 +124,8 @@
     </div>
 
     <!-- New Project Modal -->
-    <div class="modal fade" id="newProjectModal" tabindex="-1" aria-labelledby="newProjectModalLabel" aria-hidden="true">
+    <div class="modal fade" id="newProjectModal" tabindex="-1" aria-labelledby="newProjectModalLabel"
+        aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered">
             <div class="modal-content">
                 <div class="modal-header">
@@ -144,7 +151,8 @@
                         </div>
                         <div class="mb-3">
                             <label for="projectLogline" class="form-label">로그라인</label>
-                            <textarea class="form-control" id="projectLogline" rows="3" placeholder="한 문장으로 프로젝트를 설명해주세요."></textarea>
+                            <textarea class="form-control" id="projectLogline" rows="3"
+                                placeholder="한 문장으로 프로젝트를 설명해주세요."></textarea>
                         </div>
                     </form>
                 </div>
@@ -157,7 +165,10 @@
     </div>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/masonry-layout@4.2.2/dist/masonry.pkgd.min.js" integrity="sha384-GNFwBvfVxBkLMJpYMOABq3c+dCmMzsAPPBIz47EBEynJ/2+OEMr5+4GzUeIwIHrV" crossorigin="anonymous" async></script>
+    <script src="https://cdn.jsdelivr.net/npm/masonry-layout@4.2.2/dist/masonry.pkgd.min.js"
+        integrity="sha384-GNFwBvfVxBkLMJpYMOABq3c+dCmMzsAPPBIz47EBEynJ/2+OEMr5+4GzUeIwIHrV" crossorigin="anonymous"
+        async></script>
     <script src="layout.js"></script>
 </body>
+
 </html>

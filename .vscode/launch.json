@@ -1,0 +1,21 @@
+{
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": "Antigravity Preview (Chrome)",
+            "type": "pwa-chrome",
+            "request": "launch",
+            "url": "http://localhost:8080",
+            "webRoot": "${workspaceFolder}/docs/vibecodings/02_publishings_createsite",
+            // 중요: 미리 만들어둔 서버 실행 Task를 먼저 실행하고 브라우저를 엽니다.
+            "preLaunchTask": "Run Web Server"
+        },
+        {
+            "name": "Simple Browser (Inside IDE)",
+            "type": "simple-browser",
+            "request": "launch",
+            "url": "http://localhost:8080",
+            "preLaunchTask": "Run Web Server"
+        }
+    ]
+}

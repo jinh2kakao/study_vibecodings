@@ -1,0 +1,20 @@
+{
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "label": "Run Web Server",
+            "type": "shell",
+            "command": "python3 -m http.server 8080",
+            "options": {
+                // 여기가 핵심입니다. index.html이 있는 폴더를 지정합니다.
+                "cwd": "${workspaceFolder}/docs/vibecodings/02_publishings_createsite"
+            },
+            "isBackground": true,
+            "presentation": {
+                "reveal": "always",
+                "panel": "new"
+            },
+            "problemMatcher": []
+        }
+    ]
+}
