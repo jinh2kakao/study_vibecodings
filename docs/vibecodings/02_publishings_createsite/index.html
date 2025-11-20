@@ -63,58 +63,88 @@
         <main class="main-content">
             <div class="container-fluid">
                 <!-- Header -->
-                <div class="d-flex justify-content-between align-items-center mb-4">
-                    <h1 class="h3 mb-0">내 프로젝트 (My Projects)</h1>
-                    <button class="btn btn-primary rounded-pill" data-bs-toggle="modal"
+                <div class="d-flex justify-content-between align-items-end mb-5">
+                    <div>
+                        <h1 class="h2 mb-1 fw-bold">내 프로젝트</h1>
+                        <p class="text-muted mb-0">최근 작업한 프로젝트를 확인하고 관리하세요.</p>
+                    </div>
+                    <button class="btn btn-primary btn-rounded-pill px-4 py-2" data-bs-toggle="modal"
                         data-bs-target="#newProjectModal">
-                        <i class="bi bi-plus-lg me-1"></i> 새 프로젝트 생성
+                        <i class="bi bi-plus-lg me-2"></i>새 프로젝트
                     </button>
+
                 </div>
 
-                <!-- Project Cards (Pinterest-style) -->
-                <div class="row" data-masonry='{"percentPosition": true }'>
+                <!-- Project Cards -->
+                <div class="row g-4" data-masonry='{"percentPosition": true }'>
+                    <!-- Card 1 -->
                     <div class="col-12 col-md-6 col-lg-4 mb-4">
-                        <div class="card">
-                            <img src="https://placehold.co/600x400/1E293B/FFFFFF?text=Neo-Seoul" class="card-img-top"
-                                alt="네오-서울의 그림자">
-                            <div class="card-body">
-                                <h5 class="card-title">네오-서울의 그림자</h5>
-                                <p class="card-text text-muted small">2042년, 거대 기업이 지배하는 사이버펑크 도시...</p>
-                                <a href="output-detail.html" class="stretched-link"></a>
+                        <div class="card h-100">
+                            <div class="position-relative">
+                                <img src="https://placehold.co/600x400/1E293B/FFFFFF?text=Neo-Seoul"
+                                    class="card-img-top" alt="네오-서울의 그림자">
+                                <span class="badge bg-primary-soft position-absolute top-0 end-0 m-3">Pro</span>
                             </div>
-                            <div class="card-footer bg-white border-0 pt-0">
-                                <span class="badge bg-primary-soft">Pro</span>
-                                <small class="text-muted ms-2">5분 전 수정</small>
+                            <div class="card-body d-flex flex-column">
+                                <div class="d-flex justify-content-between align-items-start mb-2">
+                                    <h5 class="card-title mb-0">네오-서울의 그림자</h5>
+                                </div>
+                                <p class="card-text flex-grow-1">2042년, 거대 기업이 지배하는 사이버펑크 도시에서 벌어지는...</p>
+                                <div
+                                    class="d-flex align-items-center justify-content-between mt-3 pt-3 border-top border-light">
+                                    <small class="text-muted"><i class="bi bi-clock me-1"></i>5분 전 수정</small>
+                                    <span class="text-primary small fw-semibold">편집하기 <i
+                                            class="bi bi-arrow-right ms-1"></i></span>
+                                </div>
+                                <a href="output-detail.html" class="stretched-link"></a>
                             </div>
                         </div>
                     </div>
+
+                    <!-- Card 2 -->
                     <div class="col-12 col-md-6 col-lg-4 mb-4">
-                        <div class="card">
-                            <img src="https://placehold.co/600x400/8B5CF6/FFFFFF?text=Magic+Sword" class="card-img-top"
-                                alt="아카데미의 마법검">
-                            <div class="card-body">
-                                <h5 class="card-title">아카데미의 마법검</h5>
-                                <p class="card-text text-muted small">평범한 학생이 전설의 마법검을 발견하며...</p>
-                                <a href="output-detail.html" class="stretched-link"></a>
+                        <div class="card h-100">
+                            <div class="position-relative">
+                                <img src="https://placehold.co/600x400/8B5CF6/FFFFFF?text=Magic+Sword"
+                                    class="card-img-top" alt="아카데미의 마법검">
+                                <span class="badge bg-success-soft position-absolute top-0 end-0 m-3">Running</span>
                             </div>
-                            <div class="card-footer bg-white border-0 pt-0">
-                                <span class="badge bg-success-soft">Running</span>
-                                <small class="text-muted ms-2">1시간 전 수정</small>
+                            <div class="card-body d-flex flex-column">
+                                <div class="d-flex justify-content-between align-items-start mb-2">
+                                    <h5 class="card-title mb-0">아카데미의 마법검</h5>
+                                </div>
+                                <p class="card-text flex-grow-1">평범한 학생이 전설의 마법검을 발견하며 시작되는 모험...</p>
+                                <div
+                                    class="d-flex align-items-center justify-content-between mt-3 pt-3 border-top border-light">
+                                    <small class="text-muted"><i class="bi bi-clock me-1"></i>1시간 전 수정</small>
+                                    <span class="text-primary small fw-semibold">편집하기 <i
+                                            class="bi bi-arrow-right ms-1"></i></span>
+                                </div>
+                                <a href="output-detail.html" class="stretched-link"></a>
                             </div>
                         </div>
                     </div>
+
+                    <!-- Card 3 -->
                     <div class="col-12 col-md-6 col-lg-4 mb-4">
-                        <div class="card">
-                            <img src="https://placehold.co/600x400/F472B6/FFFFFF?text=Romance" class="card-img-top"
-                                alt="회귀자의 로맨스 판타지">
-                            <div class="card-body">
-                                <h5 class="card-title">회귀자의 로맨스 판타지</h5>
-                                <p class="card-text text-muted small">비극적 죽음 이후, 모든 것을 되돌리기 위해...</p>
-                                <a href="output-detail.html" class="stretched-link"></a>
+                        <div class="card h-100">
+                            <div class="position-relative">
+                                <img src="https://placehold.co/600x400/F472B6/FFFFFF?text=Romance" class="card-img-top"
+                                    alt="회귀자의 로맨스 판타지">
+                                <span class="badge bg-secondary-soft position-absolute top-0 end-0 m-3">Free</span>
                             </div>
-                            <div class="card-footer bg-white border-0 pt-0">
-                                <span class="badge bg-secondary-soft">Free</span>
-                                <small class="text-muted ms-2">3일 전 수정</small>
+                            <div class="card-body d-flex flex-column">
+                                <div class="d-flex justify-content-between align-items-start mb-2">
+                                    <h5 class="card-title mb-0">회귀자의 로맨스 판타지</h5>
+                                </div>
+                                <p class="card-text flex-grow-1">비극적 죽음 이후, 모든 것을 되돌리기 위해 과거로...</p>
+                                <div
+                                    class="d-flex align-items-center justify-content-between mt-3 pt-3 border-top border-light">
+                                    <small class="text-muted"><i class="bi bi-clock me-1"></i>3일 전 수정</small>
+                                    <span class="text-primary small fw-semibold">편집하기 <i
+                                            class="bi bi-arrow-right ms-1"></i></span>
+                                </div>
+                                <a href="output-detail.html" class="stretched-link"></a>
                             </div>
                         </div>
                     </div>
