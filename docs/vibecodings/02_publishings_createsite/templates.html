@@ -17,9 +17,16 @@
         <aside class="dark-sidebar">
             <div class="sidebar-header">
                 <a href="index.html" class="sidebar-brand">
-                    <i class="bi bi-stars me-2"></i>
+                    <i class="bi bi-stars"></i>
                     <span>AI Novel Maker</span>
                 </a>
+                <!-- Desktop Collapse Toggle -->
+                <button id="sidebarToggle" class="sidebar-toggle-btn d-none d-lg-block">
+                    <i class="bi bi-list"></i>
+                </button>
+                <!-- Mobile Close Button -->
+                <button class="btn-close btn-close-white d-lg-none ms-auto"
+                    onclick="document.body.classList.remove('sidebar-mobile-open')"></button>
             </div>
             <ul class="sidebar-nav">
                 <li class="sidebar-item">
@@ -61,12 +68,21 @@
 
         <!-- Main Content -->
         <main class="main-content">
-            <div class="container-fluid">
+            <div class="content-container">
                 <!-- Header -->
-                <div class="mb-5">
-                    <h1 class="h2 mb-2 fw-bold">에이전트 템플릿</h1>
-                    <p class="text-muted mb-0">검증된 AI 에이전트 템플릿으로 창작의 속도를 높이세요.</p>
-                </div>
+                <header class="d-flex justify-content-between align-items-end mb-5">
+                    <div class="d-flex align-items-center gap-3">
+                        <!-- Mobile Menu Button -->
+                        <button id="mobileMenuBtn" class="btn btn-outline-secondary d-lg-none p-2">
+                            <i class="bi bi-list fs-5"></i>
+                        </button>
+
+                        <div>
+                            <h1 class="h2 mb-2 fw-bold">에이전트 템플릿</h1>
+                            <p class="text-muted mb-0">검증된 AI 에이전트 템플릿으로 창작의 속도를 높이세요.</p>
+                        </div>
+                    </div>
+                </header>
 
                 <!-- Filters -->
                 <div class="mb-4">
@@ -80,75 +96,67 @@
                 </div>
 
                 <!-- Template Cards -->
-                <div class="row g-4">
+                <div class="card-grid">
                     <!-- Template Card 1 -->
-                    <div class="col-12 col-md-6 col-lg-4 mb-4">
-                        <div class="card h-100 border-0 shadow-sm">
-                            <div class="card-body d-flex flex-column p-4">
-                                <div class="d-flex justify-content-between align-items-start mb-3">
-                                    <div class="icon-box bg-primary-soft p-3 rounded-circle text-primary mb-3">
-                                        <i class="bi bi-globe fs-4"></i>
-                                    </div>
-                                    <span class="badge bg-primary-soft rounded-pill">Basic</span>
+                    <div class="card border-0 shadow-sm">
+                        <div class="card-body d-flex flex-column p-4">
+                            <div class="d-flex justify-content-between align-items-start mb-3">
+                                <div class="icon-box bg-primary-soft p-3 rounded-circle text-primary mb-3">
+                                    <i class="bi bi-globe fs-4"></i>
                                 </div>
-                                <h5 class="card-title fw-bold mb-2">세계관 설정 도우미</h5>
-                                <p class="card-text text-muted small flex-grow-1 mb-4">장르에 맞는 세계관 규칙과 설정을 체계적으로 정리해줍니다.
-                                </p>
-                                <button class="btn btn-outline-primary btn-rounded-pill w-100 mt-auto fw-semibold"
-                                    data-bs-toggle="modal" data-bs-target="#templatePreviewModal">사용하기</button>
+                                <span class="badge bg-primary-soft rounded-pill">Basic</span>
                             </div>
+                            <h5 class="card-title fw-bold mb-2">세계관 설정 도우미</h5>
+                            <p class="card-text text-muted small flex-grow-1 mb-4">장르에 맞는 세계관 규칙과 설정을 체계적으로 정리해줍니다.
+                            </p>
+                            <button class="btn btn-outline-primary btn-rounded-pill w-100 mt-auto fw-semibold"
+                                data-bs-toggle="modal" data-bs-target="#templatePreviewModal">사용하기</button>
                         </div>
                     </div>
                     <!-- Template Card 2 -->
-                    <div class="col-12 col-md-6 col-lg-4 mb-4">
-                        <div class="card h-100 border-0 shadow-sm">
-                            <div class="card-body d-flex flex-column p-4">
-                                <div class="d-flex justify-content-between align-items-start mb-3">
-                                    <div class="icon-box bg-warning-soft p-3 rounded-circle text-warning mb-3">
-                                        <i class="bi bi-lightning-charge fs-4"></i>
-                                    </div>
-                                    <span class="badge bg-warning-soft rounded-pill">Pro</span>
+                    <div class="card border-0 shadow-sm">
+                        <div class="card-body d-flex flex-column p-4">
+                            <div class="d-flex justify-content-between align-items-start mb-3">
+                                <div class="icon-box bg-warning-soft p-3 rounded-circle text-warning mb-3">
+                                    <i class="bi bi-lightning-charge fs-4"></i>
                                 </div>
-                                <h5 class="card-title fw-bold mb-2">플롯 트위스트 생성기</h5>
-                                <p class="card-text text-muted small flex-grow-1 mb-4">독자를 놀라게 할 예상치 못한 반전을 제안합니다.</p>
-                                <button class="btn btn-primary btn-rounded-pill w-100 mt-auto fw-semibold"><i
-                                        class="bi bi-lock-fill me-1"></i>잠금 해제</button>
+                                <span class="badge bg-warning-soft rounded-pill">Pro</span>
                             </div>
+                            <h5 class="card-title fw-bold mb-2">플롯 트위스트 생성기</h5>
+                            <p class="card-text text-muted small flex-grow-1 mb-4">독자를 놀라게 할 예상치 못한 반전을 제안합니다.</p>
+                            <button class="btn btn-primary btn-rounded-pill w-100 mt-auto fw-semibold"><i
+                                    class="bi bi-lock-fill me-1"></i>잠금 해제</button>
                         </div>
                     </div>
                     <!-- Template Card 3 -->
-                    <div class="col-12 col-md-6 col-lg-4 mb-4">
-                        <div class="card h-100 border-0 shadow-sm">
-                            <div class="card-body d-flex flex-column p-4">
-                                <div class="d-flex justify-content-between align-items-start mb-3">
-                                    <div class="icon-box bg-success-soft p-3 rounded-circle text-success mb-3">
-                                        <i class="bi bi-person-lines-fill fs-4"></i>
-                                    </div>
-                                    <span class="badge bg-warning-soft rounded-pill">Pro</span>
+                    <div class="card border-0 shadow-sm">
+                        <div class="card-body d-flex flex-column p-4">
+                            <div class="d-flex justify-content-between align-items-start mb-3">
+                                <div class="icon-box bg-success-soft p-3 rounded-circle text-success mb-3">
+                                    <i class="bi bi-person-lines-fill fs-4"></i>
                                 </div>
-                                <h5 class="card-title fw-bold mb-2">심층 캐릭터 인터뷰어</h5>
-                                <p class="card-text text-muted small flex-grow-1 mb-4">가상 인터뷰를 통해 캐릭터의 입체적인 성격을 구축합니다.
-                                </p>
-                                <button class="btn btn-primary btn-rounded-pill w-100 mt-auto fw-semibold"><i
-                                        class="bi bi-lock-fill me-1"></i>잠금 해제</button>
+                                <span class="badge bg-warning-soft rounded-pill">Pro</span>
                             </div>
+                            <h5 class="card-title fw-bold mb-2">심층 캐릭터 인터뷰어</h5>
+                            <p class="card-text text-muted small flex-grow-1 mb-4">가상 인터뷰를 통해 캐릭터의 입체적인 성격을 구축합니다.
+                            </p>
+                            <button class="btn btn-primary btn-rounded-pill w-100 mt-auto fw-semibold"><i
+                                    class="bi bi-lock-fill me-1"></i>잠금 해제</button>
                         </div>
                     </div>
                     <!-- Template Card 4 -->
-                    <div class="col-12 col-md-6 col-lg-4 mb-4">
-                        <div class="card h-100 border-0 shadow-sm">
-                            <div class="card-body d-flex flex-column p-4">
-                                <div class="d-flex justify-content-between align-items-start mb-3">
-                                    <div class="icon-box bg-info-soft p-3 rounded-circle text-info mb-3">
-                                        <i class="bi bi-eye fs-4"></i>
-                                    </div>
-                                    <span class="badge bg-primary-soft rounded-pill">Basic</span>
+                    <div class="card border-0 shadow-sm">
+                        <div class="card-body d-flex flex-column p-4">
+                            <div class="d-flex justify-content-between align-items-start mb-3">
+                                <div class="icon-box bg-info-soft p-3 rounded-circle text-info mb-3">
+                                    <i class="bi bi-eye fs-4"></i>
                                 </div>
-                                <h5 class="card-title fw-bold mb-2">웹소설 1화 독자</h5>
-                                <p class="card-text text-muted small flex-grow-1 mb-4">독자의 관점에서 1화의 흡입력을 분석합니다.</p>
-                                <button class="btn btn-outline-primary btn-rounded-pill w-100 mt-auto fw-semibold"
-                                    data-bs-toggle="modal" data-bs-target="#templatePreviewModal">사용하기</button>
+                                <span class="badge bg-primary-soft rounded-pill">Basic</span>
                             </div>
+                            <h5 class="card-title fw-bold mb-2">웹소설 1화 독자</h5>
+                            <p class="card-text text-muted small flex-grow-1 mb-4">독자의 관점에서 1화의 흡입력을 분석합니다.</p>
+                            <button class="btn btn-outline-primary btn-rounded-pill w-100 mt-auto fw-semibold"
+                                data-bs-toggle="modal" data-bs-target="#templatePreviewModal">사용하기</button>
                         </div>
                     </div>
                 </div>

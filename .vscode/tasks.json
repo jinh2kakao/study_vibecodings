@@ -14,7 +14,16 @@
                 "reveal": "always",
                 "panel": "new"
             },
-            "problemMatcher": []
+            "problemMatcher": {
+                "pattern": {
+                    "regexp": "^.*$"
+                },
+                "background": {
+                    "activeOnStart": true,
+                    "beginsPattern": "^Serving HTTP",
+                    "endsPattern": "^Serving HTTP"
+                }
+            }
         }
     ]
 }

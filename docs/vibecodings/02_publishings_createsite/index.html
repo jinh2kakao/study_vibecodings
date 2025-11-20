@@ -17,9 +17,16 @@
         <aside class="dark-sidebar">
             <div class="sidebar-header">
                 <a href="index.html" class="sidebar-brand">
-                    <i class="bi bi-stars me-2"></i>
+                    <i class="bi bi-stars"></i>
                     <span>AI Novel Maker</span>
                 </a>
+                <!-- Desktop Collapse Toggle -->
+                <button id="sidebarToggle" class="sidebar-toggle-btn d-none d-lg-block">
+                    <i class="bi bi-list"></i>
+                </button>
+                <!-- Mobile Close Button -->
+                <button class="btn-close btn-close-white d-lg-none ms-auto"
+                    onclick="document.body.classList.remove('sidebar-mobile-open')"></button>
             </div>
             <ul class="sidebar-nav">
                 <li class="sidebar-item active">
@@ -61,19 +68,25 @@
 
         <!-- Main Content -->
         <main class="main-content">
-            <div class="container-fluid">
+            <div class="content-container">
                 <!-- Header -->
-                <div class="d-flex justify-content-between align-items-end mb-5">
-                    <div>
-                        <h1 class="h2 mb-1 fw-bold">내 프로젝트</h1>
-                        <p class="text-muted mb-0">최근 작업한 프로젝트를 확인하고 관리하세요.</p>
+                <header class="d-flex justify-content-between align-items-end mb-5">
+                    <div class="d-flex align-items-center gap-3">
+                        <!-- Mobile Menu Button -->
+                        <button id="mobileMenuBtn" class="btn btn-outline-secondary d-lg-none p-2">
+                            <i class="bi bi-list fs-5"></i>
+                        </button>
+
+                        <div>
+                            <h1 class="h2 mb-1 fw-bold">내 프로젝트</h1>
+                            <p class="text-muted mb-0">최근 작업한 프로젝트를 확인하고 관리하세요.</p>
+                        </div>
                     </div>
                     <button class="btn btn-primary btn-rounded-pill px-4 py-2" data-bs-toggle="modal"
                         data-bs-target="#newProjectModal">
                         <i class="bi bi-plus-lg me-2"></i>새 프로젝트
                     </button>
-
-                </div>
+                </header>
 
                 <!-- Project Cards -->
                 <div class="row g-4" data-masonry='{"percentPosition": true }'>

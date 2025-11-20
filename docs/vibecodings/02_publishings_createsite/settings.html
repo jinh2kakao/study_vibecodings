@@ -17,9 +17,16 @@
         <aside class="dark-sidebar">
             <div class="sidebar-header">
                 <a href="index.html" class="sidebar-brand">
-                    <i class="bi bi-stars me-2"></i>
+                    <i class="bi bi-stars"></i>
                     <span>AI Novel Maker</span>
                 </a>
+                <!-- Desktop Collapse Toggle -->
+                <button id="sidebarToggle" class="sidebar-toggle-btn d-none d-lg-block">
+                    <i class="bi bi-list"></i>
+                </button>
+                <!-- Mobile Close Button -->
+                <button class="btn-close btn-close-white d-lg-none ms-auto"
+                    onclick="document.body.classList.remove('sidebar-mobile-open')"></button>
             </div>
             <ul class="sidebar-nav">
                 <li class="sidebar-item">
@@ -61,12 +68,21 @@
 
         <!-- Main Content -->
         <main class="main-content">
-            <div class="container-fluid">
+            <div class="content-container">
                 <!-- Header -->
-                <div class="mb-5">
-                    <h1 class="h2 mb-2 fw-bold">설정 및 구독</h1>
-                    <p class="text-muted mb-0">계정 설정과 구독 플랜을 관리하세요.</p>
-                </div>
+                <header class="d-flex justify-content-between align-items-end mb-5">
+                    <div class="d-flex align-items-center gap-3">
+                        <!-- Mobile Menu Button -->
+                        <button id="mobileMenuBtn" class="btn btn-outline-secondary d-lg-none p-2">
+                            <i class="bi bi-list fs-5"></i>
+                        </button>
+
+                        <div>
+                            <h1 class="h2 mb-2 fw-bold">설정 및 구독</h1>
+                            <p class="text-muted mb-0">계정 설정과 구독 플랜을 관리하세요.</p>
+                        </div>
+                    </div>
+                </header>
 
                 <!-- Settings Layout -->
                 <div class="row g-4">

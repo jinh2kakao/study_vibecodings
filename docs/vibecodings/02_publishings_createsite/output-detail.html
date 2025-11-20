@@ -9,10 +9,12 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
     <link rel="stylesheet" href="style.css">
     <style>
-        .main-content {
+        /* Custom layout for this page to maximize space */
+        .output-layout {
             display: flex;
             flex-direction: column;
-            height: 100vh;
+            height: calc(100vh - 3rem);
+            /* Adjust for main-content padding */
         }
 
         .output-grid {
@@ -21,11 +23,40 @@
             gap: 1.5rem;
             flex-grow: 1;
             overflow: hidden;
+            min-height: 0;
+            /* Crucial for nested grid scrolling */
         }
 
         .output-column {
             height: 100%;
             overflow-y: auto;
+            display: flex;
+            flex-direction: column;
+        }
+
+        /* Responsive adjustments */
+        @media (max-width: 1200px) {
+            .output-grid {
+                grid-template-columns: 250px 1fr;
+            }
+
+            .output-column:last-child {
+                display: none;
+                /* Hide context column on smaller screens */
+            }
+        }
+
+        @media (max-width: 992px) {
+            .output-grid {
+                grid-template-columns: 1fr;
+                grid-template-rows: auto 1fr;
+            }
+
+            .output-column:first-child {
+                height: 200px;
+                /* Fixed height for list on mobile */
+                margin-bottom: 1rem;
+            }
         }
     </style>
 </head>
@@ -37,9 +68,16 @@
         <aside class="dark-sidebar">
             <div class="sidebar-header">
                 <a href="index.html" class="sidebar-brand">
-                    <i class="bi bi-stars me-2"></i>
+                    <i class="bi bi-stars"></i>
                     <span>AI Novel Maker</span>
                 </a>
+                <!-- Desktop Collapse Toggle -->
+                <button id="sidebarToggle" class="sidebar-toggle-btn d-none d-lg-block">
+                    <i class="bi bi-list"></i>
+                </button>
+                <!-- Mobile Close Button -->
+                <button class="btn-close btn-close-white d-lg-none ms-auto"
+                    onclick="document.body.classList.remove('sidebar-mobile-open')"></button>
             </div>
             <ul class="sidebar-nav">
                 <li class="sidebar-item">
@@ -81,112 +119,123 @@
 
         <!-- Main Content -->
         <main class="main-content">
-            <header class="d-flex justify-content-between align-items-center mb-4">
-                <nav aria-label="breadcrumb">
-                    <ol class="breadcrumb mb-0">
-                        <li class="breadcrumb-item"><a href="index.html"
-                                class="text-decoration-none text-muted">Projects</a></li>
-                        <li class="breadcrumb-item"><a href="index.html" class="text-decoration-none text-muted">네오-서울의
-                                그림자</a></li>
-                        <li class="breadcrumb-item active fw-semibold text-primary" aria-current="page">Outputs</li>
-                    </ol>
-                </nav>
-            </header>
+            <div class="output-layout">
+                <header class="d-flex justify-content-between align-items-center mb-3">
+                    <div class="d-flex align-items-center gap-3">
+                        <!-- Mobile Menu Button -->
+                        <button id="mobileMenuBtn" class="btn btn-outline-secondary d-lg-none p-2">
+                            <i class="bi bi-list fs-5"></i>
+                        </button>
 
-            <div class="output-grid">
-                <!-- Column 1: Output List -->
-                <div class="output-column card border-0 shadow-sm h-100">
-                    <div class="card-header bg-white border-bottom py-3">
-                        <h6 class="mb-0 fw-bold">산출물 목록</h6>
+                        <nav aria-label="breadcrumb">
+                            <ol class="breadcrumb mb-0">
+                                <li class="breadcrumb-item"><a href="index.html"
+                                        class="text-decoration-none text-muted">Projects</a></li>
+                                <li class="breadcrumb-item"><a href="index.html"
+                                        class="text-decoration-none text-muted">네오-서울의
+                                        그림자</a></li>
+                                <li class="breadcrumb-item active fw-semibold text-primary" aria-current="page">Outputs
+                                </li>
+                            </ol>
+                        </nav>
                     </div>
-                    <div id="artifacts-list" class="list-group list-group-flush overflow-auto">
-                        <a href="#" class="list-group-item list-group-item-action active border-0 py-3 px-4"
-                            data-target="art_1">
-                            <div class="d-flex w-100 justify-content-between">
-                                <h6 class="mb-1">1. 챕터 1 본문 (최종)</h6>
-                            </div>
-                            <small class="opacity-75">방금 전</small>
-                        </a>
-                        <a href="#" class="list-group-item list-group-item-action border-0 py-3 px-4"
-                            data-target="art_2">
-                            <div class="d-flex w-100 justify-content-between">
-                                <h6 class="mb-1">2. 플롯 초안</h6>
-                            </div>
-                            <small class="text-muted">10분 전</small>
-                        </a>
-                        <a href="#" class="list-group-item list-group-item-action border-0 py-3 px-4"
-                            data-target="art_3">
-                            <div class="d-flex w-100 justify-content-between">
-                                <h6 class="mb-1">3. 인물 분석 노트</h6>
-                            </div>
-                            <small class="text-muted">1시간 전</small>
-                        </a>
-                        <a href="#" class="list-group-item list-group-item-action border-0 py-3 px-4"
-                            data-target="art_4">
-                            <div class="d-flex w-100 justify-content-between">
-                                <h6 class="mb-1">4. 세계관 설정</h6>
-                            </div>
-                            <small class="text-muted">어제</small>
-                        </a>
-                    </div>
-                </div>
+                </header>
 
-                <!-- Column 2: Content Viewer -->
-                <div class="output-column card border-0 shadow-sm h-100">
-                    <div
-                        class="card-header bg-white border-bottom py-3 d-flex justify-content-between align-items-center">
-                        <h6 class="mb-0 fw-bold">콘텐츠 뷰어</h6>
-                        <button class="btn btn-sm btn-outline-primary btn-rounded-pill px-3"><i
-                                class="bi bi-pencil me-1"></i> 편집</button>
+                <div class="output-grid">
+                    <!-- Column 1: Output List -->
+                    <div class="output-column card border-0 shadow-sm">
+                        <div class="card-header bg-white border-bottom py-3">
+                            <h6 class="mb-0 fw-bold">산출물 목록</h6>
+                        </div>
+                        <div id="artifacts-list" class="list-group list-group-flush overflow-auto flex-grow-1">
+                            <a href="#" class="list-group-item list-group-item-action active border-0 py-3 px-4"
+                                data-target="art_1">
+                                <div class="d-flex w-100 justify-content-between">
+                                    <h6 class="mb-1">1. 챕터 1 본문 (최종)</h6>
+                                </div>
+                                <small class="opacity-75">방금 전</small>
+                            </a>
+                            <a href="#" class="list-group-item list-group-item-action border-0 py-3 px-4"
+                                data-target="art_2">
+                                <div class="d-flex w-100 justify-content-between">
+                                    <h6 class="mb-1">2. 플롯 초안</h6>
+                                </div>
+                                <small class="text-muted">10분 전</small>
+                            </a>
+                            <a href="#" class="list-group-item list-group-item-action border-0 py-3 px-4"
+                                data-target="art_3">
+                                <div class="d-flex w-100 justify-content-between">
+                                    <h6 class="mb-1">3. 인물 분석 노트</h6>
+                                </div>
+                                <small class="text-muted">1시간 전</small>
+                            </a>
+                            <a href="#" class="list-group-item list-group-item-action border-0 py-3 px-4"
+                                data-target="art_4">
+                                <div class="d-flex w-100 justify-content-between">
+                                    <h6 class="mb-1">4. 세계관 설정</h6>
+                                </div>
+                                <small class="text-muted">어제</small>
+                            </a>
+                        </div>
                     </div>
-                    <div id="content-viewer" class="p-4 h-100 overflow-auto bg-white">
-                        <div id="art_1" class="content-pane">
-                            <pre class="bg-light p-4 rounded-3 border"
-                                style="white-space: pre-wrap; font-family: 'Inter', sans-serif;">### 챕터 1: 붉은 달의 그림자
+
+                    <!-- Column 2: Content Viewer -->
+                    <div class="output-column card border-0 shadow-sm">
+                        <div
+                            class="card-header bg-white border-bottom py-3 d-flex justify-content-between align-items-center">
+                            <h6 class="mb-0 fw-bold">콘텐츠 뷰어</h6>
+                            <button class="btn btn-sm btn-outline-primary btn-rounded-pill px-3"><i
+                                    class="bi bi-pencil me-1"></i> 편집</button>
+                        </div>
+                        <div id="content-viewer" class="p-4 flex-grow-1 overflow-auto bg-white">
+                            <div id="art_1" class="content-pane">
+                                <pre class="bg-light p-4 rounded-3 border"
+                                    style="white-space: pre-wrap; font-family: 'Inter', sans-serif;">### 챕터 1: 붉은 달의 그림자
 
 **[메타::POV]** 3인칭 제한적 시점 (진)...
 
 (소설 본문 내용...)</pre>
-                        </div>
-                        <div id="art_2" class="content-pane d-none">
-                            <pre class="bg-light p-4 rounded-3 border">### 챕터 1 플롯 구조 (3막 구성)...</pre>
-                        </div>
-                        <div id="art_3" class="content-pane d-none">
-                            <pre class="bg-light p-4 rounded-3 border">### 인물 심리 분석 노트: 진 (Jin)...</pre>
-                        </div>
-                        <div id="art_4" class="content-pane d-none">
-                            <pre class="bg-light p-4 rounded-3 border">### 세계관 설정: 신라 타워 (Silla Tower)...</pre>
+                            </div>
+                            <div id="art_2" class="content-pane d-none">
+                                <pre class="bg-light p-4 rounded-3 border">### 챕터 1 플롯 구조 (3막 구성)...</pre>
+                            </div>
+                            <div id="art_3" class="content-pane d-none">
+                                <pre class="bg-light p-4 rounded-3 border">### 인물 심리 분석 노트: 진 (Jin)...</pre>
+                            </div>
+                            <div id="art_4" class="content-pane d-none">
+                                <pre class="bg-light p-4 rounded-3 border">### 세계관 설정: 신라 타워 (Silla Tower)...</pre>
+                            </div>
                         </div>
                     </div>
-                </div>
 
-                <!-- Column 3: Generation Context -->
-                <div class="output-column card border-0 shadow-sm h-100">
-                    <div class="card-header bg-white border-bottom py-3">
-                        <h6 class="mb-0 fw-bold">생성 컨텍스트</h6>
-                    </div>
-                    <div class="card-body d-flex flex-column p-4">
-                        <ul class="list-group list-group-flush mb-4">
-                            <li class="list-group-item d-flex justify-content-between px-0 py-3 border-bottom">
-                                <span class="text-muted">워크플로우</span>
-                                <span class="fw-semibold">첫 챕터 생성기</span>
-                            </li>
-                            <li class="list-group-item d-flex justify-content-between px-0 py-3 border-bottom">
-                                <span class="text-muted">상태</span>
-                                <span class="badge bg-success-soft rounded-pill">Success</span>
-                            </li>
-                            <li class="list-group-item px-0 py-3">
-                                <span class="text-muted d-block mb-2">연결된 에이전트</span>
-                                <div class="d-flex align-items-center gap-2">
-                                    <span class="badge bg-secondary-soft text-dark">플롯 생성기</span>
-                                    <i class="bi bi-arrow-right text-muted small"></i>
-                                    <span class="badge bg-secondary-soft text-dark">챕터 집필가</span>
-                                </div>
-                            </li>
-                        </ul>
-                        <div class="d-grid gap-2 mt-auto">
-                            <button class="btn btn-primary btn-rounded-pill py-2">다시 실행</button>
-                            <button class="btn btn-outline-secondary btn-rounded-pill py-2">워크플로우 편집</button>
+                    <!-- Column 3: Generation Context -->
+                    <div class="output-column card border-0 shadow-sm">
+                        <div class="card-header bg-white border-bottom py-3">
+                            <h6 class="mb-0 fw-bold">생성 컨텍스트</h6>
+                        </div>
+                        <div class="card-body d-flex flex-column p-4">
+                            <ul class="list-group list-group-flush mb-4">
+                                <li class="list-group-item d-flex justify-content-between px-0 py-3 border-bottom">
+                                    <span class="text-muted">워크플로우</span>
+                                    <span class="fw-semibold">첫 챕터 생성기</span>
+                                </li>
+                                <li class="list-group-item d-flex justify-content-between px-0 py-3 border-bottom">
+                                    <span class="text-muted">상태</span>
+                                    <span class="badge bg-success-soft rounded-pill">Success</span>
+                                </li>
+                                <li class="list-group-item px-0 py-3">
+                                    <span class="text-muted d-block mb-2">연결된 에이전트</span>
+                                    <div class="d-flex align-items-center gap-2">
+                                        <span class="badge bg-secondary-soft text-dark">플롯 생성기</span>
+                                        <i class="bi bi-arrow-right text-muted small"></i>
+                                        <span class="badge bg-secondary-soft text-dark">챕터 집필가</span>
+                                    </div>
+                                </li>
+                            </ul>
+                            <div class="d-grid gap-2 mt-auto">
+                                <button class="btn btn-primary btn-rounded-pill py-2">다시 실행</button>
+                                <button class="btn btn-outline-secondary btn-rounded-pill py-2">워크플로우 편집</button>
+                            </div>
                         </div>
                     </div>
                 </div>

@@ -17,9 +17,16 @@
         <aside class="dark-sidebar">
             <div class="sidebar-header">
                 <a href="index.html" class="sidebar-brand">
-                    <i class="bi bi-stars me-2"></i>
+                    <i class="bi bi-stars"></i>
                     <span>AI Novel Maker</span>
                 </a>
+                <!-- Desktop Collapse Toggle -->
+                <button id="sidebarToggle" class="sidebar-toggle-btn d-none d-lg-block">
+                    <i class="bi bi-list"></i>
+                </button>
+                <!-- Mobile Close Button -->
+                <button class="btn-close btn-close-white d-lg-none ms-auto"
+                    onclick="document.body.classList.remove('sidebar-mobile-open')"></button>
             </div>
             <ul class="sidebar-nav">
                 <li class="sidebar-item">
@@ -63,12 +70,21 @@
 
         <!-- Main Content -->
         <main class="main-content">
-            <div class="container-fluid">
+            <div class="content-container">
                 <!-- Header -->
-                <div class="mb-5">
-                    <h1 class="h2 mb-2 fw-bold">마이 페이지</h1>
-                    <p class="text-muted mb-0">내 활동 통계와 보유한 AI 에이전트를 관리하세요.</p>
-                </div>
+                <header class="d-flex justify-content-between align-items-end mb-5">
+                    <div class="d-flex align-items-center gap-3">
+                        <!-- Mobile Menu Button -->
+                        <button id="mobileMenuBtn" class="btn btn-outline-secondary d-lg-none p-2">
+                            <i class="bi bi-list fs-5"></i>
+                        </button>
+
+                        <div>
+                            <h1 class="h2 mb-2 fw-bold">마이 페이지</h1>
+                            <p class="text-muted mb-0">내 활동 통계와 보유한 AI 에이전트를 관리하세요.</p>
+                        </div>
+                    </div>
+                </header>
 
                 <!-- Profile Card -->
                 <div class="card border-0 shadow-sm mb-5">
@@ -146,53 +162,47 @@
                             class="bi bi-arrow-right"></i></a>
                 </div>
 
-                <div class="row g-4">
-                    <div class="col-md-4">
-                        <div class="card h-100 border-0 shadow-sm hover-lift">
-                            <div class="card-body p-4 d-flex flex-column">
-                                <div class="d-flex align-items-center gap-3 mb-3">
-                                    <div class="bg-primary-soft p-2 rounded-circle text-primary">
-                                        <i class="bi bi-globe-americas fs-5"></i>
-                                    </div>
-                                    <h5 class="card-title fw-bold mb-0">세계관 도우미 v2</h5>
+                <div class="card-grid">
+                    <div class="card h-100 border-0 shadow-sm hover-lift">
+                        <div class="card-body p-4 d-flex flex-column">
+                            <div class="d-flex align-items-center gap-3 mb-3">
+                                <div class="bg-primary-soft p-2 rounded-circle text-primary">
+                                    <i class="bi bi-globe-americas fs-5"></i>
                                 </div>
-                                <p class="card-text text-muted small flex-grow-1 mb-4">복잡한 세계관과 설정을 체계적으로 관리하고 제안합니다.
-                                </p>
-                                <a href="#"
-                                    class="btn btn-outline-primary btn-sm btn-rounded-pill align-self-start px-3">상세보기</a>
+                                <h5 class="card-title fw-bold mb-0">세계관 도우미 v2</h5>
                             </div>
+                            <p class="card-text text-muted small flex-grow-1 mb-4">복잡한 세계관과 설정을 체계적으로 관리하고 제안합니다.
+                            </p>
+                            <a href="#"
+                                class="btn btn-outline-primary btn-sm btn-rounded-pill align-self-start px-3">상세보기</a>
                         </div>
                     </div>
-                    <div class="col-md-4">
-                        <div class="card h-100 border-0 shadow-sm hover-lift">
-                            <div class="card-body p-4 d-flex flex-column">
-                                <div class="d-flex align-items-center gap-3 mb-3">
-                                    <div class="bg-warning-soft p-2 rounded-circle text-warning">
-                                        <i class="bi bi-diagram-3 fs-5"></i>
-                                    </div>
-                                    <h5 class="card-title fw-bold mb-0">로맨스 플롯 생성기</h5>
+                    <div class="card h-100 border-0 shadow-sm hover-lift">
+                        <div class="card-body p-4 d-flex flex-column">
+                            <div class="d-flex align-items-center gap-3 mb-3">
+                                <div class="bg-warning-soft p-2 rounded-circle text-warning">
+                                    <i class="bi bi-diagram-3 fs-5"></i>
                                 </div>
-                                <p class="card-text text-muted small flex-grow-1 mb-4">로맨스 장르의 흥미로운 플롯 라인을 자동으로 생성합니다.
-                                </p>
-                                <a href="#"
-                                    class="btn btn-outline-primary btn-sm btn-rounded-pill align-self-start px-3">상세보기</a>
+                                <h5 class="card-title fw-bold mb-0">로맨스 플롯 생성기</h5>
                             </div>
+                            <p class="card-text text-muted small flex-grow-1 mb-4">로맨스 장르의 흥미로운 플롯 라인을 자동으로 생성합니다.
+                            </p>
+                            <a href="#"
+                                class="btn btn-outline-primary btn-sm btn-rounded-pill align-self-start px-3">상세보기</a>
                         </div>
                     </div>
-                    <div class="col-md-4">
-                        <div class="card h-100 border-0 shadow-sm hover-lift">
-                            <div class="card-body p-4 d-flex flex-column">
-                                <div class="d-flex align-items-center gap-3 mb-3">
-                                    <div class="bg-info-soft p-2 rounded-circle text-info">
-                                        <i class="bi bi-chat-quote fs-5"></i>
-                                    </div>
-                                    <h5 class="card-title fw-bold mb-0">냉철한 비평가</h5>
+                    <div class="card h-100 border-0 shadow-sm hover-lift">
+                        <div class="card-body p-4 d-flex flex-column">
+                            <div class="d-flex align-items-center gap-3 mb-3">
+                                <div class="bg-info-soft p-2 rounded-circle text-info">
+                                    <i class="bi bi-chat-quote fs-5"></i>
                                 </div>
-                                <p class="card-text text-muted small flex-grow-1 mb-4">글의 논리적 오류나 개연성 부족을 날카롭게 지적합니다.
-                                </p>
-                                <a href="#"
-                                    class="btn btn-outline-primary btn-sm btn-rounded-pill align-self-start px-3">상세보기</a>
+                                <h5 class="card-title fw-bold mb-0">냉철한 비평가</h5>
                             </div>
+                            <p class="card-text text-muted small flex-grow-1 mb-4">글의 논리적 오류나 개연성 부족을 날카롭게 지적합니다.
+                            </p>
+                            <a href="#"
+                                class="btn btn-outline-primary btn-sm btn-rounded-pill align-self-start px-3">상세보기</a>
                         </div>
                     </div>
                 </div>
