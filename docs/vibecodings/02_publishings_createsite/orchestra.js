@@ -1,81 +1,69 @@
 /*
  * Orchestra.js
- * Logic for the Orchestra Canvas simulation
+ * Logic for the Novel Writing Interface
  */
 
 document.addEventListener('DOMContentLoaded', () => {
-    const canvas = document.querySelector('.orchestra-canvas');
-    if (!canvas) return;
+    console.log('Orchestra.js initialized: Novel Writing Interface');
 
-    // --- Node Dragging Logic ---
-    let activeNode = null;
-    let offsetX = 0;
-    let offsetY = 0;
+    // --- Tool Sidebar Logic ---
+    const toolButtons = document.querySelectorAll('.tools-nav .btn-link');
+    const toolPanel = document.querySelector('.tool-panel');
 
-    const startDrag = (e) => {
-        activeNode = e.target.closest('.canvas-node');
-        if (activeNode) {
-            e.preventDefault();
-            activeNode.style.cursor = 'grabbing';
-            offsetX = e.clientX - activeNode.offsetLeft;
-            offsetY = e.clientY - activeNode.offsetTop;
-            document.addEventListener('mousemove', dragNode);
-            document.addEventListener('mouseup', endDrag);
-        }
+    toolButtons.forEach(btn => {
+        btn.addEventListener('click', (e) => {
+            // Remove active class from all buttons
+            toolButtons.forEach(b => b.classList.remove('active-tool'));
+
+            // Add active class to clicked button
+            const clickedBtn = e.currentTarget;
+            clickedBtn.classList.add('active-tool');
+
+            // Update Panel Content (Mockup Logic)
+            const toolTitle = clickedBtn.getAttribute('title');
+            if (toolPanel) {
+                // In a real app, this would load specific content. 
+                // For now, we just update the header to show it works.
+                const header = toolPanel.querySelector('h6');
+                if (header) header.textContent = toolTitle;
+            }
+        });
+    });
+
+    // --- Editor Toolbar Logic (Basic WYSIWYG) ---
+    const editorBody = document.querySelector('.editor-body');
+
+    const execCmd = (command, value = null) => {
+        document.execCommand(command, false, value);
+        editorBody.focus();
     };
 
-    const dragNode = (e) => {
-        if (activeNode) {
-            e.preventDefault();
-            activeNode.style.left = `${e.clientX - offsetX}px`;
-            activeNode.style.top = `${e.clientY - offsetY}px`;
-            updateConnections();
-        }
+    // Bind toolbar buttons
+    // Bold
+    document.querySelector('.bi-type-bold')?.closest('button').addEventListener('click', () => execCmd('bold'));
+    // Italic
+    document.querySelector('.bi-type-italic')?.closest('button').addEventListener('click', () => execCmd('italic'));
+    // Underline
+    document.querySelector('.bi-type-underline')?.closest('button').addEventListener('click', () => execCmd('underline'));
+    // Strikethrough
+    document.querySelector('.bi-type-strikethrough')?.closest('button').addEventListener('click', () => execCmd('strikeThrough'));
+
+    // Alignment
+    document.querySelector('.bi-text-left')?.closest('button').addEventListener('click', () => execCmd('justifyLeft'));
+    document.querySelector('.bi-text-center')?.closest('button').addEventListener('click', () => execCmd('justifyCenter'));
+    document.querySelector('.bi-text-right')?.closest('button').addEventListener('click', () => execCmd('justifyRight'));
+
+    // --- Word Count Logic (Simple) ---
+    const wordCountBadge = document.querySelector('.editor-footer .badge');
+
+    const updateWordCount = () => {
+        if (!editorBody || !wordCountBadge) return;
+        const text = editorBody.innerText || '';
+        const count = text.trim().split(/\s+/).filter(w => w.length > 0).length;
+        wordCountBadge.textContent = `${count} words`;
     };
 
-    const endDrag = () => {
-        if (activeNode) {
-            activeNode.style.cursor = 'grab';
-            activeNode = null;
-            document.removeEventListener('mousemove', dragNode);
-            document.removeEventListener('mouseup', endDrag);
-        }
-    };
-
-    canvas.addEventListener('mousedown', startDrag);
-
-    // --- SVG Line Connection Logic ---
-    const updateConnections = () => {
-        connectNodes('node-world', 'node-plot', 'line1');
-        connectNodes('node-plot', 'node-write', 'line2');
-        connectNodes('node-write', 'node-critique', 'line3');
-    };
-
-    const connectNodes = (fromId, toId, lineId) => {
-        const fromNode = document.getElementById(fromId);
-        const toNode = document.getElementById(toId);
-        const line = document.getElementById(lineId);
-
-        if (fromNode && toNode && line) {
-            const fromRect = fromNode.getBoundingClientRect();
-            const toRect = toNode.getBoundingClientRect();
-            const canvasRect = canvas.getBoundingClientRect();
-
-            // Calculate center points relative to the canvas
-            const fromX = fromRect.left + fromRect.width / 2 - canvasRect.left;
-            const fromY = fromRect.top + fromRect.height / 2 - canvasRect.top;
-            const toX = toRect.left + toRect.width / 2 - canvasRect.left;
-            const toY = toRect.top + toRect.height / 2 - canvasRect.top;
-
-            line.setAttribute('x1', fromX);
-            line.setAttribute('y1', fromY);
-            line.setAttribute('x2', toX);
-            line.setAttribute('y2', toY);
-        }
-    };
-
-    // Initial connection update
-    setTimeout(updateConnections, 100); // Timeout to ensure elements are rendered
-    
-    console.log('orchestra.js loaded and initialized.');
+    if (editorBody) {
+        editorBody.addEventListener('input', updateWordCount);
+    }
 });

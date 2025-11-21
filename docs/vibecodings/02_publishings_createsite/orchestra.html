@@ -69,135 +69,159 @@
 
         <!-- Main Content -->
         <main class="main-content">
-            <div class="container-fluid h-100 d-flex flex-column">
-                <!-- Header -->
-                <header class="d-flex justify-content-between align-items-center mb-4">
-                    <div class="d-flex align-items-center gap-3">
-                        <!-- Mobile Menu Button -->
-                        <button id="mobileMenuBtn" class="btn btn-outline-secondary d-lg-none p-2">
-                            <i class="bi bi-list fs-5"></i>
+            <div class="writing-interface h-100 d-flex">
+                <!-- 1. Chapter Sidebar (Left) -->
+                <aside class="chapter-sidebar d-flex flex-column border-end">
+                    <div class="p-3 border-bottom d-flex justify-content-between align-items-center">
+                        <span class="fw-bold text-muted small">Nightingale and Alley</span>
+                        <button class="btn btn-sm btn-link text-muted p-0"><i class="bi bi-plus-lg"></i></button>
+                    </div>
+                    <div class="chapter-list flex-grow-1 overflow-auto p-2">
+                        <!-- Active Chapter -->
+                        <div
+                            class="chapter-item active p-2 rounded mb-1 d-flex justify-content-between align-items-center">
+                            <span class="text-truncate small fw-medium">Rain on Mott Street</span>
+                        </div>
+                        <!-- Other Chapters (Example) -->
+                        <div class="chapter-item p-2 rounded mb-1 d-flex justify-content-between align-items-center">
+                            <span class="text-truncate small text-muted">The Silver Scroll</span>
+                        </div>
+                    </div>
+                    <div class="p-3 border-top">
+                        <button class="btn btn-outline-secondary btn-sm w-100 text-start">
+                            <i class="bi bi-plus me-2"></i>New Chapter
                         </button>
+                    </div>
+                </aside>
 
-                        <div>
-                            <nav aria-label="breadcrumb">
-                                <ol class="breadcrumb mb-1">
-                                    <li class="breadcrumb-item"><a href="index.html"
-                                            class="text-decoration-none text-muted">Projects</a></li>
-                                    <li class="breadcrumb-item active text-primary" aria-current="page">네오-서울의 그림자</li>
-                                </ol>
-                            </nav>
-                            <h1 class="h3 fw-bold mb-0">워크플로우 오케스트라</h1>
+                <!-- 2. Editor Area (Center) -->
+                <section class="editor-area flex-grow-1 d-flex flex-column bg-white">
+                    <!-- Editor Toolbar -->
+                    <div class="editor-toolbar p-2 border-bottom d-flex align-items-center gap-2">
+                        <div class="btn-group">
+                            <button class="btn btn-sm btn-light text-muted"><i
+                                    class="bi bi-arrow-counterclockwise"></i></button>
+                            <button class="btn btn-sm btn-light text-muted"><i
+                                    class="bi bi-arrow-clockwise"></i></button>
+                        </div>
+                        <div class="vr mx-1"></div>
+                        <select class="form-select form-select-sm w-auto border-0 bg-light">
+                            <option>Text</option>
+                            <option>Heading 1</option>
+                            <option>Heading 2</option>
+                        </select>
+                        <div class="vr mx-1"></div>
+                        <div class="btn-group">
+                            <button class="btn btn-sm btn-light text-muted"><i class="bi bi-type-bold"></i></button>
+                            <button class="btn btn-sm btn-light text-muted"><i class="bi bi-type-italic"></i></button>
+                            <button class="btn btn-sm btn-light text-muted"><i
+                                    class="bi bi-type-underline"></i></button>
+                            <button class="btn btn-sm btn-light text-muted"><i
+                                    class="bi bi-type-strikethrough"></i></button>
+                        </div>
+                        <div class="vr mx-1"></div>
+                        <div class="btn-group">
+                            <button class="btn btn-sm btn-light text-muted"><i class="bi bi-text-left"></i></button>
+                            <button class="btn btn-sm btn-light text-muted"><i class="bi bi-text-center"></i></button>
+                            <button class="btn btn-sm btn-light text-muted"><i class="bi bi-text-right"></i></button>
+                        </div>
+                        <div class="ms-auto d-flex align-items-center gap-2">
+                            <span class="text-muted small"><i class="bi bi-check2-all me-1"></i>Modified</span>
                         </div>
                     </div>
-                    <div class="d-flex gap-2">
-                        <button class="btn btn-outline-secondary btn-sm btn-rounded-pill px-3"><i
-                                class="bi bi-save me-1"></i>저장</button>
-                        <button class="btn btn-primary btn-sm btn-rounded-pill px-3 shadow-sm"><i
-                                class="bi bi-play-fill me-1"></i>실행</button>
-                    </div>
-                </header>
 
-                <!-- Tabs -->
-                <ul class="nav orchestra-tabs mb-4" id="projectTabs" role="tablist">
-                    <li class="nav-item" role="presentation">
-                        <button class="nav-link" data-bs-toggle="tab" data-bs-target="#settings-tab-pane" type="button"
-                            role="tab">설정</button>
-                    </li>
-                    <li class="nav-item" role="presentation">
-                        <button class="nav-link" data-bs-toggle="tab" data-bs-target="#agents-tab-pane" type="button"
-                            role="tab">에이전트</button>
-                    </li>
-                    <li class="nav-item" role="presentation">
-                        <button class="nav-link active" data-bs-toggle="tab" data-bs-target="#orchestra-tab-pane"
-                            type="button" role="tab">오케스트라</button>
-                    </li>
-                    <li class="nav-item" role="presentation">
-                        <button class="nav-link" data-bs-toggle="tab" data-bs-target="#outputs-tab-pane" type="button"
-                            role="tab">결과물</button>
-                    </li>
-                </ul>
-
-                <!-- Tab Content -->
-                <div class="tab-content flex-grow-1" id="projectTabsContent">
-                    <div class="tab-pane fade" id="settings-tab-pane" role="tabpanel">
-                        <div class="card border-0 shadow-sm p-5 text-center">
-                            <p class="text-muted">설정 패널 준비 중...</p>
-                        </div>
-                    </div>
-                    <div class="tab-pane fade" id="agents-tab-pane" role="tabpanel">
-                        <div class="card border-0 shadow-sm p-5 text-center">
-                            <p class="text-muted">에이전트 관리 패널 준비 중...</p>
-                        </div>
-                    </div>
-                    <div class="tab-pane fade show active orchestra-tab-content h-100" id="orchestra-tab-pane"
-                        role="tabpanel">
-                        <div class="orchestra-workspace h-100">
-                            <aside class="orchestra-sidebar">
-                                <h5 class="fw-bold mb-4">에이전트 라이브러리</h5>
-                                <div class="card mb-3 border-0 shadow-sm hover-lift cursor-pointer">
-                                    <div class="card-body p-3 d-flex align-items-center">
-                                        <div class="bg-primary-soft p-2 rounded-circle me-3 text-primary">
-                                            <i class="bi bi-globe-americas"></i>
-                                        </div>
-                                        <span class="fw-medium">세계관 설정</span>
-                                    </div>
-                                </div>
-                                <div class="card mb-3 border-0 shadow-sm hover-lift cursor-pointer">
-                                    <div class="card-body p-3 d-flex align-items-center">
-                                        <div class="bg-warning-soft p-2 rounded-circle me-3 text-warning">
-                                            <i class="bi bi-diagram-3"></i>
-                                        </div>
-                                        <span class="fw-medium">플롯 생성기</span>
-                                    </div>
-                                </div>
-                                <div class="card mb-3 border-0 shadow-sm hover-lift cursor-pointer">
-                                    <div class="card-body p-3 d-flex align-items-center">
-                                        <div class="bg-success-soft p-2 rounded-circle me-3 text-success">
-                                            <i class="bi bi-pencil-square"></i>
-                                        </div>
-                                        <span class="fw-medium">챕터 집필가</span>
-                                    </div>
-                                </div>
-                                <div class="card mb-3 border-0 shadow-sm hover-lift cursor-pointer">
-                                    <div class="card-body p-3 d-flex align-items-center">
-                                        <div class="bg-info-soft p-2 rounded-circle me-3 text-info">
-                                            <i class="bi bi-chat-quote"></i>
-                                        </div>
-                                        <span class="fw-medium">비평가</span>
-                                    </div>
-                                </div>
-                            </aside>
-                            <div class="orchestra-canvas">
-                                <div id="node-world" class="canvas-node">
-                                    <div class="node-header"><i class="bi bi-globe-americas"></i> 세계관</div>
-                                    <div class="node-body">Genre: Cyberpunk</div>
-                                </div>
-                                <div id="node-plot" class="canvas-node">
-                                    <div class="node-header"><i class="bi bi-diagram-3"></i> 플롯</div>
-                                    <div class="node-body">3-act Structure</div>
-                                </div>
-                                <div id="node-write" class="canvas-node">
-                                    <div class="node-header"><i class="bi bi-pencil-square"></i> 집필</div>
-                                    <div class="node-body">Chapter 1 Draft</div>
-                                </div>
-                                <div id="node-critique" class="canvas-node">
-                                    <div class="node-header"><i class="bi bi-chat-quote"></i> 비평</div>
-                                    <div class="node-body">Review for engagement</div>
-                                </div>
-                                <svg class="connector">
-                                    <line id="line1" x1="0" y1="0" x2="0" y2="0"></line>
-                                    <line id="line2" x1="0" y1="0" x2="0" y2="0"></line>
-                                    <line id="line3" x1="0" y1="0" x2="0" y2="0"></line>
-                                </svg>
+                    <!-- Editor Content -->
+                    <div class="editor-content-wrapper flex-grow-1 overflow-auto p-5">
+                        <div class="editor-paper mx-auto" style="max-width: 800px;">
+                            <h1 class="editor-title mb-4 fw-bold display-6" contenteditable="true">Rain on Mott Street
+                            </h1>
+                            <div class="editor-body" contenteditable="true">
+                                <p class="mb-3 text-muted fst-italic">
+                                    + :: Rain soaked the asphalt of Lower Manhattan until it shimmered. Lina Rossi
+                                    leaned against the emergency escape of a Brooklyn subway tunnel...
+                                </p>
+                                <p>
+                                    "Cough... Shit." She looked down at a deep crack in the scroll, a flicker of panic
+                                    in her amber eyes. The silver threads dangled loosely from the crack like pearls
+                                    from a broken string.
+                                </p>
+                                <p>
+                                    Lina straightened up, wiped the rain and sweat from her face, and pulled her hair
+                                    back into a high ponytail. "Cleared, Night Demon No. 73, but... my silver silk
+                                    scroll is broken. It couldn't withstand the last overload."
+                                </p>
                             </div>
                         </div>
                     </div>
-                    <div class="tab-pane fade" id="outputs-tab-pane" role="tabpanel">
-                        <div class="card border-0 shadow-sm p-5 text-center">
-                            <p class="text-muted">결과물 패널 준비 중...</p>
+
+                    <!-- Editor Footer (Word Count) -->
+                    <div class="editor-footer p-2 border-top text-center">
+                        <span class="badge bg-light text-secondary rounded-pill fw-normal border">1834 words</span>
+                    </div>
+                </section>
+
+                <!-- 3. Tools Sidebar (Right) -->
+                <aside class="tools-sidebar border-start bg-body">
+                    <div class="tools-nav d-flex flex-column align-items-center py-3 border-bottom">
+                        <button class="btn btn-link text-muted mb-3 active-tool" data-bs-toggle="tooltip"
+                            title="Global Settings">
+                            <i class="bi bi-sliders fs-5"></i>
+                            <span class="d-block x-small mt-1">Settings</span>
+                        </button>
+                        <button class="btn btn-link text-muted mb-3" data-bs-toggle="tooltip"
+                            title="Chapter Generation">
+                            <i class="bi bi-lightning-charge fs-5"></i>
+                            <span class="d-block x-small mt-1">Generate</span>
+                        </button>
+                        <button class="btn btn-link text-muted mb-3" data-bs-toggle="tooltip" title="Polishing">
+                            <i class="bi bi-magic fs-5"></i>
+                            <span class="d-block x-small mt-1">Polish</span>
+                        </button>
+                        <button class="btn btn-link text-muted mb-3" data-bs-toggle="tooltip" title="Grammar Checker">
+                            <i class="bi bi-spellcheck fs-5"></i>
+                            <span class="d-block x-small mt-1">Grammar</span>
+                        </button>
+                    </div>
+
+                    <!-- Tool Panel Content (Example: Global Settings) -->
+                    <div class="tool-panel p-3 overflow-auto h-100">
+                        <h6 class="fw-bold mb-3">Global Settings</h6>
+                        <div class="alert alert-light border text-muted small mb-4">
+                            Introduction: By refining the novel settings, you can ensure consistency...
+                        </div>
+
+                        <div class="mb-4">
+                            <label class="form-label small fw-bold text-muted">Novel Title</label>
+                            <input type="text" class="form-control form-control-sm" value="Nightingale and Alley">
+                        </div>
+
+                        <div class="mb-4">
+                            <label class="form-label small fw-bold text-muted">Novel Language</label>
+                            <select class="form-select form-select-sm">
+                                <option>English</option>
+                                <option>Korean</option>
+                            </select>
+                        </div>
+
+                        <div class="mb-4">
+                            <label class="form-label small fw-bold text-muted">Target Audience</label>
+                            <div class="d-flex gap-2">
+                                <button class="btn btn-sm btn-primary-soft active">Unrestricted</button>
+                                <button class="btn btn-sm btn-light">Male</button>
+                                <button class="btn btn-sm btn-light">Female</button>
+                            </div>
+                        </div>
+
+                        <div class="mb-4">
+                            <label class="form-label small fw-bold text-muted">Story Genre</label>
+                            <div class="d-flex flex-wrap gap-2">
+                                <span class="badge bg-light text-dark border fw-normal">Boys' Love (BL)</span>
+                                <span class="badge bg-primary-soft text-primary border-0 fw-normal">Urban Life</span>
+                                <span class="badge bg-light text-dark border fw-normal">Romance</span>
+                            </div>
                         </div>
                     </div>
-                </div>
+                </aside>
             </div>
         </main>
     </div>
